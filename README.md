@@ -55,14 +55,21 @@ The swiper (Home):
   - auth.signup(user)
   - auth.logout()
   - auth.me()
-  - auth.getUser() // synchronous
-- Restaurant Service
-  - restaurant.list()
-  - restaurant.search(terms)
-  - restaurant.create(data)
-  - restaurant.detail(id)
-  - restaurant.addFavorite(id)
-  - restaurant.removeFavorite(id)  
+  - auth.getUser(user) // synchronous
+- User
+  - user.respond(opinion)
+- Opinions
+  - opinion.find(query)
+  - opinion.create(data)
+
+### Backlog
+
+- User
+  - user.addFavorite(id)
+  - user.removeFavorite(id)
+  - user.follow(user2)
+  - user.unfollow(user2)
+
 
 # Server
 
@@ -98,11 +105,15 @@ photo - Ni puta idea
 location // required if using "In my zone" - { 
   lat: Number, 
   long: Number
-  } 
+}, 
 reported // created by the API - {
-  isReported: boolean (default: false),
-  isRevised - boolean (default: false),
-  by: [ObjectID<user>]
+  isReported: boolean (default: false), // user reports an opinion
+  isRevised - boolean (default: false), // admin checks the report
+  by: [ObjectID<user>] // users that reported the opinion
+},
+modified // created by the API - {
+  isModified: boolean (default: false), // user modifies his own opinion
+  isRevised - boolean (default: false) // admin checks modification
 }
 ```
 Response model
@@ -129,23 +140,20 @@ responses - Array[{
 ### users
 |Method|Route|Functionality|
 |---|---|---|
-|<span style="color:magenta">PUT</span>|api/user|Updates the information of the user|
+|GET|api/user/:id|Gives back all the information of the user|
+|<span style="color:magenta">PUT</span>|api/user|Updates his own information|
+|<span style="color:magenta">DELETE</span>|api/user/:id|User deletes his own profile|
+
 
 ### opinions
 |Method|Route|Functionality|
 |---|---|---|
-|GET|api/opinions|Gives back all the opinions on the platform|
-|GET|api/opinion/:id|Gives back a unique opinion, what we show in our cards|
-|POST|api/createopinion|Creates a new opinion card inside the platform|
-|<span style="color:magenta">PUT</span>|api/opinion|Updates a new opinion card inside the platform|
-|<span style="color:magenta">DELETE</span>|api/opinion/:id|Erases an opinion from the platform|
-
-### response
-|Method|Route|Functionality|
-|---|---|---|
+|<span style="color:red">¿GET/POST?|api/opinion/:query*?|Gives back all the opinions that fit on the query. (Default: All the opinions)|
+|POST|api/opinion/create <span style="color:red">(el create lo ponemos si el de arriba es un post) |Creates a new opinion card inside the platform|
 |POST|api/opinion/response|Sends the response of the user to an exact opinion|
-|<span style="color:magenta">POST</span>|api/opinion/favorite|The user saves the opinion as favorite|
+|<span style="color:magenta">PUT</span>|api/opinion/:id|Updates a new opinion card inside the platform|
 |<span style="color:magenta">POST</span>|api/opinion/report|Reports an opinion from the platform|
+|<span style="color:magenta">DELETE</span>|api/opinion/:id|Erases an opinion from the platform|
 
 
 ### admin
@@ -174,8 +182,6 @@ The url to your repository and to your deployed project
 [Deploy Link Backend](http://heroku.com)
 
 [Deploy Link Frontend]()
-
-asdfkjasñkldfjklañsjdflkñasjdflkñjasdlñfkjasdf
 
 ### Slides
 
