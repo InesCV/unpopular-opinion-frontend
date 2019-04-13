@@ -58,6 +58,9 @@ The swiper (Home):
   - auth.getUser(user) // synchronous
 - User
   - user.respond(opinion)
+  - user.getDetail(:id)
+  - user.updateUser(:id,:userInfo)
+  - user.deleteUser(:id)
 - Opinions
   - opinion.find(query)
   - opinion.create(data)
@@ -141,14 +144,14 @@ responses - Array[{
 |Method|Route|Functionality|
 |---|---|---|
 |GET|api/user/:id|Gives back all the information of the user|
-|<span style="color:magenta">PUT</span>|api/user|Updates his own information|
-|<span style="color:magenta">DELETE</span>|api/user/:id|User deletes his own profile|
+|<span style="color:magenta">PUT</span>|api/user|Updates his own information| -> why not use id
+|<span style="color:magenta">DELETE</span>|api/user/:id|User deletes his own profile| -> why use the id try to use the same criteria
 
 
 ### opinions
 |Method|Route|Functionality|
 |---|---|---|
-|<span style="color:red">¿GET/POST?|api/opinion/:query*?|Gives back all the opinions that fit on the query. (Default: All the opinions)|
+|<span style="color:red">GET |api/opinion/:query | Gives back all the opinions that fit on the query. (Default: All the opinions)|
 |POST|api/opinion/create <span style="color:red">(el create lo ponemos si el de arriba es un post) |Creates a new opinion card inside the platform|
 |POST|api/opinion/response|Sends the response of the user to an exact opinion|
 |<span style="color:magenta">PUT</span>|api/opinion/:id|Updates a new opinion card inside the platform|
@@ -159,9 +162,9 @@ responses - Array[{
 ### admin
 |Method|Route|Functionality|
 |---|---|---|
-|<span style="color:magenta">GET</span>|api/admin/reports|The admin gets all the reported opinions|
-|<span style="color:magenta">PUT</span>|api/admin/reports/:id|The admin modifies the state of the reported opinion|
-|<span style="color:magenta">DELETE</span>|api/admin/reports/:id|The admin deletes once and for all the reported opinion|
+|<span style="color:magenta">GET</span>|api/reports|The admin gets all the reported opinions|
+|<span style="color:magenta">PUT</span>|api/reports/:id|The admin modifies the state of the reported opinion|
+|<span style="color:magenta">DELETE</span>|api/reports/:id|The admin deletes once and for all the reported opinion|
 |<span style="color:magenta">DELETE</span>|api/admin/user/:id|The admin deletes the profile of a user|
   
 
