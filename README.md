@@ -101,7 +101,7 @@ response // required & caracter limited - {
 ```
 Backlog - Opinion model
 ```
-photo - Ni puta idea
+photo - String (Url)
 location // required if using "In my zone" - { 
   lat: Number, 
   long: Number
@@ -142,7 +142,6 @@ responses - Array[{
 |---|---|---|
 |GET|api/user/:id|Gives back all the information of the user|
 |<span style="color:magenta">PUT</span>|api/user|Updates his own information|
-|<span style="color:magenta">DELETE</span>|api/user/:id|User deletes his own profile|
 
 
 ### opinions
@@ -159,10 +158,10 @@ responses - Array[{
 ### admin
 |Method|Route|Functionality|
 |---|---|---|
-|<span style="color:magenta">GET</span>|api/admin/reports|The admin gets all the reported opinions|
-|<span style="color:magenta">PUT</span>|api/admin/reports/:id|The admin modifies the state of the reported opinion|
-|<span style="color:magenta">DELETE</span>|api/admin/reports/:id|The admin deletes once and for all the reported opinion|
-|<span style="color:magenta">DELETE</span>|api/admin/user/:id|The admin deletes the profile of a user|
+|<span style="color:magenta">GET</span>|api/reports|The admin gets all the reported opinions|
+|<span style="color:magenta">PUT</span>|api/reports/:id|The admin modifies the state of the reported opinion|
+|<span style="color:magenta">DELETE</span>|api/reports/:id|The admin deletes once and for all the reported opinion|
+|<span style="color:magenta">DELETE</span>|api/user/:id|The admin deletes the profile of a user|
   
 
 ## Links
