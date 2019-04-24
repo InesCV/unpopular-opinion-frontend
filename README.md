@@ -91,7 +91,7 @@ location - {lat: Number, long: Number} // required if using "In my zone"
 
 Opinion model
 ```
-owner - ObjectID<User> // required
+author - ObjectID<User> // required
 category - Array[Enum]  // required & defined by the App
 question - String // required & caracter limited
 response // required & caracter limited - {
@@ -147,8 +147,8 @@ responses - Array[{
 ### opinions
 |Method|Route|Functionality|
 |---|---|---|
-|<span style="color:red">¿GET/POST?|api/opinion/:query*?|Gives back all the opinions that fit on the query. (Default: All the opinions)|
-|POST|api/opinion/create <span style="color:red">(el create lo ponemos si el de arriba es un post) |Creates a new opinion card inside the platform|
+|<span style="color:red">GET|api/opinion|Gives back all the opinions that haven't been responded by the user|
+|POST|api/opinion|Creates a new opinion card inside the platform|
 |POST|api/opinion/response|Sends the response of the user to an exact opinion|
 |<span style="color:magenta">PUT</span>|api/opinion/:id|Updates a new opinion card inside the platform|
 |<span style="color:magenta">POST</span>|api/opinion/report|Reports an opinion from the platform|
