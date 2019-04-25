@@ -1,33 +1,57 @@
 import React, { Component } from "react";
 import axios from "axios";
-import auth from "../lib/auth-service";
 
 class CreateOpinion extends Component {
   state = {
+    isLoading: true,
+    categories: [],
     category: "",
-    author: "",
     question: "",
+    responseX: "",
+    responseY: "",
     // response: {
     //   x: "",
     //   y: "",
     // }
   };
 
-  createOpinion( category, author, question ) {
-    axios.post("http://localhost:5000/opinions/", { author, question })
+  componentDidMount() {
+    axios.get("http://localhost:5000/opinions/categories")
+      .then((categories) => {
+        console.log(categories.data)
+        this.setState({
+          isLoading: false,
+          categories: [...categories.data],
+        }) 
+      })
+      .catch((error)=> {
+        console.log('Ha fallado el categories')
+      })
+  }
+
+  createOpinion( category, question, responseX, responseY ) {
+    axios.post("http://localhost:5000/opinions", 
+      { category, 
+        question, 
+        response: {
+          x: responseX,
+          y: responseY,
+        } 
+      })
       .then((data) => {
         console.log(data);
       })
       .catch((error)=> {
         console.log('Me cago en la mierda, otro error')
+        console.log(error)
       })
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { category, author, question } = this.state;
-    console.log( category, author, question);
-    this.createOpinion( category, author, question );
+    const { category, question, responseX, responseY } = this.state;
+    console.log( category, question, responseX, responseY);
+    this.createOpinion( category, question, responseX, responseY );
   };
 
   handleChange = event => {
@@ -36,26 +60,44 @@ class CreateOpinion extends Component {
   };
 
   render() {
-    const { author, question } = this.state;
+    const { isLoading, categories, category, question, responseX, responseY } = this.state;
     return (
       <div>
+        { isLoading ? 'Loading...' : (
         <form onSubmit={this.handleFormSubmit}>
-          <label>author:</label>
-          <input
-            type="text"
-            name="author"
-            value={author}
+          <label>category:</label>
+          <select
+            name="category"
+            value={category}
             onChange={this.handleChange}
-          />
+          >
+            { categories.map((category, index) => {
+              return <option key={index} value={category}>{category}</option>
+            })}
+          </select>
           <label>question:</label>
           <input
-            type="question"
+            type="text"
             name="question"
             value={question}
             onChange={this.handleChange}
           />
+          <label>First response:</label>
+          <input
+            type="text"
+            name="responseX"
+            value={responseX}
+            onChange={this.handleChange}
+          />
+          <label>Second response:</label>
+          <input
+            type="text"
+            name="responseY"
+            value={responseY}
+            onChange={this.handleChange}
+          />
           <input type="submit" value="Create opinion" />
-        </form>
+        </form>) }
       </div>
     );
   }
