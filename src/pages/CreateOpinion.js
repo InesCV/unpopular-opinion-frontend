@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import auth from "../lib/auth-service";
 
 class CreateOpinion extends Component {
   state = {
@@ -13,17 +14,20 @@ class CreateOpinion extends Component {
   };
 
   createOpinion( category, author, question ) {
-    axios.post("http://localhost:5000/opinions/", { category, author, question })
-      // .then((data) => data)
-      // .catch((error)=> {
-      //   console.log('Me cago en la mierda, otro error')
-      // })
+    axios.post("http://localhost:5000/opinions/", { author, question })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error)=> {
+        console.log('Me cago en la mierda, otro error')
+      })
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
     const { category, author, question } = this.state;
-    this.createOpinion({ category, author, question });
+    console.log( category, author, question);
+    this.createOpinion( category, author, question );
   };
 
   handleChange = event => {
