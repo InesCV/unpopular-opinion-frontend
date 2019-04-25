@@ -42,7 +42,7 @@ class CreateOpinion extends Component {
         console.log(data);
       })
       .catch((error)=> {
-        console.log('Me cago en la mierda, otro error')
+        console.log('Me cago en la mierda, no puedo crear la puta opinion')
         console.log(error)
       })
   }

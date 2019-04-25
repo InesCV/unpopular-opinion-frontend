@@ -22,10 +22,23 @@ class Opinions extends Component {
   }
 
   render() {
+    const { isLoading, opinions } = this.state
     console.log(this.state.opinions);
     return (
       <>
-        { this.state.isLoading ? 'Loading...' : this.state.opinions[0].author }
+        { isLoading ? 'Loading...' : (
+          opinions.map((opinion, index) => {
+            return (
+              <div key={index}>
+                <p>{opinion.author}</p>
+                <p>{opinion.question}</p>
+                <p>{opinion.response.x}</p>
+                <p>{opinion.response.y}</p>
+              </div>
+            )
+          })
+          )
+        }
         <Link to='/opinions/create'>Create Opinion</Link>
       </>
     );
