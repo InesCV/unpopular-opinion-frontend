@@ -52,6 +52,12 @@ class CreateOpinion extends Component {
     const { category, question, responseX, responseY } = this.state;
     console.log( category, question, responseX, responseY);
     this.createOpinion( category, question, responseX, responseY );
+    this.setState({
+      category: "",
+      question: "",
+      responseX: "",
+      responseY: "",
+    })
   };
 
   handleChange = event => {
