@@ -18,7 +18,6 @@ class CreateOpinion extends Component {
   componentDidMount() {
     axios.get("http://localhost:5000/opinions/categories")
       .then((categories) => {
-        console.log(categories.data)
         this.setState({
           isLoading: false,
           categories: [...categories.data],
@@ -51,7 +50,7 @@ class CreateOpinion extends Component {
     event.preventDefault();
     const { category, question, responseX, responseY } = this.state;
     console.log( category, question, responseX, responseY);
-    this.createOpinion( category, question, responseX, responseY );
+    category ? this.createOpinion( category, question, responseX, responseY ) : console.log('Falta la categoría');
     this.setState({
       category: "",
       question: "",
