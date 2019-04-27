@@ -1,9 +1,11 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { withAuth } from "../lib/AuthProvider";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withAuth } from '../lib/AuthProvider';
+
 class Navbar extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
+  
     return (
       <div>
         {isLoggedin ? (
@@ -13,8 +15,8 @@ class Navbar extends Component {
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+            <Link to='/login'>Login</Link>
+            <Link to='/signup'>Signup</Link>
           </>
         )}
       </div>

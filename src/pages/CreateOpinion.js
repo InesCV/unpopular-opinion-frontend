@@ -71,6 +71,7 @@ class CreateOpinion extends Component {
             value={category}
             onChange={this.handleChange}
           >
+            <option value="select">- Select your category -</option>
             { categories.map((category, index) => {
               return <option key={index} value={category}>{category}</option>
             })}
@@ -78,6 +79,7 @@ class CreateOpinion extends Component {
           <label>question:</label>
           <input
             type="text"
+            maxLength="140"
             name="question"
             value={question}
             onChange={this.handleChange}
@@ -85,6 +87,7 @@ class CreateOpinion extends Component {
           <label>First response:</label>
           <input
             type="text"
+            maxLength="15"
             name="responseX"
             value={responseX}
             onChange={this.handleChange}
@@ -92,6 +95,8 @@ class CreateOpinion extends Component {
           <label>Second response:</label>
           <input
             type="text"
+            maxLength="15"
+
             name="responseY"
             value={responseY}
             onChange={this.handleChange}
