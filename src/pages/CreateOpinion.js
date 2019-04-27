@@ -65,7 +65,7 @@ class CreateOpinion extends Component {
       <div>
         { isLoading ? 'Loading...' : (
         <form onSubmit={this.handleFormSubmit}>
-          <label>category:</label>
+          <label>Category:</label>
           <select
             name="category"
             value={category}
@@ -76,7 +76,8 @@ class CreateOpinion extends Component {
               return <option key={index} value={category}>{category}</option>
             })}
           </select>
-          <label>question:</label>
+          <br></br>
+          <label>Question:</label>
           <input
             type="text"
             maxLength="140"
@@ -84,6 +85,7 @@ class CreateOpinion extends Component {
             value={question}
             onChange={this.handleChange}
           />
+          <br></br>
           <label>First response:</label>
           <input
             type="text"
@@ -92,6 +94,7 @@ class CreateOpinion extends Component {
             value={responseX}
             onChange={this.handleChange}
           />
+          <br></br>
           <label>Second response:</label>
           <input
             type="text"
@@ -101,6 +104,7 @@ class CreateOpinion extends Component {
             value={responseY}
             onChange={this.handleChange}
           />
+          <br></br>
           <input type="submit" value="Create opinion" />
         </form>) }
       </div>

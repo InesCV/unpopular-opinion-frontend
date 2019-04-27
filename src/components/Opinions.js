@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+
+const tryout = {
+  margin: 20,
+  border: "1px solid black",
+  padding: 20
+};
 
 class Opinions extends Component {
   state = {
@@ -21,15 +26,15 @@ class Opinions extends Component {
       })
   }
 
+
   render() {
     const { isLoading, opinions } = this.state
-    console.log(this.state.opinions);
     return (
       <>
         { isLoading ? 'Loading...' : (
           opinions.map((opinion, index) => {
             return (
-              <div key={index}>
+              <div key={index} style={tryout}>
                 <p>{opinion.author}</p>
                 <p>{opinion.question}</p>
                 <p>{opinion.response.x}</p>
@@ -39,7 +44,6 @@ class Opinions extends Component {
           })
           )
         }
-        <Link to='/opinions/create'>Create Opinion</Link>
       </>
     );
   }
