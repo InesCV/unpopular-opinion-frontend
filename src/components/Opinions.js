@@ -7,6 +7,11 @@ const tryout = {
   padding: 20
 };
 
+const miAxios = axios.create({
+  baseURL: 'http://localhost:5000',
+  withCredentials: true,
+});
+
 class Opinions extends Component {
   state = {
     isLoading: true,
@@ -14,7 +19,7 @@ class Opinions extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/opinions/")
+    miAxios.get("opinions/")
       .then((opinions) => {
         this.setState({
           isLoading: false,

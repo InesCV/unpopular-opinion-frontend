@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+const miAxios = axios.create({
+  baseURL: 'http://localhost:5000',
+  withCredentials: true,
+});
+
 class CreateOpinion extends Component {
   state = {
     isLoading: true,
@@ -16,7 +21,7 @@ class CreateOpinion extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:5000/opinions/categories")
+    miAxios.get("opinions/categories")
       .then((categories) => {
         this.setState({
           isLoading: false,
@@ -29,7 +34,7 @@ class CreateOpinion extends Component {
   }
 
   createOpinion( category, question, responseX, responseY ) {
-    axios.post("http://localhost:5000/opinions", 
+    miAxios.post("http://localhost:5000/opinions", 
       { category, 
         question, 
         response: {
@@ -37,8 +42,8 @@ class CreateOpinion extends Component {
           y: responseY,
         } 
       })
-      .then((data) => {
-        console.log(data);
+      .then(({data}) => {
+        console.log('Front-createdOpinion: ', data);
       })
       .catch((error)=> {
         console.log('Me cago en la mierda, no puedo crear la puta opinion')
@@ -49,7 +54,6 @@ class CreateOpinion extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { category, question, responseX, responseY } = this.state;
-    console.log( category, question, responseX, responseY);
     category ? this.createOpinion( category, question, responseX, responseY ) : console.log('Falta la categoría');
     this.setState({
       category: "",
