@@ -19,7 +19,10 @@ class Auth {
     const { username, password } = user;
     return this.auth
       .post('/auth/login', { username, password })
-      .then(({ data }) => data);
+      .then(({ data }) => {
+        console.log(data);
+        return data
+      });
   }
 
   logout() {

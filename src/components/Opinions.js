@@ -40,7 +40,7 @@ class Opinions extends Component {
           opinions.map((opinion, index) => {
             return (
               <div key={index} style={tryout}>
-                <p>{opinion.author}</p>
+                <p>{opinion.author.username}</p>
                 <p>{opinion.question}</p>
                 <p>{opinion.response.x}</p>
                 <p>{opinion.response.y}</p>
