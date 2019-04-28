@@ -3,7 +3,6 @@ import React from 'react';
 import { withAuth } from "../lib/AuthProvider";
 
 function NotFound(props) {
-  console.log(props);
   return (
     <div>
       <h2> Error</h2>
