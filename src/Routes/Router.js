@@ -13,15 +13,17 @@ import CreateOpinion from "../pages/CreateOpinion";
 import NotFound from '../pages/NotFound';
 
 export default () => (
+  <AuthProvider>
     <BrowserRouter>
       <Switch>
-        {/* <AnonRoute exact path="/" component={ App } />
-        <AnonRoute exact path="/signup" render={ props => <AuthProvider> <Signup {...props} /> </AuthProvider> } />
-        <AnonRoute exact path="/login" render={ props => <AuthProvider> <Login {...props} /> </AuthProvider> } />
-        <PrivateRoute exact path="/private" render={ props => <AuthProvider> <Private {...props} /> </AuthProvider> } />  */}
-        <Route exact path="/opinions" render={ props => <AuthProvider> <Opinions {...props} /> </AuthProvider> } />
-        <Route exact path="/opinions/create" render={ props => <AuthProvider> <CreateOpinion {...props} /> </AuthProvider> } />
-        <Route path="*" render={ props => <AuthProvider> <NotFound {...props} /> </AuthProvider> } />
+        <Route exact path="/" component={ App } />
+        <AnonRoute exact path="/signup" component= { Signup } />
+        <AnonRoute exact path="/login" component= { Login } />
+        <PrivateRoute exact path="/private" component= { Private } /> 
+        <Route exact path="/opinions" component= { Opinions } />
+        <Route exact path="/opinions/create" component= { CreateOpinion } />
+        <Route path="*" component= { NotFound } />
       </Switch>
     </BrowserRouter>
-    )
+  </AuthProvider>
+)

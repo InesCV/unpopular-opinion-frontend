@@ -5,12 +5,11 @@ import { withAuth } from '../lib/AuthProvider';
 
 class Navbar extends Component {
   render() {
-    console.log(this.props);
-    // const { logout, isLoggedin } = this.props;
+    const { logout, isLoggedin } = this.props;
   
     return (
       <div>
-        {/* {isLoggedin ? (
+        {isLoggedin ? (
           <>
             <button><Link to='/'>Home</Link></button>
             <button><Link to='/opinions'>Opinions</Link></button>
@@ -23,7 +22,7 @@ class Navbar extends Component {
             <button><Link to='/login'>Login</Link></button>
             <button><Link to='/signup'>Signup</Link></button>
           </>
-        )} */} hola
+        )} 
       </div>
     );
   }
