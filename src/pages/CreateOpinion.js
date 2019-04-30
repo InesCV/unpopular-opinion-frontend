@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 
-const miAxios = axios.create({
-  baseURL: 'http://localhost:5000',
-  withCredentials: true,
-});
+import opinionService from "../lib/opinion-service";
 
 class CreateOpinion extends Component {
   state = {
@@ -21,32 +17,32 @@ class CreateOpinion extends Component {
   };
 
   componentDidMount() {
-    miAxios.get("opinions/categories")
-      .then((categories) => {
+    opinionService.categories()
+      .then(cat => {
         this.setState({
           isLoading: false,
-          categories: [...categories.data],
-        }) 
-      })
+          categories: [...cat],
+        })
+      }) 
       .catch((error)=> {
-        console.log('Ha fallado el categories')
-      })
+        console.log('Categories Not Found from the Schema')
+        console.log(error);
+      });
   }
 
   createOpinion( category, question, responseX, responseY ) {
-    miAxios.post("http://localhost:5000/opinions", 
-      { category, 
-        question, 
-        response: {
-          x: responseX,
-          y: responseY,
-        } 
-      })
-      .then(({data}) => {
-        console.log('Front-createdOpinion: ', data);
-      })
-      .catch((error)=> {
-        console.log('Me cago en la mierda, no puedo crear la puta opinion')
+    const newOpinion = { 
+      category, 
+      question, 
+      response: {
+        x: responseX,
+        y: responseY,
+      } 
+    };
+    opinionService.create(newOpinion)
+      .then((createdOpinon) => console.log(createdOpinon))
+      .catch((error) => {
+        console.log("Oh shit! I can't create an opinion")
         console.log(error)
       })
   }
