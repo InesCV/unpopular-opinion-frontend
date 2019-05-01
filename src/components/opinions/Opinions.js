@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import opinionService from "../../lib/opinion-service";
 import Question from './Question';
+import Navbar from "../Navbar";
 
 class Opinions extends Component {
   state = {
@@ -30,10 +31,20 @@ class Opinions extends Component {
     const { isLoading, opinions } = this.state
     return (
       <>
-        { isLoading ? 'Loading...' : (
-          opinions.map((opinion, index) => 
-            <Question key={index} {...opinion}/>
-          )
+        { isLoading ? (
+          <>
+            <Navbar/>
+            <p>Loading...</p>
+          </>
+          ) : (
+          <>
+            <Navbar/>
+            {
+              opinions.map((opinion, index) => 
+                <Question key={index} {...opinion}/>
+              )
+            }
+          </>
           )
         }
       </>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import opinionService from "../lib/opinion-service";
+import Navbar from "../components/Navbar";
 
 class CreateOpinion extends Component {
   state = {
@@ -68,50 +69,59 @@ class CreateOpinion extends Component {
     const { isLoading, categories, category, question, responseX, responseY } = this.state;
     return (
       <div>
-        { isLoading ? 'Loading...' : (
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Category:</label>
-          <select
-            name="category"
-            value={category}
-            onChange={this.handleChange}
-          >
-            <option value="select">- Select your category -</option>
-            { categories.map((category, index) => {
-              return <option key={index} value={category}>{category}</option>
-            })}
-          </select>
-          <br></br>
-          <label>Question:</label>
-          <input
-            type="text"
-            maxLength="140"
-            name="question"
-            value={question}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <label>First response:</label>
-          <input
-            type="text"
-            maxLength="15"
-            name="responseX"
-            value={responseX}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <label>Second response:</label>
-          <input
-            type="text"
-            maxLength="15"
+        { isLoading ? (
+          <>
+            <Navbar/>
+            <p>Loading...</p>
+          </>
+          ) : (
+          <>
+            <Navbar/>
+            <form onSubmit={this.handleFormSubmit}>
+              <label>Category:</label>
+              <select
+                name="category"
+                value={category}
+                onChange={this.handleChange}
+              >
+                <option value="select">- Select your category -</option>
+                { categories.map((category, index) => {
+                  return <option key={index} value={category}>{category}</option>
+                })}
+              </select>
+              <br></br>
+              <label>Question:</label>
+              <input
+                type="text"
+                maxLength="140"
+                name="question"
+                value={question}
+                onChange={this.handleChange}
+              />
+              <br></br>
+              <label>First response:</label>
+              <input
+                type="text"
+                maxLength="15"
+                name="responseX"
+                value={responseX}
+                onChange={this.handleChange}
+              />
+              <br></br>
+              <label>Second response:</label>
+              <input
+                type="text"
+                maxLength="15"
 
-            name="responseY"
-            value={responseY}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <input type="submit" value="Create opinion" />
-        </form>) }
+                name="responseY"
+                value={responseY}
+                onChange={this.handleChange}
+              />
+              <br></br>
+              <input type="submit" value="Create opinion" />
+            </form>
+          </>
+        )}
       </div>
     );
   }
