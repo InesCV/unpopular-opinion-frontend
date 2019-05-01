@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import opinionService from "../../lib/opinion-service";
-import Question from './Question';
-import Navbar from "../Navbar";
+import opinionService from "../lib/opinion-service";
+import Question from '../components/Question';
+import Navbar from "../components/Navbar";
 
 class Opinions extends Component {
   state = {

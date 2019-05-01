@@ -6,7 +6,7 @@ import App from "../App";
 import Private from "../pages/Private";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
-import Opinions from "../components/opinions/Opinions";
+import Opinions from "../pages/Opinions";
 import CreateOpinion from "../pages/CreateOpinion";
 import NotFound from '../pages/NotFound';
 
