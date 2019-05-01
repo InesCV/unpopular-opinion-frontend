@@ -4,6 +4,7 @@ import PrivateRoute from "../components/PrivateRoute";
 import AnonRoute from "../components/AnonRoute";
 import App from "../App";
 import Private from "../pages/Private";
+import Profile from "../pages/Profile";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import Opinions from "../pages/Opinions";
@@ -30,6 +31,11 @@ const routes = [
     route: PrivateRoute,
     path: '/private',
     component: Private,
+  },
+  {
+    route: Route,
+    path: '/profile',
+    component: Profile,
   },
   {
     route: Route,
