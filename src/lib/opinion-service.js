@@ -4,7 +4,7 @@ class Opinion {
   constructor() {
     this.opinionConnect = axios.create({
       // TODO poner en el env.development 
-      baseURL: 'http://localhost:5000',
+      baseURL: process.env.REACT_APP_URL,
       withCredentials: true,
     });
   }

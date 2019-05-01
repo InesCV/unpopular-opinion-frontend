@@ -4,7 +4,7 @@ class Auth {
   constructor() {
     this.auth = axios.create({
       // TODO poner en .env
-      baseURL: 'http://localhost:5000',
+      baseURL: process.env.REACT_APP_URL,
       withCredentials: true,
     });
   }
