@@ -6,7 +6,7 @@ import App from "../App";
 import Private from "../pages/Private";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
-import Opinions from "../components/Opinions";
+import Opinions from "../components/opinions/Opinions";
 import CreateOpinion from "../pages/CreateOpinion";
 import NotFound from '../pages/NotFound';
 
@@ -43,7 +43,7 @@ const routes = [
   },
   {
     route: Route,
-    path: '/*',
+    path: '*',
     component: NotFound,
   },
 ];

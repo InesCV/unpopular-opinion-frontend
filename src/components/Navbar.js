@@ -5,6 +5,7 @@ import { withAuth } from '../lib/AuthProvider';
 
 class Navbar extends Component {
   render() {
+    
     const { logout, isLoggedin } = this.props;
   
     return (
