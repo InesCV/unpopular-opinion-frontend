@@ -3,7 +3,6 @@ import axios from 'axios';
 class Opinion {
   constructor() {
     this.opinionConnect = axios.create({
-      // TODO poner en el env.development 
       baseURL: process.env.REACT_APP_URL,
       withCredentials: true,
     });
@@ -27,9 +26,10 @@ class Opinion {
       .then(({ data }) => data)
   }
 
-  //TODO response
-  respond(opinion) {
-
+  response(response) {
+    return this.opinionConnect
+      .post("opinions/response", response)
+      .then(({ data }) => data)
   }
 }
 

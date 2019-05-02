@@ -27,7 +27,6 @@ class Opinions extends Component {
 
   // TODO Cambiar el loading por un spinner
   render() {
-    console.log(this.props)
     const { isLoading, opinions } = this.state
     return (
       <>

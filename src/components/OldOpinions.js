@@ -40,7 +40,6 @@ class Opinions extends Component {
         'Loading...' : 
         (
           opinions.map((opinion, index) => {
-            console.log('hey')
             // TODO 
             return (
               <div key={index} style={tryout}>

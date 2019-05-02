@@ -5,13 +5,13 @@ import routes from './routes';
 import AuthProvider from "../lib/AuthProvider";
 
 export default () => (
-  <AuthProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <AuthProvider>
       <Switch>
         {routes.map(({route: Route, path, component}, key) => 
             <Route exact path={path} component={component} key={key} />
         )}
       </Switch>
-    </BrowserRouter>
-  </AuthProvider>
+    </AuthProvider>
+  </BrowserRouter>
 )
