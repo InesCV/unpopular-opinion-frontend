@@ -22,7 +22,7 @@ export default (card) => {
   return (
   <div style={tryout}>
     <p>{card.category}</p>
-    <p>By {card.author.username}</p>
+    <p>By{card.author.username}</p>
     <p>{card.question}</p>
     <button onClick={(e)=> {resAction('x')}}>{card.response.x}</button>
     <button onClick={(e)=> {resAction('y')}}>{card.response.y}</button>
