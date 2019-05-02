@@ -8,10 +8,11 @@ const tryout = {
   padding: 20
 };
 
-export default (question) => {
+export default (card) => {
+  console.log(card);
   function resAction(res) {
     const response = {
-      opinionId: question._id,
+      opinionId: card._id,
       responseBody: res,
     }
     opinionService.response(response)
@@ -20,10 +21,11 @@ export default (question) => {
   
   return (
   <div style={tryout}>
-    <p>{question.author.username}</p>
-    <p>{question.question}</p>
-    <button onClick={(e)=> {resAction('x')}}>{question.response.x}</button>
-    <button onClick={(e)=> {resAction('y')}}>{question.response.y}</button>
+    <p>{card.category}</p>
+    <p>By {card.author.username}</p>
+    <p>{card.question}</p>
+    <button onClick={(e)=> {resAction('x')}}>{card.response.x}</button>
+    <button onClick={(e)=> {resAction('y')}}>{card.response.y}</button>
   </div>
   )
 }

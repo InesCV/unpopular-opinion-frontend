@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import opinionService from "../lib/opinion-service";
 import {types} from "../lib/spiner-types";
-import Question from '../components/Question';
+import Card from '../components/Card';
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 
@@ -42,7 +42,7 @@ class Opinions extends Component {
             <Navbar/>
             {
               opinions.map((opinion, index) => 
-                <Question key={index} {...opinion}/>
+                <Card key={index} {...opinion}/>
               )
             }
           </>
