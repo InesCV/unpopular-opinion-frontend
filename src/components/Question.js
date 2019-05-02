@@ -12,7 +12,7 @@ export default (question) => {
   function resAction(res) {
     const response = {
       opinionId: question._id,
-      response: res,
+      responseBody: res,
     }
     opinionService.response(response)
   }

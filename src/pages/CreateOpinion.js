@@ -74,7 +74,7 @@ class CreateOpinion extends Component {
         { isLoading ? (
           <>
             <Navbar/>
-            <Spinner type={types.Bubbles} color={"blue"} />
+            <Spinner type={types.Spin} color={"blue"} />
           </>
           ) : (
           <>

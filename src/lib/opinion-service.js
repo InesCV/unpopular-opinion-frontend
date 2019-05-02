@@ -10,25 +10,31 @@ class Opinion {
 
   all() {
     return this.opinionConnect
-      .get("opinions")
+      .get('opinions/all')
+      .then(({ data }) => data)
+  }
+
+  notResponded() {
+    return this.opinionConnect
+      .get('opinions')
       .then(({ data }) => data)
   }
 
   create(opinion) {
     return this.opinionConnect
-      .post("opinions", opinion)
+      .post('opinions', opinion)
       .then(({ data }) => data)
   };
 
   categories() {
     return this.opinionConnect
-      .get("opinions/categories")
+      .get('opinions/categories')
       .then(({ data }) => data)
   }
 
   response(response) {
     return this.opinionConnect
-      .post("opinions/response", response)
+      .post('opinions/response', response)
       .then(({ data }) => data)
   }
 }

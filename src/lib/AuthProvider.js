@@ -97,11 +97,11 @@ class AuthProvider extends Component {
         });
       })
       .catch(() => {});
-  };
+  };x
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     return isLoading ? (
-      <Spinner type={types.Bubbles} color={"blue"} />
+      <Spinner type={types.Spin} color={"blue"} />
     ) : (
       <Provider
         value={{
