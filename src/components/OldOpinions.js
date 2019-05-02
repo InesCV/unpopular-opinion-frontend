@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 import opinionService from "../lib/opinion-service";
+import {types} from "../lib/spiner-types";
 import Navbar from "./Navbar";
+import Spinner from "../components/Spinner";
 
 
 const tryout = {
@@ -30,27 +32,26 @@ class Opinions extends Component {
       });
   }
 
-
-  // Cambiar el loading por un spinner
   render() {
     const { isLoading, opinions } = this.state
     return (
       <>
         { isLoading ? 
-        'Loading...' : 
-        (
-          opinions.map((opinion, index) => {
-            // TODO 
-            return (
-              <div key={index} style={tryout}>
-                <p>{opinion.author.username}</p>
-                <p>{opinion.question}</p>
-                <p>{opinion.response.x}</p>
-                <p>{opinion.response.y}</p>
-              </div>
+            <Spinner type={types.Bubbles} color={"blue"} /> 
+          : 
+            (
+              opinions.map((opinion, index) => {
+                // TODO 
+                return (
+                  <div key={index} style={tryout}>
+                    <p>{opinion.author.username}</p>
+                    <p>{opinion.question}</p>
+                    <p>{opinion.response.x}</p>
+                    <p>{opinion.response.y}</p>
+                  </div>
+                )
+              })
             )
-          })
-          )
         }
       </>
     );

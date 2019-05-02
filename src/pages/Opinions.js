@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 
 import opinionService from "../lib/opinion-service";
+import {types} from "../lib/spiner-types";
 import Question from '../components/Question';
 import Navbar from "../components/Navbar";
+import Spinner from "../components/Spinner";
 
 class Opinions extends Component {
   state = {
@@ -33,7 +35,7 @@ class Opinions extends Component {
         { isLoading ? (
           <>
             <Navbar/>
-            <p>Loading...</p>
+            <Spinner type={types.Bubbles} color={"blue"} />
           </>
           ) : (
           <>

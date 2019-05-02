@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+
 import auth from "./auth-service";
+import {types} from "./spiner-types";
+import Spinner from "../components/Spinner";
+
 const { Consumer, Provider } = React.createContext();
 
 export { Consumer };
@@ -97,7 +101,7 @@ class AuthProvider extends Component {
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     return isLoading ? (
-      <div>Loading</div>
+      <Spinner type={types.Bubbles} color={"blue"} />
     ) : (
       <Provider
         value={{
