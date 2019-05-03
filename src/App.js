@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import Navbar from "./components/Navbar";
+import './sass/stylesheets/styles.scss'
+
 
 class App extends Component {
   render() {

@@ -1,0 +1,12 @@
+@import '../mixins/reset';
+@import '../mixins/variables';
+
+// All the main presets of the account
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+span {
+  color: $principal;
+}
