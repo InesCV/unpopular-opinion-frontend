@@ -26,8 +26,16 @@ class Opinions extends Component {
       });
   }
 
+  onRespond = (index) => {
+    console.log('borrando: ', index)
+    this.state.opinions.splice(index, 1);
+    this.setState({
+        opinions: this.state.opinions,
+      })
+  }
+
   render() {
-    const { isLoading, opinions } = this.state
+    const { isLoading, opinions } = this.state;
     return (
       <>
         { isLoading ? (
@@ -40,7 +48,7 @@ class Opinions extends Component {
             <Navbar/>
             {
               opinions.map((opinion, index) => 
-                <Card key={index} {...opinion}/>
+                <Card key={index} index={index} card={opinion} respond={this.onRespond} />
               )
             }
           </>

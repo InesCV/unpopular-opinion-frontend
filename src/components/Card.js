@@ -8,12 +8,13 @@ const tryout = {
   padding: 20
 };
 
-export default (card) => {
+export default ({card, respond, index}) => {
   function resAction(res) {
     const response = {
       opinionId: card._id,
       responseBody: res,
     }
+    respond(index);
     opinionService.response(response)
   }
   
