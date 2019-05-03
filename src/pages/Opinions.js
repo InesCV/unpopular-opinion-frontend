@@ -26,8 +26,6 @@ class Opinions extends Component {
       });
   }
 
-
-  // TODO Cambiar el loading por un spinner
   render() {
     const { isLoading, opinions } = this.state
     return (
@@ -41,9 +39,10 @@ class Opinions extends Component {
           <>
             <Navbar/>
             {
-              opinions.map((opinion, index) => 
-                <Card key={index} {...opinion}/>
-              )
+              console.log(opinions)
+              // opinions.map((opinion, index) => 
+              //   <Card key={index} {...opinion}/>
+              // )
             }
           </>
           )

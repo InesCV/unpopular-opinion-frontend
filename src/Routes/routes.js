@@ -33,13 +33,18 @@ const routes = [
     component: Private,
   },
   {
-    route: Route,
+    route: PrivateRoute,
     path: '/profile',
     component: Profile,
   },
   {
     route: Route,
     path: '/opinions',
+    component: Opinions,
+  },
+  {
+    route: Route,
+    path: '/opinions/all',
     component: Opinions,
   },
   {
