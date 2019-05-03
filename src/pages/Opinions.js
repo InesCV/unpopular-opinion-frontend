@@ -39,10 +39,9 @@ class Opinions extends Component {
           <>
             <Navbar/>
             {
-              console.log(opinions)
-              // opinions.map((opinion, index) => 
-              //   <Card key={index} {...opinion}/>
-              // )
+              opinions.map((opinion, index) => 
+                <Card key={index} {...opinion}/>
+              )
             }
           </>
           )

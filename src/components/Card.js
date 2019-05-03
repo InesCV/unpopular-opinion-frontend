@@ -9,7 +9,6 @@ const tryout = {
 };
 
 export default (card) => {
-  console.log(card);
   function resAction(res) {
     const response = {
       opinionId: card._id,
@@ -17,13 +16,12 @@ export default (card) => {
     }
     opinionService.response(response)
   }
-
   
   return (
   <div style={tryout}>
-    <p>{card.category}</p>
-    <p>By{card.author.username}</p>
-    <p>{card.question}</p>
+    <p>Category: {card.category}</p>
+    <p>By: {card.author.username}</p>
+    <p>Question: {card.question}</p>
     <button onClick={(e)=> {resAction('x')}}>{card.response.x}</button>
     <button onClick={(e)=> {resAction('y')}}>{card.response.y}</button>
   </div>

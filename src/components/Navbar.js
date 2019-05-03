@@ -16,6 +16,7 @@ class Navbar extends Component {
             <button><Link to='/opinions'>Opinions</Link></button>
             <button><Link to='/opinions/create'>Create Opinion</Link></button>
             <button><Link to='/profile'>Profile</Link></button>
+            <button><Link to='/statistics'>Statistics</Link></button>
             <button onClick={logout}>Logout</button>
             <p></p>
           </>

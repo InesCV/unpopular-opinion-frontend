@@ -9,6 +9,7 @@ import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import Opinions from "../pages/Opinions";
 import CreateOpinion from "../pages/CreateOpinion";
+import Statistics from "../pages/Statistics";
 import NotFound from '../pages/NotFound';
 
 const routes = [
@@ -51,6 +52,11 @@ const routes = [
     route: Route,
     path: '/opinions/create',
     component: CreateOpinion,
+  },
+  {
+    route: Route,
+    path: '/statistics',
+    component: Statistics,
   },
   {
     route: Route,

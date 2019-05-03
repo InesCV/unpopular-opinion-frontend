@@ -5,7 +5,7 @@ const Spinner = ({ type, color }) => (
   // <ReactLoading type={type} color={color} height={667} width={375} />
 	<>
     <ReactLoading type={type} color={color} height={'20%'} width={'20%'} />
-    <p>Clint Eastwood</p>
+    <p><cite>Las opiniones son como los culos, todos tenemos uno</cite> by Clint Eastwood.</p>
   </>
 );
 
