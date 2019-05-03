@@ -1,5 +1,7 @@
 @import '../mixins/reset';
 @import '../mixins/variables';
+@import '../mixins/navbar';
+@import '../mixins/button';
 
 // All the main presets of the account
 
@@ -7,6 +9,29 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+h1 {
+  font-size: 2rem;
+  margin: 0.4rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0.3rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin: 0.25rem;
+}
+
 span {
   color: $principal;
 }
+
+.cnt-pos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

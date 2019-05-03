@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 import { withAuth } from "../lib/AuthProvider";
 import statsService from "../lib/statistics-service";
-import {types} from "../lib/spiner-types";
+// import {types} from "../lib/spiner-types";
 import Navbar from "../components/Navbar";
-import Spinner from "../components/Spinner";
+// import Spinner from "../components/Spinner";
 
 class Statistics extends Component {
   state = {
