@@ -3,16 +3,9 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import opinionService from "../lib/opinion-service";
 import Navbar from "../components/Navbar";
-import Card from '../components/Card';
 import Spinner from "../components/Spinner";
 import {types} from "../lib/spiner-types";
-
-// TODO Remove
-const tryout = {
-  margin: 20,
-  border: "1px solid black",
-  padding: 20
-};
+import UserUOPs from "../components/UserUOPs";
 
 class Profile extends Component {
   state = {
@@ -52,7 +45,7 @@ class Profile extends Component {
           (<>
             {
               opinions.map((opinion, index) => 
-                <Card key={index} index={index} op={opinion} respond={this.onRespond} />
+                <UserUOPs key={index} index={index} op={opinion} respond={this.onRespond} />
               )
             }
           </>) : (<p>You should upload a description</p>)}
