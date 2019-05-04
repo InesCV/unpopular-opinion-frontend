@@ -9,7 +9,7 @@ class CreateOpinion extends Component {
   state = {
     isLoading: true,
     categories: [],
-    category: "",
+    category: undefined,
     question: "",
     responseX: "",
     responseY: "",
@@ -55,7 +55,7 @@ class CreateOpinion extends Component {
     const { category, question, responseX, responseY } = this.state;
     category ? this.createOpinion( category, question, responseX, responseY ) : console.log('Falta la categoría');
     this.setState({
-      category: "",
+      category: undefined,
       question: "",
       responseX: "",
       responseY: "",
@@ -71,15 +71,14 @@ class CreateOpinion extends Component {
     const { isLoading, categories, category, question, responseX, responseY } = this.state;
     return (
       <div>
+        <Navbar {...this.props}/>
         { isLoading ? (
           <>
-            <Navbar {...this.props}/>
             <Spinner type={types.Spin} color={"blue"} />
           </>
           ) : (
           <>
-            <Navbar {...this.props}/>
-            <form onSubmit={this.handleFormSubmit}>
+            <form className="container pt-3" onSubmit={this.handleFormSubmit}>
               <label>Category:</label>
               <select
                 name="category"
@@ -92,35 +91,40 @@ class CreateOpinion extends Component {
                 })}
               </select>
               <br></br>
-              <label>Question:</label>
-              <input
-                type="text"
-                maxLength="140"
-                name="question"
-                value={question}
-                onChange={this.handleChange}
-              />
-              <br></br>
-              <label>First response:</label>
-              <input
-                type="text"
-                maxLength="15"
-                name="responseX"
-                value={responseX}
-                onChange={this.handleChange}
-              />
-              <br></br>
-              <label>Second response:</label>
-              <input
-                type="text"
-                maxLength="15"
-
-                name="responseY"
-                value={responseY}
-                onChange={this.handleChange}
-              />
-              <br></br>
-              <input type="submit" value="Create opinion" />
+              { category ? (
+              <div>
+                <label>Question:</label>
+                <input className="form-control"
+                  type="text"
+                  maxLength="140"
+                  name="question"
+                  value={question}
+                  onChange={this.handleChange}
+                />
+                <br></br>
+                <label>First response:</label>
+                <input
+                  type="text"
+                  maxLength="15"
+                  name="responseX"
+                  value={responseX}
+                  onChange={this.handleChange}
+                />
+                <br></br>
+                <label>Second response:</label>
+                <input
+                  type="text"
+                  maxLength="15"
+  
+                  name="responseY"
+                  value={responseY}
+                  onChange={this.handleChange}
+                />
+                <br></br>
+                <input type="submit" value="Create opinion" />
+              </div> ) : 
+              <></>
+              }
             </form>
           </>
         )}
