@@ -14,3 +14,18 @@
     margin: auto 1.5rem
   }
 }
+
+.nav-home {
+  background-color: transparent;
+  margin: 0;
+  height: 2rem;;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  a {
+    padding: 0.25rem;
+    color: lightgrey;
+    margin: auto 1.5rem
+  }
+}

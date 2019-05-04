@@ -22,9 +22,9 @@ export default ({op, respond, index}) => {
   
   return (
   <div style={tryout}>
-    <p>Category: {op.category}</p>
-    <p>By: {op.author.username}</p>
-    <p>Question: {op.question}</p>
+    <p><span>Category: </span>{op.category}</p>
+    <p><span>By: </span>{op.author.username}</p>
+    <p>{op.question}</p>
     <div className="d-flex justify-content-around mt-3">
       <button className="btn btn-primary" onClick={(e)=> {resAction('x')}}>{op.response.x}</button>
       <button className="btn btn-primary" onClick={(e)=> {resAction('y')}}>{op.response.y}</button>

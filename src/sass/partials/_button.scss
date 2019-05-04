@@ -20,3 +20,14 @@
     background-color: $primary-color;
   }
 }
+
+.btn-white {
+  color: $white;
+  background-color: transparent;
+  border-color: $white;
+
+  &:hover {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+}

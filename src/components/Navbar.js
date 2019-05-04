@@ -10,7 +10,7 @@ class Navbar extends Component {
     switch (path) {
       case '/':
         return (
-          <div className="nav">
+          <div className="nav-home">
             <Link to='/opinions'>Opinions</Link>
             <Link to='/opinions/create'>Create Opinion</Link>
             <Link to='/profile'>Profile</Link>

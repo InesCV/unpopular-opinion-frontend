@@ -1,0 +1,43 @@
+@import '../stylesheets/variables';
+
+// All the main yhings you might use on a div
+
+.cnt-pos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.mid-height {
+  height: 50vh;
+}
+
+.jumbotron {
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: auto 1rem;
+}
+
+.bg-micro {
+  background-image: url('https://images.pexels.com/photos/33970/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  color: $white;
+  background-position: left; 
+}
+
+.bg-about {
+  background-image: url('https://images.pexels.com/photos/987585/pexels-photo-987585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  color: $white;
+  background-position: center; 
+}
+
+
