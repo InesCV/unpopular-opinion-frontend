@@ -10,22 +10,24 @@ const tryout = {
   padding: 20
 };
 
-export default ({card, respond, index}) => {
+export default ({op, respond, index}) => {
   async function resAction(res) {
-    await opinionService.response({opinion: card._id, response: res});
-    const stat = await statsService.query({type: statTypes.OpinionRate, opinion: card._id});
+    // Register the response to the opinion
+    await opinionService.response({opinion: op._id, response: res});
+    // Consult the statistics of the opinion the user just responded to
+    const stat = await statsService.query({type: statTypes.opinionRate, opinion: op._id});
     console.log(stat);
     respond(index);
   }
   
   return (
   <div style={tryout}>
-    <p>Category: {card.category}</p>
-    <p>By: {card.author.username}</p>
-    <p>Question: {card.question}</p>
+    <p>Category: {op.category}</p>
+    <p>By: {op.author.username}</p>
+    <p>Question: {op.question}</p>
     <div className="d-flex justify-content-around mt-3">
-      <button className="btn btn-primary" onClick={(e)=> {resAction('x')}}>{card.response.x}</button>
-      <button className="btn btn-primary" onClick={(e)=> {resAction('y')}}>{card.response.y}</button>
+      <button className="btn btn-primary" onClick={(e)=> {resAction('x')}}>{op.response.x}</button>
+      <button className="btn btn-primary" onClick={(e)=> {resAction('y')}}>{op.response.y}</button>
     </div>
   </div>
   )

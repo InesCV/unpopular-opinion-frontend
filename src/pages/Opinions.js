@@ -47,7 +47,7 @@ class Opinions extends Component {
             <Navbar {...this.props}/>
             {
               opinions.map((opinion, index) => 
-                <Card key={index} index={index} card={opinion} respond={this.onRespond} />
+                <Card key={index} index={index} op={opinion} respond={this.onRespond} />
               )
             }
           </>

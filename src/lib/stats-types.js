@@ -1,5 +1,5 @@
 export const types = {
-  OpinionRate: 'opinionRate',
-  OpinionScore: 'opinionScore',
-  Opinion: 'opinion',
+  opinionRate: 'opinionRate',
+  opinionScore: 'opinionScore',
+  opinion: 'opinion',
 }
