@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 import opinionService from "../lib/opinion-service";
-import {types} from "../lib/spiner-types";
 import Card from '../components/Card';
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
+import {types} from "../lib/spiner-types";
 
 class Opinions extends Component {
   state = {
@@ -37,21 +37,18 @@ class Opinions extends Component {
     const { isLoading, opinions } = this.state;
     return (
       <>
-        { isLoading ? (
-          <>
-            <Navbar {...this.props}/>
-            <Spinner type={types.Spin} color={"blue"} />
-          </>
-          ) : (
-          <>
-            <Navbar {...this.props}/>
-            {
-              opinions.map((opinion, index) => 
-                <Card key={index} index={index} op={opinion} respond={this.onRespond} />
-              )
-            }
-          </>
-          )
+        <Navbar {...this.props}/>
+        { isLoading ? 
+        (<>
+          <Spinner type={types.Spin} color={"blue"} />
+        </>) : 
+        (<>
+          {
+            opinions.map((opinion, index) => 
+              <Card key={index} index={index} op={opinion} respond={this.onRespond} />
+            )
+          }
+        </>)
         }
       </>
     );

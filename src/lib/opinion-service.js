@@ -37,6 +37,12 @@ class Opinion {
       .post('opinions/response', response)
       .then(({ data }) => data)
   }
+
+  user() {
+    return this.opinionConnect
+      .get('opinions/user')
+      .then(({ data }) => data)
+  }
 }
 
 const opinionService = new Opinion();

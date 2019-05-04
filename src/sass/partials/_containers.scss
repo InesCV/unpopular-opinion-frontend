@@ -2,6 +2,18 @@
 
 // All the main yhings you might use on a div
 
+.jumbotron {
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: auto 1rem;
+}
+
 .cnt-pos {
   display: flex;
   justify-content: center;
@@ -14,18 +26,6 @@
 
 .mid-height {
   height: 50vh;
-}
-
-.jumbotron {
-  background-size: cover;
-  background-repeat: no-repeat;
-  // background-attachment: fixed;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  margin: auto 1rem;
 }
 
 .bg-micro {
