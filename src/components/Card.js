@@ -2,6 +2,7 @@ import React from 'react';
 
 import opinionService from "../lib/opinion-service";
 import statsService from "../lib/statistics-service";
+import {types as statTypes} from "../lib/stats-types";
 
 const tryout = {
   margin: 20,
@@ -11,12 +12,8 @@ const tryout = {
 
 export default ({card, respond, index}) => {
   async function resAction(res) {
-    const response = {
-      opinionId: card._id,
-      responseBody: res,
-    }
-    await opinionService.response(response);
-    const stat = await statsService.query({opinion: response.opinionId});
+    await opinionService.response({opinion: card._id, response: res});
+    const stat = await statsService.query({type: statTypes.OpinionRate, opinion: card._id});
     console.log(stat);
     respond(index);
   }
