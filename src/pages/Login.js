@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 
 class Login extends Component {
@@ -21,23 +23,29 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={this.handleChange}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Login" />
-      </form>
+      <>
+        <form onSubmit={this.handleFormSubmit}>
+          <label>Username:</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={this.handleChange}
+          />
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+          />
+          <input type="submit" value="Login" />
+        </form>
+        <p>
+          You don't have an account?
+          <Link to={"/signup"}> Sign up</Link>
+        </p>
+      </>
     );
   }
 }

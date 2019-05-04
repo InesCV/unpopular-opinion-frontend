@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar"
 
 class Profile extends Component {
   render() {
-    const { user } = this.props
+    const { user, logout } = this.props
     return (
       <div>
         <Navbar {...this.props}/>
@@ -21,6 +21,8 @@ class Profile extends Component {
             <p>Those are your stadistics</p>
           </div>
         )}
+        <button onClick={logout}>Logout</button>
+
       </div>
     );
   }

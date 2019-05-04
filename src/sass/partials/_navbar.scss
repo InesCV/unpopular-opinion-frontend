@@ -5,11 +5,12 @@
   margin: 0;
   height: 2rem;;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   
   a {
     padding: 0.25rem;
     color: $white;
+    margin: auto 2rem
   }
 }
