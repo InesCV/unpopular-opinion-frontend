@@ -27,7 +27,6 @@ class Opinions extends Component {
   }
 
   onRespond = (index) => {
-    console.log('borrando: ', index)
     this.state.opinions.splice(index, 1);
     this.setState({
         opinions: this.state.opinions,
