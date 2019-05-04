@@ -17,7 +17,7 @@ class Statistics extends Component {
     //   user: 'Jdej',
     //   opinion: 'Opinion',
     // };
-    const query = {opinion: '5cc60f3fc17169fbfedd3ea5'};
+    const query = {opinion: '5ccbff34a54250552074284d'};
     statsService.query(query)
       .then((stats) => {
         this.setState({
