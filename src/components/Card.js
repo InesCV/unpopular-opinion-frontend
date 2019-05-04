@@ -23,8 +23,10 @@ export default ({card, respond, index}) => {
     <p>Category: {card.category}</p>
     <p>By: {card.author.username}</p>
     <p>Question: {card.question}</p>
-    <button className="btn btn-primary" onClick={(e)=> {resAction('x')}}>{card.response.x}</button>
-    <button className="btn btn-primary" onClick={(e)=> {resAction('y')}}>{card.response.y}</button>
+    <div className="d-flex justify-content-around mt-3">
+      <button className="btn btn-primary" onClick={(e)=> {resAction('x')}}>{card.response.x}</button>
+      <button className="btn btn-primary" onClick={(e)=> {resAction('y')}}>{card.response.y}</button>
+    </div>
   </div>
   )
 }
