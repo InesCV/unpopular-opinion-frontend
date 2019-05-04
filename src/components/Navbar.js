@@ -10,24 +10,23 @@ class Navbar extends Component {
     const { logout, isLoggedin } = this.props;
   
     return (
-      <div className="nav">
+      <>
         {isLoggedin ? (
-          <>
-            <button className="btn"><Link to='/'>Home</Link></button>
-            <button className="btn"><Link to='/opinions'>Opinions</Link></button>
-            <button className="btn"><Link to='/opinions/create'>Create Opinion</Link></button>
-            <button className="btn"><Link to='/profile'>Profile</Link></button>
-            <button className="btn"><Link to='/statistics'>Statistics</Link></button>
-            <button onClick={logout} className="btn">Logout</button>
-            <p></p>
-          </>
+          <div className="nav">
+            <Link to='/'>Home</Link>
+            <Link to='/opinions'>Opinions</Link>
+            <Link to='/opinions/create'>Create Opinion</Link>
+            <Link to='/profile'>Profile</Link>
+            <Link to='/statistics'>Statistics</Link>
+            {/* <button onClick={logout}>Logout</button> */}
+          </div>
         ) : (
           <>
-            <button className="btn"><Link to='/login'>Login</Link></button>
-            <button className="btn"><Link to='/signup'>Signup</Link></button>
+            <button><Link to='/login'>Login</Link></button>
+            <button><Link to='/signup'>Signup</Link></button>
           </>
         )} 
-      </div>
+      </>
     );
   }
 }

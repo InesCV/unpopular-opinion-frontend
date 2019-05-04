@@ -1,0 +1,15 @@
+@import '../stylesheets/variables';
+
+.nav {
+  background-color: $primary-color;
+  margin: 0;
+  height: 2rem;;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  a {
+    padding: 0.25rem;
+    color: $white;
+  }
+}
