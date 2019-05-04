@@ -8,7 +8,7 @@ class Profile extends Component {
     const { user } = this.props
     return (
       <div>
-        <Navbar/>
+        <Navbar {...this.props}/>
         <h2>Hey {user.username}</h2>
         { user.description ? (
           <div>

@@ -8,6 +8,7 @@ class Navbar extends Component {
   render() {
     
     const { logout, isLoggedin } = this.props;
+    console.log(this.props)
   
     return (
       <>

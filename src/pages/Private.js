@@ -7,7 +7,7 @@ class Private extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
+        <Navbar {...this.props} />
         <h1>Hola {this.props.user.username}</h1>
       </div>
     );

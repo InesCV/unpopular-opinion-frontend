@@ -9,7 +9,7 @@ export default () => (
     <AuthProvider>
       <Switch>
         {routes.map(({route: Route, path, component}, key) => 
-            <Route exact path={path} component={component} key={key} />
+            <Route exact whereAmI={path} path={path} component={component} key={key} />
         )}
       </Switch>
     </AuthProvider>

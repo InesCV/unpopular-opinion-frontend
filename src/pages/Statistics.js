@@ -34,7 +34,7 @@ class Statistics extends Component {
     const { stats } = this.state;
     return (
       <>
-        <Navbar/>
+        <Navbar {...this.props}/>
         <button onClick={ this.handleClick } >Consultar</button>
         <ul>
           {console.log(stats)}

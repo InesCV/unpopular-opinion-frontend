@@ -73,12 +73,12 @@ class CreateOpinion extends Component {
       <div>
         { isLoading ? (
           <>
-            <Navbar/>
+            <Navbar {...this.props}/>
             <Spinner type={types.Spin} color={"blue"} />
           </>
           ) : (
           <>
-            <Navbar/>
+            <Navbar {...this.props}/>
             <form onSubmit={this.handleFormSubmit}>
               <label>Category:</label>
               <select

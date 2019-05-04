@@ -39,12 +39,12 @@ class Opinions extends Component {
       <>
         { isLoading ? (
           <>
-            <Navbar/>
+            <Navbar {...this.props}/>
             <Spinner type={types.Spin} color={"blue"} />
           </>
           ) : (
           <>
-            <Navbar/>
+            <Navbar {...this.props}/>
             {
               opinions.map((opinion, index) => 
                 <Card key={index} index={index} card={opinion} respond={this.onRespond} />
