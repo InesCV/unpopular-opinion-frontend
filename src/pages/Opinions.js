@@ -17,7 +17,7 @@ class Opinions extends Component {
       .then((ops) => {
         this.setState({
           isLoading: false,
-          opinions: [...ops]
+          opinions: [...ops],
         }) 
       })
       .catch((error)=> {
