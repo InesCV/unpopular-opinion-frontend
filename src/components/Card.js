@@ -4,6 +4,7 @@ import opinionService from "../lib/opinion-service";
 import statsService from "../lib/statistics-service";
 import {types as statTypes} from "../lib/stats-types";
 
+// TODO Remove
 const tryout = {
   margin: 20,
   border: "1px solid black",
@@ -23,7 +24,7 @@ export default ({op, respond, index}) => {
   return (
   <div style={tryout}>
     <p><span>Category: </span>{op.category}</p>
-    <p><span>By: </span>{op.author.username}</p>
+    { op.author.username ? (<p><span>By: </span>{op.author.username}</p>) : (<p></p>)}
     <p>{op.question}</p>
     <div className="d-flex justify-content-around mt-3">
       <button className="btn btn-primary" onClick={(e)=> {resAction('x')}}>{op.response.x}</button>

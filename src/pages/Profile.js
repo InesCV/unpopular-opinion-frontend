@@ -2,10 +2,17 @@ import React, { Component } from "react";
 
 import { withAuth } from "../lib/AuthProvider";
 import opinionService from "../lib/opinion-service";
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import Card from '../components/Card';
 import Spinner from "../components/Spinner";
 import {types} from "../lib/spiner-types";
 
+// TODO Remove
+const tryout = {
+  margin: 20,
+  border: "1px solid black",
+  padding: 20
+};
 
 class Profile extends Component {
   state = {
@@ -16,7 +23,6 @@ class Profile extends Component {
   componentDidMount() {
     opinionService.user()
       .then((ops) => {
-        console.log(ops)
         this.setState({
           isLoading: false,
           opinions: [...ops],
@@ -41,18 +47,16 @@ class Profile extends Component {
         </>) : 
         (<div className="container">
           <h2 className="pt-3">Hey {user.username}</h2>
-          { user.description ? (
-            <div>
-              <p>Your description {user.description}</p>
-              <p>Those are your statistics</p>
-            </div>
-          ) : (
-            <div>
-              <p>You should upload a description</p>
-              <p>Those are your stadistics</p>
-            </div>
-          )}
-          <button className="btn btn-primary mt-2" onClick={logout}>Logout</button>
+          { user.description ? (<p>Your description {user.description}</p>) : (<p>You should upload a description</p>)}
+          { opinions ? 
+          (<>
+            {
+              opinions.map((opinion, index) => 
+                <Card key={index} index={index} op={opinion} respond={this.onRespond} />
+              )
+            }
+          </>) : (<p>You should upload a description</p>)}
+          <div className="d-flex justify-content-center pt-2 pb-3"><button className="btn btn-primary" onClick={logout}>Logout</button></div>
         </div>)
         }
       </>
