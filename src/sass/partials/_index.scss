@@ -1,9 +1,10 @@
-@import './variables';
+@import '../stylesheets/variables';
 
 // All the main presets of the account wil be here
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Raleway', 'Quicksand', sans-serif;
+  // font-family: 'Eina03', '-apple-system', 'BlinkMacSystemFont', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 h1 {
@@ -21,8 +22,16 @@ h3 {
   margin: 0.25rem;
 }
 
+p {
+  font-size: 1em;
+}
+
 span {
-  color: $principal;
+  color: $primary-color;
+}
+
+a {
+  color: black;
 }
 
 .cnt-pos {

@@ -26,8 +26,8 @@ export default ({card, respond, index}) => {
     <p>Category: {card.category}</p>
     <p>By: {card.author.username}</p>
     <p>Question: {card.question}</p>
-    <button onClick={(e)=> {resAction('x')}}>{card.response.x}</button>
-    <button onClick={(e)=> {resAction('y')}}>{card.response.y}</button>
+    <button className="btn btn-primary" onClick={(e)=> {resAction('x')}}>{card.response.x}</button>
+    <button className="btn btn-primary" onClick={(e)=> {resAction('y')}}>{card.response.y}</button>
   </div>
   )
 }

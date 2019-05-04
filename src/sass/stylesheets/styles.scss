@@ -1,5 +1,6 @@
-@import '../mixins/reset';
-@import '../mixins/index';
-@import '../mixins/variables';
-@import '../mixins/navbar';
-@import '../mixins/button';
+@import '../partials/reset';
+@import '../partials/index';
+@import './variables';
+@import '../partials/flexbox';
+@import '../partials/navbar';
+@import '../partials/button';
