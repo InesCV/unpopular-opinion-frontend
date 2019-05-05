@@ -28,6 +28,12 @@
   height: 50vh;
 }
 
+.header {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
 .bg-micro {
   background-image: url('https://images.pexels.com/photos/33970/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   color: $white;
@@ -40,4 +46,21 @@
   background-position: center; 
 }
 
+.device-container {
+  // max-width: 325px;
+  // max-height: 725px;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 500px;
+}
+
+.device {
+  max-width: 325px;
+  max-height: 500px;
+}
+
+.h4-des {
+  max-width: 400px;
+  text-align: center;
+}
 
