@@ -46,6 +46,12 @@
   background-position: center; 
 }
 
+.bg-yellow {
+  background-color: $mustard;
+  color: $black;
+  background-position: center; 
+}
+
 .device-container {
   // max-width: 325px;
   // max-height: 725px;
@@ -59,8 +65,18 @@
   max-height: 500px;
 }
 
-.h4-des {
+.des {
   max-width: 400px;
   text-align: center;
 }
+
+.center {
+  text-align: center;
+  align-items: center;
+}
+
+.color-primary {
+  color: $primary-color;
+}
+
 

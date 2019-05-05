@@ -14,7 +14,7 @@ class App extends Component {
             <header className="d-flex flex-wrap container">
               <div className= "d-flex flex-column justify-content-center align-items-center pb-4">
                 <h1 className="pt-5 pb-3">Unpopular Opinion</h1>
-                <h4 className="h4-des mb-3">It’s a Social Network to see how popular are your thoughts within a community</h4>
+                <h4 className="des mb-3">It’s a Social Network to see how popular are your thoughts within a community</h4>
                 <Link className="btn btn-white" to='/signup'>Signup</Link>
               </div>
               <div className="device-container">
@@ -24,10 +24,18 @@ class App extends Component {
               </div>
             </header>
           </header>
-          <div className="jumbotron mid-height">
-            <div className="container">
-              <h1 className="pt-5 pb-3">Swipe & Share</h1>
-              <h4>Don't be afraid to ask the most random questions, the community will answer them for you</h4>
+          <div className="jumbotron bg-yellow mid-height d-flex justify-content-center center">
+            <div className="container des">
+              <h1 className="pb-2 color-primary">Swipe & Share</h1>
+              <h3 className="pb-3">Discover what all the <span>buzz</span> is about!</h3>
+              <p>Don't be afraid to ask the most random questions, the community will answer them for you</p>
+            </div>
+          </div>
+          <div className="jumbotron mid-height d-flex justify-content-center center">
+            <div className="container des">
+              <h1 className="color-principal pb-2">Swipe & Share</h1>
+              <h3 className="pb-3">Discover what all the buzz is about!</h3>
+              <p>Don't be afraid to ask the most random questions, the community will answer them for you</p>
             </div>
           </div>
           <div className="jumbotron bg-about mid-height">
