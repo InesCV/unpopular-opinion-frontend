@@ -33,15 +33,17 @@ class App extends Component {
           </div>
           <div className="jumbotron mid-height d-flex justify-content-center center">
             <div className="container des">
-              <h1 className="color-principal pb-2">Swipe & Share</h1>
-              <h3 className="pb-3">Discover what all the buzz is about!</h3>
-              <p>Don't be afraid to ask the most random questions, the community will answer them for you</p>
+              <h1 className="color-principal pb-2">¡¡Aquí va la Demo!!</h1>
+              <p>Here you can find a small taste of how the platform works</p>
             </div>
           </div>
-          <div className="jumbotron bg-about mid-height">
-            <div className="container">
+          <div className="jumbotron bg-about mid-height d-flex justify-content-center center">
+            <div className="container des index-1">
               <h1 className="pt-5 pb-3">About us</h1>
-              <h4>It’s a Social Network to see how popular are your thoughts within a community</h4>
+              <h4>We are just trying to get some answers. If we have to create an platform to do so... <span>Unpopular Opinion</span> it is.</h4>
+            </div>
+            <div className="overlay">
+
             </div>
           </div>
         </>
