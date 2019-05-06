@@ -28,6 +28,7 @@ class Navbar extends Component {
           <div className="nav">
             <Link to='/profile'>Profile</Link>
             <Link to='/opinions/create'>Create Opinion</Link>
+            <Link to='/statistics'>Stats</Link>
           </div>
         );
       case '/profile':
@@ -43,6 +44,7 @@ class Navbar extends Component {
             <Link to='/opinions'>Opinions</Link>
             <Link to='/opinions/create'>Create Opinion</Link>
             <Link to='/profile'>Profile</Link>
+            <Link to='/statistics'>Stats</Link>
           </div>
         )
     }
