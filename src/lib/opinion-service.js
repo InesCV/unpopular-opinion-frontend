@@ -38,11 +38,11 @@ class Opinion {
       .then(({ data }) => data)
   }
 
-  user() {
-    return this.opinionConnect
-      .get('opinions/user')
-      .then(({ data }) => data)
-  }
+  // user() {
+  //   return this.opinionConnect
+  //     .get('opinions/user')
+  //     .then(({ data }) => data)
+  // }
 }
 
 const opinionService = new Opinion();

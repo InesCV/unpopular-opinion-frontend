@@ -101,7 +101,7 @@ class AuthProvider extends Component {
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     return isLoading ? (
-      <Spinner type={types.Spin} color={"blue"} />
+      <Spinner type={types.Spin} color={"black"} />
     ) : (
       <Provider
         value={{

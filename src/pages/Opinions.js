@@ -40,7 +40,7 @@ class Opinions extends Component {
         <Navbar {...this.props}/>
         { isLoading ? 
         (<>
-          <Spinner type={types.Spin} color={"blue"} />
+          <Spinner type={types.Spin} color={"black"} />
         </>) : 
         (<>
           {
