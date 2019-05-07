@@ -31,7 +31,6 @@
 .header {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .bg-micro {
@@ -44,19 +43,20 @@
   background-image: url("/img/UOP-team.png");
   background-color: $black;
   color: $white;
-  background-position: center;
+  background-position: 50% 35%;
   background-size: cover;
   background-blend-mode: screen;
   position: relative;
   
-  @media only screen and (max-width: 500px) {
-    background-position: 50% 20%;
+  @media only screen and (min-width: 600px) {
+    background-position: center;
   }
 
   &:hover{
     background-color: $primary-color;
   }
 }
+
 
 .bg-yellow {
   background-color: $mustard;
@@ -67,7 +67,6 @@
 .device-container {
   margin-right: auto;
   margin-left: auto;
-  min-height: 500px;
 }
 
 .device {

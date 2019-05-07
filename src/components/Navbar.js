@@ -58,7 +58,7 @@ class Navbar extends Component {
             { this.navPath(path) }
           </div>
         ) : (
-          <div className="nav">
+          <div className="nav-home">
             <Link to='/login'>Login</Link>
             <Link to='/signup'>Signup</Link>
           </div>
