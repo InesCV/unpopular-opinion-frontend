@@ -33,10 +33,10 @@ class Statistics extends Component {
     const paco = '5ccdb0d17427b04330d41997';
 
     const query = {
-      type: 'category',
-      // opinion: dinosaurios,
-      category: 'Food',
-      // user: paco,
+      type: 'user',
+      // opinion: suicidas,
+      // category: 'Philosoraptor',
+      // user: ines,
     };
 
 
