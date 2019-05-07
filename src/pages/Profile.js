@@ -37,7 +37,7 @@ class Profile extends Component {
         <Navbar {...this.props}/>
         { isLoading ? 
         (<>
-          <Spinner type={types.Spin} color={"black"} />
+          <Spinner type={types.Spin} color={"blue"} />
         </>) : 
         (<div className="container">
           <h2 className="pt-3">Hey {user.username}</h2>

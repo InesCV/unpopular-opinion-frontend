@@ -7,7 +7,7 @@ import Spinner from "../components/Spinner";
 import {types} from "../lib/spiner-types";
 import UserUOPs from "../components/UserUOPs";
 
-class Profile extends Component {
+class User extends Component {
   state = {
     isLoading: true,
     user: {}
@@ -53,4 +53,4 @@ class Profile extends Component {
   }
 }
 
-export default withAuth(Profile);
+export default withAuth(User);
