@@ -35,6 +35,7 @@ class Navbar extends Component {
           <div className="nav">
             <Link to='/opinions'>Opinions</Link>
             <Link to='/opinions/create'>Create Opinion</Link>
+            <Link to='/statistics'>Stats</Link>
           </div>
         );
       default:
