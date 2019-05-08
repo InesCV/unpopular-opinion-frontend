@@ -15,10 +15,10 @@ class User extends Component {
 
   componentDidMount() {
     userService.user('5cc4be8ecffd381f71d9761d')
-      .then((data) => {
+      .then(({user}) => {
         this.setState({
           isLoading: false,
-          user: data.user,
+          user,
         }) 
       })
       .catch((error)=> {

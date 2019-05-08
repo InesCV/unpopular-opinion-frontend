@@ -40,6 +40,11 @@ const routes = [
     component: Profile,
   },
   {
+    route: PrivateRoute,
+    path: '/user',
+    component: Users,
+  },
+  {
     route: Route,
     path: '/opinions',
     component: Opinions,
@@ -58,11 +63,6 @@ const routes = [
     route: Route,
     path: '/statistics',
     component: Statistics,
-  },
-  {
-    route: Route,
-    path: '/user',
-    component: Users,
   },
   {
     route: Route,

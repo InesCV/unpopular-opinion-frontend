@@ -1,136 +1,21 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
-import opinionService from "../lib/opinion-service";
-import {types} from "../lib/spiner-types";
 import Navbar from "../components/Navbar";
-import Spinner from "../components/Spinner";
+import CategorySelect from "../components/CategorySelect";
+import OpinionForm from "../components/OpinionForm";
 
-class CreateOpinion extends Component {
-  state = {
-    isLoading: true,
-    categories: [],
-    category: undefined,
-    question: "",
-    responseX: "",
-    responseY: "",
-    // response: {
-    //   x: "",
-    //   y: "",
-    // }
-  };
+export default (props) => {
+  const [category, setCategory] = useState(undefined);
+  const [opinion, setOpinion] = useState({ question: "", responseX: "", responseY: "" });
 
-  componentDidMount() {
-    opinionService.categories()
-      .then(cat => {
-        this.setState({
-          isLoading: false,
-          categories: [...cat],
-        })
-      }) 
-      .catch((error)=> {
-        console.log('Categories Not Found from the Schema')
-        console.log(error);
-      });
-  }
 
-  createOpinion( category, question, responseX, responseY ) {
-    const newOpinion = { 
-      category, 
-      question, 
-      response: {
-        x: responseX,
-        y: responseY,
-      } 
-    };
-    opinionService.create(newOpinion)
-      .then((createdOpinon) => console.log(createdOpinon))
-      .catch((error) => {
-        console.log("Oh shit! I can't create an opinion")
-        console.log(error)
-      })
-  }
+  return (
+    <div>
+      <Navbar {...props}/>
+      {
+        category? <OpinionForm createOpinion={setOpinion} /> : <CategorySelect selected={setCategory}/>
+      }
+    </div>
+  );
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    const { category, question, responseX, responseY } = this.state;
-    category ? this.createOpinion( category, question, responseX, responseY ) : console.log('Falta la categoría');
-    this.setState({
-      category: undefined,
-      question: "",
-      responseX: "",
-      responseY: "",
-    })
-  };
-
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
-
-  render() {
-    const { isLoading, categories, category, question, responseX, responseY } = this.state;
-    return (
-      <div>
-        <Navbar {...this.props}/>
-        { isLoading ? (
-          <>
-            <Spinner type={types.Spin} color={"black"} />
-          </>
-          ) : (
-          <>
-            <form className="container pt-3" onSubmit={this.handleFormSubmit}>
-              <label>Category:</label>
-              <select
-                name="category"
-                value={category}
-                onChange={this.handleChange}
-              >
-                <option value="select">- Select your category -</option>
-                { categories.map((category, index) => {
-                  return <option key={index} value={category}>{category}</option>
-                })}
-              </select>
-              <br></br>
-              { category ? (
-              <div>
-                <label>Question:</label>
-                <input className="form-control"
-                  type="text"
-                  maxLength="140"
-                  name="question"
-                  value={question}
-                  onChange={this.handleChange}
-                />
-                <br></br>
-                <label>First response:</label>
-                <input
-                  type="text"
-                  maxLength="15"
-                  name="responseX"
-                  value={responseX}
-                  onChange={this.handleChange}
-                />
-                <br></br>
-                <label>Second response:</label>
-                <input
-                  type="text"
-                  maxLength="15"
-  
-                  name="responseY"
-                  value={responseY}
-                  onChange={this.handleChange}
-                />
-                <br></br>
-                <input type="submit" value="Create opinion" />
-              </div> ) : 
-              <></>
-              }
-            </form>
-          </>
-        )}
-      </div>
-    );
-  }
 }
-
-export default CreateOpinion;
