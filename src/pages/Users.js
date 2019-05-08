@@ -14,7 +14,7 @@ class User extends Component {
   }
 
   componentDidMount() {
-    userService.user('5cc4be8ecffd381f71d9761d')
+    userService.user('5cbf65dd62fad57dada0ec51')
       .then(({user}) => {
         this.setState({
           isLoading: false,
@@ -22,7 +22,7 @@ class User extends Component {
         }) 
       })
       .catch((error)=> {
-        console.log("Couldn't get the user");
+        console.log("Couldn't get the user information from API.");
         console.log(error);
       });
   }

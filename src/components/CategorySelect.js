@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import opinionService from "../lib/opinion-service";
 import {types} from "../lib/spiner-types";
@@ -18,12 +18,7 @@ export default ({selected}) => {
       console.log("Categories couldn't be download from the API");
       console.log(error);
     });
-   }, [isLoading]);
-
-  const handleFormSubmit = e => {
-    e.preventDefault();
-    selected(() => e.target.category );
-  };
+   }, []);
 
   return (
     <div>
@@ -32,18 +27,12 @@ export default ({selected}) => {
             <Spinner type={types.Spin} color={"blue"} />
           : 
             (
-              <form className="container pt-3" onSubmit={handleFormSubmit}>
-              <label>Category:</label>
-              <select
-                name="category"
-              >
-                <option value="select">- Select your category -</option>
-                { categories.map((category, index) => {
-                  return <option key={index} value={category}>{category}</option>
-                })}
-              </select>
-              <input type="submit" value="Create opinion" />
-              </form>
+              categories.map((category, index) => 
+                <>
+                <br></br>
+                <button key={index} onClick={() => selected(category)}>{category}</button>
+                </>
+              )
             )
       }
     </div>
