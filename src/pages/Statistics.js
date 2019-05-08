@@ -2,9 +2,7 @@ import React, { Component } from "react";
 
 import { withAuth } from "../lib/AuthProvider";
 import statsService from "../lib/statistics-service";
-// import {types} from "../lib/spiner-types";
 import Navbar from "../components/Navbar";
-// import Spinner from "../components/Spinner";
 
 class Statistics extends Component {
   state = {
@@ -12,11 +10,6 @@ class Statistics extends Component {
   }
 
   handleClick = (e) => {
-    // const query = {
-    //   category: 'Sex',
-    //   user: 'Jdej',
-    //   opinion: 'Opinion',
-    // };
 
     const dinosaurios = '5cc60f3fc17169fbfedd3ea5';
     const suicidas = '5ccbff34a54250552074284d';

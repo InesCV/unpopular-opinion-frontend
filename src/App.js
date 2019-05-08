@@ -9,14 +9,16 @@ class App extends Component {
   render() {
     return (
         <>
-          <div className="jumbotron bg-micro full-height">
+          <header className="jumbotron bg-micro">
             <Navbar {...this.props}/>
-            <div className="mt-5 pt-5 container cnt-pos flex-column">
-              <h1 className="pt-5 pb-3">Unpopular Opinion</h1>
-              <h4 className="mb-3">It’s a Social Network to see how popular are your thoughts within a community</h4>
-              <Link className="btn btn-white" to='/signup'>Signup</Link>
-            </div>
-          </div>
+            <header className="d-flex flex-wrap">
+              <div className= "d-flex flex-column justify-content-center align-items-center pb-4 flex-grow-1 container">
+                <h1 className="des pt-5 pb-3">Unpopular Opinion</h1>
+                <h4 className="des mb-3">It’s a Social Network to see how popular are your thoughts within a community</h4>
+                <Link className="btn btn-white" to='/signup'>Signup</Link>
+              </div>
+            </header>
+          </header>
         </>
     );
   }

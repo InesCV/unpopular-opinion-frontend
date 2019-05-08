@@ -11,6 +11,7 @@ import Opinions from "../pages/Opinions";
 import CreateOpinion from "../pages/CreateOpinion";
 import Statistics from "../pages/Statistics";
 import NotFound from '../pages/NotFound';
+import Users from '../pages/Users';
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     route: PrivateRoute,
     path: '/profile',
     component: Profile,
+  },
+  {
+    route: PrivateRoute,
+    path: '/user',
+    component: Users,
   },
   {
     route: Route,

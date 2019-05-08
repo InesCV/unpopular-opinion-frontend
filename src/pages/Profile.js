@@ -2,19 +2,19 @@ import React, { Component } from "react";
 
 import { withAuth } from "../lib/AuthProvider";
 import opinionService from "../lib/opinion-service";
+import {types} from "../lib/spiner-types";
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
-import {types} from "../lib/spiner-types";
 import UserUOPs from "../components/UserUOPs";
 
 class Profile extends Component {
   state = {
-    isLoading: true,
+    isLoading: false,
     opinions: []
   }
 
   componentDidMount() {
-    opinionService.user()
+    opinionService.notResponded()
       .then((ops) => {
         this.setState({
           isLoading: false,
@@ -43,7 +43,7 @@ class Profile extends Component {
           { user.description ? (<p>Your description {user.description}</p>) : (<p>You should upload a description</p>)}
           { opinions ? 
           (<>
-            {
+            { 
               opinions.map((opinion, index) => 
                 <UserUOPs key={index} index={index} op={opinion} respond={this.onRespond} />
               )

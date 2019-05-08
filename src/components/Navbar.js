@@ -36,6 +36,7 @@ class Navbar extends Component {
           <div className="nav">
             <Link to='/opinions'>Opinions</Link>
             <Link to='/opinions/create'>Create Opinion</Link>
+            <Link to='/statistics'>Stats</Link>
           </div>
         );
       default:
@@ -60,7 +61,7 @@ class Navbar extends Component {
             { this.navPath(path) }
           </div>
         ) : (
-          <div className="nav">
+          <div className="nav-home">
             <Link to='/login'>Login</Link>
             <Link to='/signup'>Signup</Link>
           </div>

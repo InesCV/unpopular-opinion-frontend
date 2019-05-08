@@ -10,6 +10,10 @@
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .justify-content-center {
   justify-content: center;
 }
@@ -32,4 +36,16 @@
 
 .align-items-center {
   align-items: center;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.flex-grow-2 {
+  flex-grow: 2;
+}
+
+.text-center {
+  text-align: center;
 }
