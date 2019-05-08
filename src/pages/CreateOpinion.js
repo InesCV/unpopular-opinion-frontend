@@ -31,15 +31,11 @@ export default (props) => {
     }
   }, [opinion]);
 
-  console.log(props)
-
   return (
     <div>
       <Navbar {...props}/>
       {
-        category? <OpinionForm sendOpinion={setOpinion}/> 
-        : 
-        <CategorySelect selected={setCategory}/>
+        category? <OpinionForm sendOpinion={setOpinion}/> : <CategorySelect selected={setCategory}/>
       }
     </div>
   );

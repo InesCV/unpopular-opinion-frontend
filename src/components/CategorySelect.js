@@ -23,7 +23,7 @@ export default ({selected}) => {
   return (
     <div>
       {
-        (categories.length <= 0)? 
+        (isLoading)? 
             <Spinner type={types.Spin} color={"blue"} />
           : 
             (
