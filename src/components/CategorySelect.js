@@ -30,7 +30,7 @@ export default ({selected}) => {
               categories.map((category, index) => 
                 <>
                 <br></br>
-                <button key={index} onClick={() => selected(category)}>{category}</button>
+                <button className="btn btn-primary mt-2 ml-4" key={index} onClick={() => selected(category)}>{category}</button>
                 </>
               )
             )
