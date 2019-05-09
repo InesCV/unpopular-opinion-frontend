@@ -11,12 +11,12 @@ import userService from "../lib/user-service";
 
 class Profile extends Component {
   state = {
-    isLoading: false,
+    isLoading: true,
     user: {}
   }
 
   componentDidMount() {
-    userService.user()
+    userService.profile()
       .then(({user}) => {
         this.setState({
           isLoading: false,

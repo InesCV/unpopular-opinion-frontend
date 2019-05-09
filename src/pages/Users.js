@@ -14,7 +14,7 @@ class User extends Component {
   }
 
   componentDidMount() {
-    userService.user('5cbf65dd62fad57dada0ec51')
+    userService.user(this.props.location.state.id)
       .then(({user}) => {
         this.setState({
           isLoading: false,
@@ -29,7 +29,7 @@ class User extends Component {
 
   render() {
     const { isLoading, user } = this.state;
-    const { opinions } = user;
+    const { opinions } = user;    
 
     return (
       <>

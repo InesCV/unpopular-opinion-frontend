@@ -32,7 +32,6 @@ class Statistics extends Component {
       // user: ines,
     };
 
-
     statsService.query(query)
       .then((stats) => {
         this.setState({
