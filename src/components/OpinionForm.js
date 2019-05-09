@@ -39,7 +39,7 @@ export default ({sendOpinion}) => {
         onChange={e => setResponseY(e.target.value)}
       />
       <br></br>
-      <input type="submit" value="Create opinion" />
+      <input className="btn btn-primary" type="submit" value="Create opinion" />
     </form>
   );
 }

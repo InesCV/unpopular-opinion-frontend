@@ -5,14 +5,14 @@ import {types} from "../lib/spiner-types";
 import Spinner from "../components/Spinner";
 
 export default ({selected}) => {
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => { 
     opinionService.categories()
     .then(cat => {
       setCategories ([...cat]);
-      setisLoading (false);
+      setIsLoading (false);
     }) 
     .catch((error)=> {
       console.log("Categories couldn't be download from the API");
@@ -27,12 +27,11 @@ export default ({selected}) => {
             <Spinner type={types.Spin} color={"blue"} />
           : 
             (
-              categories.map((category, index) => 
-                <>
-                <br></br>
-                <button key={index} onClick={() => selected(category)}>{category}</button>
-                </>
-              )
+              <div className="d-flex flex-wrap">
+                {categories.map((category, index) => 
+                    <button className="btn btn-primary mt-3 ml-4" key={index} onClick={() => selected(category)}>{category}</button>
+                )}
+              </div>
             )
       }
     </div>

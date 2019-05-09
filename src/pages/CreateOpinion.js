@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import CategorySelect from "../components/CategorySelect";
 import OpinionForm from "../components/OpinionForm";
 
-export default (props) => {
+const CreateOpinion = (props) => {
   const [category, setCategory] = useState(undefined);
   const [opinion, setOpinion] = useState(undefined);
   
@@ -40,3 +40,5 @@ export default (props) => {
     </div>
   );
 }
+
+export default CreateOpinion;

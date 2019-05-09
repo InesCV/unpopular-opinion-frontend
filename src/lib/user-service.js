@@ -12,6 +12,12 @@ class User {
     return this.userConnect
       .get(`users/${id}`)
       .then(({ data }) => data)
+  };
+
+  profile() {
+    return this.userConnect
+      .get(`users`)
+      .then(({ data }) => data)
   }
 }
 
