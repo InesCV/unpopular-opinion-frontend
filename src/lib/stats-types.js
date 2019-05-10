@@ -1,5 +1,6 @@
 export const types = {
   category: 'category', // avg de todos los usuarios que han respondido lo mismo que user para cada opinion de esa category
+  categoryRate: 'categoryRate', // avg de todos los usuarios que han respondido lo mismo que user para cada category
   opinion: 'opinion', // avg de las respuestas a una opinion y además devuelve un array con los usuarios que han respondido a esa opinion
   opinionRate: 'opinionRate', // avg de los que han respondido lo mismo que el usuario
   opinionScore: 'opinionScore', // avg de las respuestas a una opinion
