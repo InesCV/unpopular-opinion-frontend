@@ -10,12 +10,6 @@ class Statistics extends Component {
   }
 
   handleClick = (e) => {
-    // const query = {
-    //   category: 'Sex',
-    //   user: 'Jdej',
-    //   opinion: 'Opinion',
-    // };
-
     const dinosaurios = '5cc60f3fc17169fbfedd3ea5';
     const suicidas = '5ccbff34a54250552074284d';
     const messi = '5ccbff62a54250552074284e';
@@ -31,10 +25,11 @@ class Statistics extends Component {
     const paco = '5ccdb0d17427b04330d41997';
 
     const query = {
-      type: 'user',
+      type: 'matchRate',
       // opinion: suicidas,
       // category: 'Philosoraptor',
       // user: ines,
+      userMatch: ines,
     };
 
     statsService.query(query)

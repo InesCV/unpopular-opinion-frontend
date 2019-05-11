@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 import {types} from "../lib/spiner-types";
 import UserUOPs from "../components/UserUOPs";
+import UserRate from "../components/UserRate";
 
 class User extends Component {
   state = {
@@ -38,6 +39,7 @@ class User extends Component {
         (<div className="container">
           <h2 className="pt-3">{user.username}'s Profile</h2>
           <p> {user.description}</p>
+          <UserRate user={this.props.location.state.id} />
           { opinions ? 
           (<>
             {

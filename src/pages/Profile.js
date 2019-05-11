@@ -7,12 +7,12 @@ import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 import UserUOPs from "../components/UserUOPs";
 import userService from "../lib/user-service";
-
+import UserRate from "../components/UserRate";
 
 class Profile extends Component {
   state = {
     isLoading: true,
-    user: {}
+    user: {},
   }
 
   componentDidMount() {
@@ -44,6 +44,7 @@ class Profile extends Component {
         (<div className="container">
           <h2 className="pt-3">Hey {user.username}</h2>
           { user.description ? (<p>Your description {user.description}</p>) : (<p>You should upload a description</p>)}
+          <UserRate user={user._id} />
           { user.opinions ? 
           (<>
             { 

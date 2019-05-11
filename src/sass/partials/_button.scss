@@ -32,3 +32,14 @@
     border-color: $primary-color;
   }
 }
+
+.btn-black {
+  color: $black;
+  background-color: transparent;
+  border-color: $black;
+
+  &:hover {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+}
