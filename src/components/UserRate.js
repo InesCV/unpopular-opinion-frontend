@@ -38,7 +38,6 @@ const UserRate = ({user}) => {
       user,
     })
     .then(stat => {
-      console.log(stat.stats.avg)
       setCategoryStat (stat.stats.avg);
       setIsLoading (false);
     }) 
@@ -59,8 +58,8 @@ const UserRate = ({user}) => {
           <div>
             { categoryStat ? ( 
               <>
-                { categoryStat.map((category) => 
-                  <div style={tryout}>
+                { categoryStat.map((category, index) => 
+                  <div style={tryout} key={index}>
                     <p>Category: {category.category}</p>
                     <p>Your popularity: {category.percent}%</p>
                     <p>From: {category.totalOpinions} users</p>
