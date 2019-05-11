@@ -7,13 +7,14 @@ import {types as statTypes} from "../lib/stats-types";
 import Card from '../components/Card';
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
-import OpinionScore from "../components/OpinionScore";
+import OpinionRate from "../components/OpinionRate";
 
 class Opinions extends Component {
   state = {
     isLoading: true,
     opinions: [],
     responded: false,
+    lastStat: null,
   }
 
   componentDidMount() {
@@ -41,6 +42,7 @@ class Opinions extends Component {
     this.setState({
         opinions: this.state.opinions,
         responded: true,
+        lastStat: stat,
       })
   }
 
@@ -51,10 +53,10 @@ class Opinions extends Component {
   }
 
   render() {
-    const { isLoading, opinions, responded } = this.state;
+    const { isLoading, opinions, responded, lastStat } = this.state;
     return (
       <>
-        { responded ? <OpinionScore skip={this.skip} /> : <></> }
+        { responded ? <OpinionRate skip={this.skip} stat={lastStat} /> : <></> }
         <Navbar {...this.props}/>
         { isLoading ? 
         (<>
