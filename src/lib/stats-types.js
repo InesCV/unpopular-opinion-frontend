@@ -6,4 +6,5 @@ export const types = {
   opinionScore: 'opinionScore', // avg de las respuestas a una opinion
   user: 'user', // avg por response de las response del usuario
   userRate: 'userRate', // avg del usuario en la comunidad
+  matchRate: 'machRate', // total mach percent of two users
 }
