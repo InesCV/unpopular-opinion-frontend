@@ -10,7 +10,7 @@ class Statistics {
 
   query(query) {
     return this.statisticsConnect
-      .post('statistics', query)
+      .post('/statistics', query)
       .then(({ data }) => data)
   }
 }
