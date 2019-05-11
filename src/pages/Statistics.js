@@ -25,10 +25,11 @@ class Statistics extends Component {
     const paco = '5ccdb0d17427b04330d41997';
 
     const query = {
-      type: 'userRate',
+      type: 'matchRate',
       // opinion: suicidas,
       // category: 'Philosoraptor',
       // user: ines,
+      userMatch: ines,
     };
 
     statsService.query(query)

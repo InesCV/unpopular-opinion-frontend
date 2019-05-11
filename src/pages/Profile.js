@@ -44,7 +44,7 @@ class Profile extends Component {
         (<div className="container">
           <h2 className="pt-3">Hey {user.username}</h2>
           { user.description ? (<p>Your description {user.description}</p>) : (<p>You should upload a description</p>)}
-          <UserRate user={user} />
+          <UserRate user={user._id} />
           { user.opinions ? 
           (<>
             { 
