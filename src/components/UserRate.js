@@ -37,7 +37,8 @@ const UserRate = ({user}) => {
     .catch((error)=> {
       console.log("The statistics per category couldn't be downloaded from the API");
       console.log(error);
-    });   }
+    });   
+  }
 
   
   return (

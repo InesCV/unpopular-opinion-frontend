@@ -7,6 +7,7 @@ import Spinner from "../components/Spinner";
 import {types} from "../lib/spiner-types";
 import UserUOPs from "../components/UserUOPs";
 import UserRate from "../components/UserRate";
+import MatchRate from "../components/MatchRate";
 
 class User extends Component {
   state = {
@@ -40,6 +41,7 @@ class User extends Component {
           <h2 className="pt-3">{user.username}'s Profile</h2>
           <p> {user.description}</p>
           <UserRate user={this.props.location.state.id} />
+          <MatchRate userId={this.props.location.state.id} username={user.username}/>
           { opinions ? 
           (<>
             {

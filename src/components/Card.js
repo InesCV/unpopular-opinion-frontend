@@ -1,13 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-// TODO Remove
-const tryout = {
-  margin: 20,
-  border: "1px solid black",
-  padding: 20
-};
-
 export default ({op, respond, index}) => {
   return (
   <div className="card-tryout">
