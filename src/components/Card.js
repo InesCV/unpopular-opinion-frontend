@@ -10,7 +10,7 @@ const tryout = {
 
 export default ({op, respond, index}) => {
   return (
-  <div style={tryout}>
+  <div className="card-tryout">
     <p><span>Category: </span>{op.category}</p>
     {/* { op.author.username ? (<p><span>By: </span><Link to={{pathname: `/user/${op.author._id}`}}>{op.author.username}</Link></p>) : (<p></p>)} */}
     { op.author.username ? (<p>By: <Link 

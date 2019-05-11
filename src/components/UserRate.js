@@ -5,13 +5,6 @@ import Spinner from "../components/Spinner";
 import {types} from "../lib/spiner-types";
 import {types as statTypes} from "../lib/stats-types";
 
-// TODO Remove
-const tryout = {
-  margin: 20,
-  border: "1px solid black",
-  padding: 20
-};
-
 const UserRate = ({user}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [stat, setStat] = useState(undefined);
@@ -42,7 +35,7 @@ const UserRate = ({user}) => {
       setIsLoading (false);
     }) 
     .catch((error)=> {
-      console.log("User statistics couldn't be downloaded from the API");
+      console.log("The statistics per category couldn't be downloaded from the API");
       console.log(error);
     });   }
 
@@ -59,7 +52,7 @@ const UserRate = ({user}) => {
             { categoryStat ? ( 
               <>
                 { categoryStat.map((category, index) => 
-                  <div style={tryout} key={index}>
+                  <div className="card-tryout" key={index}>
                     <p>Category: {category.category}</p>
                     <p>Your popularity: {category.percent}%</p>
                     <p>From: {category.totalOpinions} users</p>
@@ -67,7 +60,7 @@ const UserRate = ({user}) => {
                   <button className="btn btn-black" onClick={() => setCategoryStat(undefined)}>Back to general stat</button>
               </>
 
-            ) : <><p>Your opinions are <button className="btn btn-black" onClick={statPerCategory}>{stat}%</button> popular</p></>}
+            ) : <><p>Popularity score: <button className="btn btn-black" onClick={statPerCategory}>{stat}%</button></p></>}
           </div>
         </>
         )

@@ -9,7 +9,7 @@ const tryout = {
 
 export default ({op}) => {
   return (
-  <div style={tryout}>
+  <div className="card-tryout">
     <p>{op.question}</p>
     <div className="d-flex justify-content-around mt-3">
       <div>
