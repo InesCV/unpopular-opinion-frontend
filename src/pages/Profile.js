@@ -23,7 +23,8 @@ class Profile extends Component {
         this.setState({
           isLoading: false,
           user,
-        }) 
+        })
+        console.log(this.state.user) 
       })
       .catch((error)=> {
         console.log("Couldn't get the user information from API.");
@@ -46,8 +47,8 @@ class Profile extends Component {
         (<div className="container">
           <h2 className="pt-3">Hey {user.username}</h2>
           { user.description ? (<p>Your description {user.description}</p>) : (<p>You should upload a description</p>)}
-          <UserRate user={user._id} />
-          { user.opinions ? 
+          <UserRate userId={user._id} />
+          { user.opinions.length > 0 ? 
           (<>
             { 
               user.opinions.map((opinion, index) => 

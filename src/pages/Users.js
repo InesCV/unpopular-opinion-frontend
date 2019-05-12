@@ -42,7 +42,7 @@ class User extends Component {
         (<div className="container">
           <h2 className="pt-3">{user.username}'s Profile</h2>
           <p> {user.description}</p>
-          <UserRate user={this.props.location.state.id} />
+          <UserRate userId={this.props.location.state.id} />
           <MatchRate userId={this.props.location.state.id} username={user.username}/>
           { opinions ? 
           (<>

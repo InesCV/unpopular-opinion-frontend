@@ -7,19 +7,24 @@ import statsService from '../lib/statistics-service';
 
 import Spinner from "../components/Spinner";
 
-const UserRate = ({user}) => {
+const UserRate = ({userId}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [stat, setStat] = useState(undefined);
   const [categoryStat, setCategoryStat] = useState(undefined);
-
+  
   useEffect(() => { 
+    console.log(userId)
     statsService.query({
       type: statTypes.USER_RATE,
-      user,
+      user: userId,
     })
-    .then(stat => {
-      setStat (stat.stats.avg);
-      setIsLoading (false);
+    .then(data => {
+      if (!data){
+        setIsLoading (false);
+      } else {
+        setStat (data.stats);
+        setIsLoading (false);
+      }
     }) 
     .catch((error)=> {
       console.log("User statistics couldn't be downloaded from the API");
@@ -30,10 +35,10 @@ const UserRate = ({user}) => {
    function statPerCategory () {
     statsService.query({
       type: statTypes.CATEGORY_RATE,
-      user,
+      user: userId
     })
-    .then(stat => {
-      setCategoryStat (stat.stats.avg);
+    .then(data => {
+      setCategoryStat (data.stats);
       setIsLoading (false);
     }) 
     .catch((error)=> {
@@ -62,8 +67,11 @@ const UserRate = ({user}) => {
                   </div>) }
                   <button className="btn btn-black" onClick={() => setCategoryStat(undefined)}>Back to general stat</button>
               </>
-
-            ) : <><p>Popularity score: <button className="btn btn-black" onClick={statPerCategory}>{stat}%</button></p></>}
+              ) : 
+              (<>
+                { stat && <p>Popularity score: <button className="btn btn-black" onClick={statPerCategory}>{stat.avg}%</button></p> }
+              </>)
+            }
           </div>
         </>
         )
