@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
+import {statTypes} from "../constants/constants";
+import {spinnerTypes} from "../constants/constants";
+
 import opinionService from "../lib/opinion-service";
-import {types} from "../lib/spiner-types";
 import statsService from "../lib/statistics-service";
-import {types as statTypes} from "../lib/stats-types";
+
 import Card from '../components/Card';
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
@@ -36,7 +38,7 @@ class Opinions extends Component {
     // Register the response to the opinion
     await opinionService.response({opinion: opinions[index]._id, response: res});
     // Consult the statistics of the opinion the user just responded to
-    const stat = await statsService.query({type: statTypes.opinionRate, opinion: opinions[index]._id});
+    const stat = await statsService.query({type: statTypes.OPINION_RATE, opinion: opinions[index]._id});
     console.log(stat);
     this.state.opinions.splice(index, 1);
     this.setState({
@@ -60,7 +62,7 @@ class Opinions extends Component {
         <Navbar {...this.props}/>
         { isLoading ? 
         (<>
-          <Spinner type={types.Spin} color={"black"} />
+          <Spinner type={spinnerTypes.SPIN} color={"black"} />
         </>) : 
         (<>
           {

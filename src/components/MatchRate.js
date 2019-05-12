@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 
+import {statTypes} from "../constants/constants";
+
 import statsService from '../lib/statistics-service';
-import {types as statTypes} from "../lib/stats-types";
 
 const MatchRate = ({userId, username}) => {
   const [match, setMatch] = useState(undefined);
   
   function getMatch() { 
     statsService.query({
-      type: statTypes.matchRate,
+      type: statTypes.MATCH_RATE,
       userMatch: userId,
     })
     .then(data => {

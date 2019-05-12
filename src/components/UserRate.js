@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import {statTypes} from "../constants/constants";
+import {spinnerTypes} from "../constants/constants";
+
 import statsService from '../lib/statistics-service';
+
 import Spinner from "../components/Spinner";
-import {types} from "../lib/spiner-types";
-import {types as statTypes} from "../lib/stats-types";
 
 const UserRate = ({user}) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +14,7 @@ const UserRate = ({user}) => {
 
   useEffect(() => { 
     statsService.query({
-      type: statTypes.userRate,
+      type: statTypes.USER_RATE,
       user,
     })
     .then(stat => {
@@ -27,7 +29,7 @@ const UserRate = ({user}) => {
 
    function statPerCategory () {
     statsService.query({
-      type: statTypes.categoryRate,
+      type: statTypes.CATEGORY_RATE,
       user,
     })
     .then(stat => {
@@ -45,7 +47,7 @@ const UserRate = ({user}) => {
     <>
       { isLoading ? 
         (<>
-          <Spinner type={types.Spin} color={"blue"} /> 
+          <Spinner type={spinnerTypes.SPIN} color={"blue"} /> 
         </>) : 
         (
         <>

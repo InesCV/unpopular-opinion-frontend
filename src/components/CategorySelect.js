@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+import {spinnerTypes} from "../constants/constants";
+
 import opinionService from "../lib/opinion-service";
-import {types} from "../lib/spiner-types";
+
 import Spinner from "../components/Spinner";
 
 export default ({selected}) => {
@@ -24,7 +26,7 @@ export default ({selected}) => {
     <div>
       {
         (isLoading)? 
-            <Spinner type={types.Spin} color={"blue"} />
+            <Spinner type={spinnerTypes.SPIN} color={"blue"} />
           : 
             (
               <div className="d-flex flex-wrap">

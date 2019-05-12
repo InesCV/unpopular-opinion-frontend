@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-
 import { Link } from 'react-router-dom';
+
+import {spinnerTypes} from "../constants/constants";
+
 import { withAuth } from "../lib/AuthProvider";
-import {types} from "../lib/spiner-types";
+import userService from "../lib/user-service";
+
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 import UserUOPs from "../components/UserUOPs";
-import userService from "../lib/user-service";
 import UserRate from "../components/UserRate";
 
 class Profile extends Component {
@@ -39,7 +41,7 @@ class Profile extends Component {
         <Navbar {...this.props}/>
         { isLoading ? 
         (<>
-          <Spinner type={types.Spin} color={"blue"} />
+          <Spinner type={spinnerTypes.SPIN} color={"blue"} />
         </>) : 
         (<div className="container">
           <h2 className="pt-3">Hey {user.username}</h2>

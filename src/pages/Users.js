@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
+import {spinnerTypes} from "../constants/constants";
+
 import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
+
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
-import {types} from "../lib/spiner-types";
 import UserUOPs from "../components/UserUOPs";
 import UserRate from "../components/UserRate";
 import MatchRate from "../components/MatchRate";
@@ -36,7 +38,7 @@ class User extends Component {
     return (
       <>
         <Navbar {...this.props}/>
-        { isLoading ? <Spinner type={types.Spin} color={"black"} /> : 
+        { isLoading ? <Spinner type={spinnerTypes.SPIN} color={"black"} /> : 
         (<div className="container">
           <h2 className="pt-3">{user.username}'s Profile</h2>
           <p> {user.description}</p>
