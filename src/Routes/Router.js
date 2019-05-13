@@ -8,7 +8,7 @@ export default () => (
   <BrowserRouter>
     <AuthProvider>
       <Switch>
-        {routes.map(({route: Route, path, component}, key) => 
+        {routes.map(({type: Route, path, component}, key) => 
             <Route exact whereAmI={path} path={path} component={component} key={key} />
         )}
       </Switch>

@@ -38,21 +38,20 @@ class User extends Component {
     return (
       <>
         <Navbar {...this.props}/>
-        { isLoading ? <Spinner type={spinnerTypes.SPIN} color={"black"} /> : 
-        (<div className="container">
-          <h2 className="pt-3">{user.username}'s Profile</h2>
-          <p> {user.description}</p>
-          <UserRate userId={this.props.location.state.id} />
-          <MatchRate userId={this.props.location.state.id} username={user.username}/>
-          { opinions ? 
-          (<>
-            {
-              opinions.map((opinion, index) => 
-                <UserUOPs key={index} index={index} op={opinion} user={user} respond={this.onRespond} />
-              )
-            }
-          </>) : (<p>{user.username} hasn't created any opinion</p>)}
-        </div>)
+        { isLoading ? 
+            <Spinner type={spinnerTypes.SPIN} color={"black"} /> 
+          : 
+            (<div className="container">
+              <h2 className="pt-3">{user.username}'s Profile</h2>
+              <p>{user.description}</p>
+              <UserRate userId={this.props.location.state.id} />
+              <MatchRate userId={this.props.location.state.id} username={user.username}/>
+              { opinions ? 
+                  opinions.map((opinion, index) => <UserUOPs key={index} op={opinion} />)
+                : 
+                  <p>{user.username} hasn't created any opinion</p>
+              }
+            </div>)
         }
       </>
     );

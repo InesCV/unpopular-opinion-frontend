@@ -39,7 +39,7 @@ class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login" className="btn btn-primary"/>
         </form>
         <p>
           You don't have an account?

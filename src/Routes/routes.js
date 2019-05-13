@@ -1,7 +1,5 @@
 import { Route } from 'react-router-dom';
 
-import PrivateRoute from "../components/PrivateRoute";
-import AnonRoute from "../components/AnonRoute";
 import App from "../App";
 import Private from "../pages/Private";
 import Profile from "../pages/Profile";
@@ -12,60 +10,62 @@ import CreateOpinion from "../pages/CreateOpinion";
 import Statistics from "../pages/Statistics";
 import NotFound from '../pages/NotFound';
 import Users from '../pages/Users';
+import PrivateRoute from "../components/PrivateRoute";
+import AnonRoute from "../components/AnonRoute";
 
 const routes = [
   {
-    route: Route,
+    type: Route,
     path: '/',
     component: App,
   }, 
   {
-    route: AnonRoute,
+    type: AnonRoute,
     path: '/signup',
     component: Signup,
   }, 
   {
-    route: AnonRoute,
+    type: AnonRoute,
     path: '/login',
     component: Login,
   }, 
   {
-    route: PrivateRoute,
+    type: PrivateRoute,
     path: '/private',
     component: Private,
   },
   {
-    route: PrivateRoute,
+    type: PrivateRoute,
     path: '/profile',
     component: Profile,
   },
   {
-    route: PrivateRoute,
+    type: PrivateRoute,
     path: '/user',
     component: Users,
   },
   {
-    route: Route,
+    type: Route,
     path: '/opinions',
     component: Opinions,
   },
   {
-    route: Route,
+    type: Route,
     path: '/opinions/all',
     component: Opinions,
   },
   {
-    route: Route,
+    type: Route,
     path: '/opinions/create',
     component: CreateOpinion,
   },
   {
-    route: Route,
+    type: Route,
     path: '/statistics',
     component: Statistics,
   },
   {
-    route: Route,
+    type: Route,
     path: '*',
     component: NotFound,
   },

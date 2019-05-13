@@ -13,7 +13,6 @@ const UserRate = ({userId}) => {
   const [categoryStat, setCategoryStat] = useState(undefined);
   
   useEffect(() => { 
-    console.log(userId)
     statsService.query({
       type: statTypes.USER_RATE,
       user: userId,
