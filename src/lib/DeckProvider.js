@@ -1,16 +1,51 @@
-import React, { useState } from 'react'
-
+import React, { Component, useState } from "react";
 import { useSpring, useSprings, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-with-gesture'
-import Card from '../components/Card';
+
+import {spinnerTypes} from "../constants/constants";
+
+import Spinner from "../components/Spinner";
+
+const { Consumer, Provider } = React.createContext();
+
+export { Consumer };
+
+export const withDeck = Comp => {
+  return class withDeck extends Component {
+    render() {
+      return (
+        <Consumer>
+          {deckStore => {
+            return (
+              <Comp
+                isFlipped={this.isFlipped}
+                gone={this.gone}
+                opCards={this.opCards}
+                bind={this.bind}
+                transform={this.transform}
+                cards={this.cards}
+                opacity={this.opacity}
+                i={this.i}
+                rot={this.rot}
+                scale={this.scale}
+                trans={this.trans}
+                {...this.props}
+              />
+            );
+          }}
+        </Consumer>
+      );
+    }
+  };
+};
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = i => ({ x: 0, y: i * -4, scale: 1, rot: -10 + Math.random() * 20, delay: i * 100 })
 const from = i => ({ x: 0, y: i * -4, rot: 0, scale: 1.5 })
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
-const trans = (r, s) => `perspective(1500px) rotateX(5deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
+const trans = (r, s) => `perspective(1500px) rotateX(5deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
 
-const Deck = ({cards, respond}) => {
+const DeckProvider = ({cards}) => {
   const [gone] = useState(() => new Set()) // The set flags all the cards that are flicked out
   const [isFlipped, setIsFlipped] = useState(false)
   const [opCards, setOpCards] = useSprings(cards.length, i => ({ ...to(i), from: from(i) })) // Create a bunch of springs using the helpers above
@@ -33,24 +68,31 @@ const Deck = ({cards, respond}) => {
       if (down) { console.log('touched')} // Let's us know if the card has been lifted
       // Tells us which way the card has gone
       if (isGone && x>1) { 
-        console.log('Swipe right');
-        respond(i, 'y');
+        console.log('Swipe right')
       } else if (isGone && x<-1) {
         console.log('Swipe left')
-        respond(i, 'x');
       }
       return { x, rot, scale, delay: undefined, config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 } }
     })
     if (!down && gone.size === cards.length) setTimeout(() => gone.clear() || setOpCards(i => to(i)), 600) // It makes the cards return after there are none left
-  })
+  });
 
-  // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
-  return opCards.map(({ x, y, rot, scale }, i) => (
-    <animated.div key={i} style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }} onDoubleClick={() => setIsFlipped(state => !state)}>
-      {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-      <Card cards={cards} i={i} opacity={opacity} transform={transform} bind={bind} rot={rot} scale={scale} trans={trans}/>
-    </animated.div>
-  ))
+    return (
+      <Provider
+        value={{
+          isFlipped,
+          gone,
+          opCards,
+          bind,
+          transform,
+          cards,
+          opacity,
+          trans
+        }}
+      >
+        {this.props.children}
+      </Provider>
+    );
 }
 
-export default Deck;
+export default DeckProvider;

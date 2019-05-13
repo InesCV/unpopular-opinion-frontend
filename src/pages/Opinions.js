@@ -56,13 +56,11 @@ class Opinions extends Component {
 
   render() {
     const { isLoading, opinions, responded, lastStat } = this.state;
-
-
     return (
       <>
         { responded ? <OpinionRate skipRate={this.skipRate} stat={lastStat} /> : <></> }
         <Navbar {...this.props}/>
-        { isLoading ? <Spinner type={spinnerTypes.SPIN} color={"black"} /> : <Deck cards={opinions}/> }
+        { isLoading ? <Spinner type={spinnerTypes.SPIN} color={"black"} /> : <Deck cards={opinions} respond={this.onRespond} /> }
       </>
     );
   }
