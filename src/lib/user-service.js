@@ -22,7 +22,7 @@ class User {
 
   update(user) {
     return this.userConnect
-      .post('users', user)
+      .put('users', user)
       .then(({ data }) => data)
   };
 }
