@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
-import { render } from 'react-dom'
 
 import { useSpring, useSprings, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-with-gesture'
@@ -50,47 +48,9 @@ const Deck = ({cards}) => {
   return opCards.map(({ x, y, rot, scale }, i) => (
     <animated.div key={i} style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }} onDoubleClick={() => setIsFlipped(state => !state)}>
       {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-        <animated.div className="cards" {...bind(i)} style={{ transform: interpolate([rot, scale], trans) }} >
-            <animated.div className="card front" style={{ opacity: opacity.interpolate(o => 1 - o), transform }} >
-              <div className="container">
-                <div className="pregunta center"><p>{cards[i].question}</p></div>
-                <div className="response center">
-                  <p className="response-arrow center">&#8678;</p>
-                  <p className="response-text center">{cards[i].response.x}</p>
-                </div>
-                <div className="response center">
-                  <p className="response-text center">{cards[i].response.y}</p>
-                  <p className="response-arrow center">&#8680;</p>
-                </div>
-              </div>
-            </animated.div>
-            <animated.div className="card back" style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) } }>
-              <div className="container pregunta center"><p>{cards[i].author.username}</p></div>
-            </animated.div>
-        </animated.div>
+      <Card cards={cards} i={i} opacity={opacity} transform={transform} bind={bind} rot={rot} scale={scale} trans={trans}/>
     </animated.div>
   ))
 }
-
-//   return (
-//   <div className="card-tryout">
-//     <p><span>Category: </span>{card.category}</p>
-//     {/* { card.author.username ? (<p><span>By: </span><Link to={{pathname: `/user/${card.author._id}`}}>{card.author.username}</Link></p>) : (<p></p>)} */}
-//     { card.author.username ? (<p>By: <Link 
-//       to={{
-//       pathname: '/user',
-//       state: {
-//         id: card.author._id,
-//         }
-//       }
-//     }>{card.author.username}</Link></p>) : (<p></p>)}
-//     <p>{card.question}</p>
-//     <div className="d-flex justify-content-around mt-3">
-//       <button className="btn btn-primary" onClick={(e)=> {respond(index, 'x')}}>{card.response.x}</button>
-//       <button className="btn btn-primary" onClick={(e)=> {respond(index, 'y')}}>{card.response.y}</button>
-//     </div>
-//   </div>
-//   )
-// }
 
 export default Deck;
