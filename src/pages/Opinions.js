@@ -6,7 +6,6 @@ import {spinnerTypes} from "../constants/constants";
 import opinionService from "../lib/opinion-service";
 import statsService from "../lib/statistics-service";
 
-import Card from '../components/Card';
 import Deck from '../components/Deck';
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
@@ -49,13 +48,11 @@ class Opinions extends Component {
       })
   }
 
-  skip = (state) => {
+  skipRate = (state) => {
     this.setState({
       responded: false,
     })
   }
-
-  
 
   render() {
     const { isLoading, opinions, responded, lastStat } = this.state;
@@ -63,21 +60,9 @@ class Opinions extends Component {
 
     return (
       <>
-        { responded ? <OpinionRate skip={this.skip} stat={lastStat} /> : <></> }
+        { responded ? <OpinionRate skipRate={this.skipRate} stat={lastStat} /> : <></> }
         <Navbar {...this.props}/>
-        { isLoading ? 
-        (<>
-          <Spinner type={spinnerTypes.SPIN} color={"black"} />
-        </>) : 
-        (<>
-          <Deck cards={opinions}/>
-          {/* {
-            opinions.map((opinion, index) => 
-              <Card key={index} index={index} card={opinion} respond={this.onRespond} />
-            )
-          } */}
-        </>)
-        }
+        { isLoading ? <Spinner type={spinnerTypes.SPIN} color={"black"} /> : <Deck cards={opinions}/> }
       </>
     );
   }

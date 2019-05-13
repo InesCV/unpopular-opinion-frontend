@@ -6,7 +6,7 @@ import opinionService from "../lib/opinion-service";
 
 import Spinner from "../components/Spinner";
 
-export default ({selected}) => {
+const CategorySelect = ({selected}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
@@ -38,5 +38,6 @@ export default ({selected}) => {
       }
     </div>
   );
-
 }
+
+export default CategorySelect;
