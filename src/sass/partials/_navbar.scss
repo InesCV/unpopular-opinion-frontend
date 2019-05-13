@@ -7,6 +7,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
   
   a {
     padding: 0.25rem;
@@ -22,10 +24,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  position: fixed;
+  width: 100%;
+
   a {
     padding: 0.25rem;
     color: lightgrey;
     margin: auto 1.5rem
   }
+}
+
+.nav-after {
+  padding-top: 2.5rem;
 }

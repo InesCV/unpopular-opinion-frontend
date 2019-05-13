@@ -42,9 +42,9 @@ class Profile extends Component {
         <Navbar {...this.props}/>
         { isLoading ? 
         (<>
-          <Spinner type={spinnerTypes.SPIN} color={"blue"} />
+          <Spinner type={spinnerTypes.SPIN} color={"blue"}/>
         </>) : 
-        (<div className="container">
+        (<div className="container nav-after">
           <h2 className="pt-3">Hey {user.username}</h2>
           { user.description ? (<p>Your description {user.description}</p>) : (<p>You should upload a description</p>)}
           <UserRate userId={user._id} />

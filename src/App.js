@@ -11,8 +11,8 @@ class App extends Component {
         <>
           <header className="jumbotron bg-micro">
             <Navbar {...this.props}/>
-            <header className="d-flex flex-wrap">
-              <div className= "d-flex flex-column justify-content-center align-items-center pb-4 flex-grow-1 container">
+            <div className="d-flex flex-wrap">
+              <div className= "d-flex flex-column justify-content-center align-items-center pb-4 flex-grow-1 container nav-after">
                 <h1 className="des pt-5 pb-3">Unpopular Opinion</h1>
                 <h4 className="des mb-3">It’s a Social Network to see how popular are your thoughts within a community</h4>
                 <Link className="btn btn-white" to='/signup'>Signup</Link>
@@ -22,7 +22,7 @@ class App extends Component {
                     <img className="device" src="http://canyoupickthisup.com/cyptu/device-mockups/iphone_6_plus/iphone_6_plus_white_port.png" alt="device"></img>
                 </div>
               </div>
-            </header>
+            </div>
           </header>
           <div className="jumbotron bg-yellow mid-height d-flex justify-content-center center">
             <div className="container des">
