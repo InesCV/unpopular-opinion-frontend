@@ -7,7 +7,6 @@ import opinionService from "../lib/opinion-service";
 import statsService from "../lib/statistics-service";
 
 import Card from '../components/Card';
-import Deck from '../components/Deck';
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 import OpinionRate from "../components/OpinionRate";
@@ -55,12 +54,8 @@ class Opinions extends Component {
     })
   }
 
-  
-
   render() {
     const { isLoading, opinions, responded, lastStat } = this.state;
-
-
     return (
       <>
         { responded ? <OpinionRate skip={this.skip} stat={lastStat} /> : <></> }
@@ -70,12 +65,11 @@ class Opinions extends Component {
           <Spinner type={spinnerTypes.SPIN} color={"black"} />
         </>) : 
         (<>
-          <Deck cards={opinions}/>
-          {/* {
+          {
             opinions.map((opinion, index) => 
               <Card key={index} index={index} card={opinion} respond={this.onRespond} />
             )
-          } */}
+          }
         </>)
         }
       </>
