@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { toast } from 'react-toastify';
 
 import auth from "./auth-service";
-import {spinnerTypes} from "../constants/constants";
+import {spinnerTypes, errorTypes} from "../constants/constants";
 
 import Spinner from "../components/Spinner";
 
@@ -55,6 +56,9 @@ class AuthProvider extends Component {
           user: null,
           isLoading: false
         });
+        toast.error(`Sorry. ${errorTypes.E404U}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       });
   }
 
@@ -63,14 +67,23 @@ class AuthProvider extends Component {
     auth
       .signup({ username, password })
       .then(user => {
+        toast.success("User created succesfully!", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
         this.setState({
           isLoggedin: true,
           user
+        });
+        toast.info(`Wellcome ${user.username}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
         });
       })
       .catch(({ response: { data: error } }) => {
         this.setState({
           message: error.statusMessage
+        });
+        toast.error(`Sorry. ${errorTypes.E422}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
         });
       });
   };
@@ -80,24 +93,44 @@ class AuthProvider extends Component {
     auth
       .login({ username, password })
       .then(user => {
+        toast.success("Succesfully logged!", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
         this.setState({
           isLoggedin: true,
           user
         });
+        toast.info(`Wellcome ${user.username}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       })
-      .catch(() => {});
+      .catch(() => {
+        toast.error(`Sorry. ${errorTypes.E404U}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
+      });
   };
 
   logout = () => {
     auth
       .logout()
       .then(() => {
+        toast.info(`Hope see yo soon ${this.state.user.username}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
         this.setState({
           isLoggedin: false,
           user: null
         });
+        toast.success("Succesfully logged out.", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       })
-      .catch(() => {});
+      .catch(() => {
+        toast.error(`Sorry. ${errorTypes.E500}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
+      });
   };x
   render() {
     const { isLoading, isLoggedin, user } = this.state;

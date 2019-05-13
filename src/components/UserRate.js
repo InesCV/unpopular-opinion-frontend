@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 import {statTypes} from "../constants/constants";
-import {spinnerTypes} from "../constants/constants";
+import {spinnerTypes, errorTypes} from "../constants/constants";
 
 import statsService from '../lib/statistics-service';
 
@@ -26,8 +27,9 @@ const UserRate = ({userId}) => {
       }
     }) 
     .catch((error)=> {
-      console.log("User statistics couldn't be downloaded from the API");
-      console.log(error);
+      toast.error(`Sorry. ${errorTypes.E500S}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
     });
    }, []);
 
@@ -41,8 +43,9 @@ const UserRate = ({userId}) => {
       setIsLoading (false);
     }) 
     .catch((error)=> {
-      console.log("The statistics per category couldn't be downloaded from the API");
-      console.log(error);
+      toast.error(`Sorry. ${errorTypes.E500S}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
     });   
   }
 

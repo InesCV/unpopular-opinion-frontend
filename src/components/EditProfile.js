@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 
+import {errorTypes} from "../constants/constants";
 import userService from '../lib/user-service';
 
 import FileUpload from './FileUpload';
@@ -21,8 +23,9 @@ export default class EditProfile extends Component {
         this.props.toggleIsEditing();
       })
       .catch((error) => {
-        console.log("Couldn't update the user information in API.");
-        console.log(error);
+        toast.error(`Sorry. ${errorTypes.E405U}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       })
   };
   

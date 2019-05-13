@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
-import {statTypes} from "../constants/constants";
+import {statTypes, errorTypes} from "../constants/constants";
 
 import statsService from '../lib/statistics-service';
 
@@ -16,8 +17,9 @@ const MatchRate = ({userId, username}) => {
       setMatch (data.avg);
     }) 
     .catch((error)=> {
-      console.log("The match couldn't be downloaded from the API");
-      console.log(error);
+      toast.error(`Sorry. ${errorTypes.E500S}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
     });
    };
   

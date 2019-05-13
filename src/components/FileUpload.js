@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/storage';
+import { toast } from 'react-toastify';
+
+import {errorTypes} from "../constants/constants";
 
 firebase.initializeApp({ 
   apiKey: process.env.REACT_APP_APIKEY,
@@ -30,7 +33,9 @@ class FileUpload extends Component {
         })
       }, 
       (error) => {
-        console.error(error.message)
+        toast.error(`Sorry. ${errorTypes.E600U}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       }, 
       () => {
         task.snapshot.ref.getDownloadURL().then((newUrl) => {

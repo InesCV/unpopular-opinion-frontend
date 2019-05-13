@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
-import {spinnerTypes} from "../constants/constants";
+import {spinnerTypes, errorTypes} from "../constants/constants";
 
 import opinionService from "../lib/opinion-service";
 
@@ -17,8 +18,9 @@ export default ({selected}) => {
       setIsLoading (false);
     }) 
     .catch((error)=> {
-      console.log("Categories couldn't be download from the API");
-      console.log(error);
+      toast.error(`Sorry. ${errorTypes.E500C}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
     });
    }, []);
 
