@@ -67,14 +67,14 @@ class AuthProvider extends Component {
     auth
       .signup({ username, password })
       .then(user => {
-        toast.success("User created succesfully!", {
+        toast.success("User created successfully", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
         this.setState({
           isLoggedin: true,
           user
         });
-        toast.info(`Wellcome ${user.username}`, {
+        toast.info(`Welcome ${user.username}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       })
@@ -93,14 +93,14 @@ class AuthProvider extends Component {
     auth
       .login({ username, password })
       .then(user => {
-        toast.success("Succesfully logged!", {
+        toast.success("Successfully logged", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
         this.setState({
           isLoggedin: true,
           user
         });
-        toast.info(`Wellcome ${user.username}`, {
+        toast.info(`Welcome ${user.username}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       })
@@ -115,14 +115,14 @@ class AuthProvider extends Component {
     auth
       .logout()
       .then(() => {
-        toast.info(`Hope see yo soon ${this.state.user.username}`, {
+        toast.info(`See you soon ${this.state.user.username}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
         this.setState({
           isLoggedin: false,
           user: null
         });
-        toast.success("Succesfully logged out.", {
+        toast.success("Successfully logged out", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       })

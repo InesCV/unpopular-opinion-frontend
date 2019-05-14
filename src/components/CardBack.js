@@ -5,11 +5,10 @@ import { animated } from 'react-spring';
 import { withAuth } from "../lib/AuthProvider";
 
 const CardBack = ({cards, i, opacity, transform, user}) => {
-  const path = (user.username == cards[i].author.username) ? '/profile' : '/user';
+  const path = (user.username === cards[i].author.username) ? '/profile' : '/user';
 
   return (
     <animated.div className="card back" style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) } }>
-      { console.log(user) }
       <div className="container author">
         <Link to={{
           pathname: path,

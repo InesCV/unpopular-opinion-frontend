@@ -35,6 +35,11 @@ class Opinions extends Component {
       });
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.opinions.length !== this.state.opinions.length){
+  //   }
+  // }
+
   onRespond = async (index, res) => {
     const { opinions } = this.state;
     // Register the response to the opinion
