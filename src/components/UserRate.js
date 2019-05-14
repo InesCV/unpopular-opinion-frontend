@@ -13,7 +13,6 @@ const UserRate = ({userId}) => {
   const [categoryStat, setCategoryStat] = useState(undefined);
   
   useEffect(() => { 
-    console.log(userId)
     statsService.query({
       type: statTypes.USER_RATE,
       user: userId,
@@ -22,7 +21,7 @@ const UserRate = ({userId}) => {
       if (!data){
         setIsLoading (false);
       } else {
-        setStat (data.stats);
+        setStat (data.stats.avg);
         setIsLoading (false);
       }
     }) 
@@ -32,13 +31,13 @@ const UserRate = ({userId}) => {
     });
    }, []);
 
-   function statPerCategory () {
+  function statPerCategory  () {
     statsService.query({
       type: statTypes.CATEGORY_RATE,
       user: userId
     })
     .then(data => {
-      setCategoryStat (data.stats);
+      setCategoryStat (data.stats.avg);
       setIsLoading (false);
     }) 
     .catch((error)=> {
@@ -54,9 +53,7 @@ const UserRate = ({userId}) => {
         (<>
           <Spinner type={spinnerTypes.SPIN} color={"blue"} /> 
         </>) : 
-        (
-        <>
-          <div>
+        (<>
             { categoryStat ? ( 
               <>
                 { categoryStat.map((category, index) => 
@@ -64,17 +61,16 @@ const UserRate = ({userId}) => {
                     <p>Category: {category.category}</p>
                     <p>Your popularity: {category.percent}%</p>
                     <p>From: {category.totalOpinions} users</p>
-                  </div>) }
+                  </div>) 
+                }
                   <button className="btn btn-black" onClick={() => setCategoryStat(undefined)}>Back to general stat</button>
               </>
               ) : 
               (<>
-                { stat && <p>Popularity score: <button className="btn btn-black" onClick={statPerCategory}>{stat.avg}%</button></p> }
+                { stat && <p>Popularity score: <button className="btn btn-black" onClick={statPerCategory}>{stat}%</button></p> }
               </>)
             }
-          </div>
-        </>
-        )
+        </>)
       }
     </>
   )
