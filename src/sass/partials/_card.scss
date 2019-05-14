@@ -29,7 +29,7 @@
 .cards {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 88vh; // Los 20 de la op-bar (los sacas de abajo y 8 de el margen con la nav-bar)
   will-change: transform;
   display: flex;
   align-items: center;
@@ -62,32 +62,52 @@
 
 // former container
 .card-container {
-  margin: 5vh;
+  padding: 10%;
+  height: 100%;
+  width: 100%;
 }
 
 .pregunta {
-  height: 51vh;
+  height: 60%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center
 }
 
 .response {
-  height: 10vh;
+  display: flex;
+  // text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 18%;
   color: $white;
   background-color: $primary-color;
   font-size: 0.8rem;
-  margin:1vh;
+  margin: 2%;
 }
 
 .response-arrow {
-  width: 7vh;
+  text-align: center;
+  width: 20%;
   font-size: 1.5rem;
-  color: $dark;
+  color: $darkwhite;
   padding: 0.5rem;
 }
 
 .response-text {
-  width: 28vh;
-  padding: 2vh;
+  width: 80%;
+  padding: 10%;
+  text-align: center;
 }
+
+// .response-text-left {
+//   text-align: left;
+// }
+
+// .response-text-right {
+//   text-align: right;
+// }
 
 .front,
 .back {
