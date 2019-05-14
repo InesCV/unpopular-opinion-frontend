@@ -29,7 +29,7 @@ const CategorySelect = ({selected}) => {
             <Spinner type={spinnerTypes.SPIN} color={"blue"} />
           : 
             (
-              <div className="d-flex flex-wrap">
+              <div className="d-flex flex-wrap nav-after">
                 {categories.map((category, index) => 
                     <button className="btn btn-primary mt-3 ml-4" key={index} onClick={() => selected(category)}>{category}</button>
                 )}

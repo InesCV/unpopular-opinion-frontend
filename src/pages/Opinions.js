@@ -10,6 +10,8 @@ import Deck from '../components/Deck';
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 import OpinionRate from "../components/OpinionRate";
+import OpinionBar from "../components/OpinionBar";
+
 
 class Opinions extends Component {
   state = {
@@ -57,11 +59,13 @@ class Opinions extends Component {
   render() {
     const { isLoading, opinions, responded, lastStat } = this.state;
     return (
-      <>
+      <div className="deck-general">
         { responded ? <OpinionRate skipRate={this.skipRate} stat={lastStat} /> : <></> }
         <Navbar {...this.props}/>
+        {/* <div className="nav-after"></div> */}
         { isLoading ? <Spinner type={spinnerTypes.SPIN} color={"black"} /> : <Deck cards={opinions} respond={this.onRespond} /> }
-      </>
+        <OpinionBar skipRate={this.skipRate} cards={opinions} respond={this.onRespond} />
+      </div>
     );
   }
 }

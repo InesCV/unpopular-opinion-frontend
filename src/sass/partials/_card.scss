@@ -5,7 +5,7 @@
 }
 
 // html,
-// body 
+// body {
 .deck-general {
   overscroll-behavior-y: contain;
   margin: 0;
@@ -13,8 +13,6 @@
   height: 100%;
   width: 100%;
   user-select: none;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial,
-    sans-serif;
   position: fixed;
   overflow: hidden;
 }
@@ -36,6 +34,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial,
+  sans-serif;
 } 
 
 .card {
@@ -44,9 +44,9 @@
   background-size: auto 85%;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 45vh;
+  width: 88vw;
   max-width: 300px;
-  height: 85vh;
+  height: 66vh;
   max-height: 570px;
   will-change: transform;
   border-radius: 10px;

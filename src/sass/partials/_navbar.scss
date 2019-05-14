@@ -3,12 +3,14 @@
 .nav {
   background-color: $primary-color;
   margin: 0;
-  height: 2.5rem;;
+  height: 6vh;;
+  max-height: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   width: 100%;
+  z-index: 1;
   
   a {
     padding: 0.25rem;
@@ -40,4 +42,11 @@
 
 .nav-after-m {
   margin-top: 2.5rem;
+}
+
+.op-bar {
+  margin-top: 80vh;
+  height: 20vh;
+  max-height: 10rem;
+  z-index: 2;
 }

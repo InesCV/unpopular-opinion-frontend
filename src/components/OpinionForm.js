@@ -11,7 +11,7 @@ export default ({sendOpinion}) => {
   };
 
   return (
-    <form className="container pt-3" onSubmit={handleFormSubmit}>
+    <form className="container pt-3 nav-after" onSubmit={handleFormSubmit}>
       <label>Question:</label>
       <input className="form-control"
         type="text"
