@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const OpinionRate = ({skip, stat}) => {
+const OpinionRate = ({skipRate, stat}) => {
   function backToOpinions() {
-    skip();
+    skipRate();
   }
-
+  
   return <div className="cnt-pos-total" onClick={ () => {backToOpinions()}}>You responded as {stat.stats.avg}% of our platform</div>
 }
 

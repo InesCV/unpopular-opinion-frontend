@@ -7,7 +7,7 @@ import opinionService from "../lib/opinion-service";
 
 import Spinner from "../components/Spinner";
 
-export default ({selected}) => {
+const CategorySelect = ({selected}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
@@ -31,7 +31,7 @@ export default ({selected}) => {
             <Spinner type={spinnerTypes.SPIN} color={"blue"} />
           : 
             (
-              <div className="d-flex flex-wrap">
+              <div className="d-flex flex-wrap nav-after">
                 {categories.map((category, index) => 
                     <button className="btn btn-primary mt-3 ml-4" key={index} onClick={() => selected(category)}>{category}</button>
                 )}
@@ -40,5 +40,6 @@ export default ({selected}) => {
       }
     </div>
   );
-
 }
+
+export default CategorySelect;

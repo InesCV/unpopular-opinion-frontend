@@ -53,21 +53,21 @@ class Profile extends Component {
   }
 
   render() {
+    const { isLoading, isEditing, user } = this.state
     return (
       <>
-        { this.state.isLoading ? 
+        <Navbar {...this.props}/>
+        { isLoading ? 
           <Spinner type={spinnerTypes.SPIN} color={"blue"} />
         : 
           <>
-            <Navbar {...this.props}/>
-              {this.state.isEditing ?
-                <EditProfile user={this.state.user} toggleIsEditing={this.toggleIsEditing} />
-              :
-                <UserHome user={this.state.user} toggleIsEditing={this.toggleIsEditing} logout={this.props.logout}/>}
-          </>
-        }
+            { isEditing ?
+              <EditProfile user={user} toggleIsEditing={this.toggleIsEditing} />
+            :
+              <UserHome user={user} toggleIsEditing={this.toggleIsEditing} logout={this.props.logout}/>}
+        </> }
       </>
-    );
+    )
   }
 }
 

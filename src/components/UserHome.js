@@ -6,7 +6,7 @@ import UserRate from "../components/UserRate";
 
 const UserHome = ({ user, toggleIsEditing, logout }) => {
   return (
-    <div className="container">
+    <div className="container nav-after">
       <img src={user.avatar} alt={user.username}/>
       <h2 className="pt-3">Hey {user.username}</h2>
       { user.description ? <p>{user.description}</p> : <p>You should upload a description</p>}
