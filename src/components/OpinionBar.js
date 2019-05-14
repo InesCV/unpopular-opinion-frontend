@@ -8,9 +8,9 @@ const OpinionBar = ({skipRate, stat}) => {
   
   return (
     <div className="nav op-bar">
-      <div><a>LEFT</a></div>
-      <div><a>X</a></div>
-      <div><a>RIGHT</a></div>
+      <div><button className="btn-op-bar">LEFT</button></div>
+      <div><button className="btn-op-bar red">X</button></div>
+      <div><button className="btn-op-bar">RIGHT</button></div>
     </div>
   )
 }

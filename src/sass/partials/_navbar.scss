@@ -49,4 +49,7 @@
   height: 20vh;
   max-height: 10rem;
   z-index: 2;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $darkwhite;
 }
