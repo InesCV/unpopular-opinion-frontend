@@ -41,7 +41,7 @@ class User extends Component {
         { isLoading ? 
             <Spinner type={spinnerTypes.SPIN} color={"black"} /> 
           : 
-            (<div className="container">
+            (<div className="container nav-after">
               <h2 className="pt-3">{user.username}'s Profile</h2>
               <p>{user.description}</p>
               <UserRate userId={this.props.location.state.id} />
