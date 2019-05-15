@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import {errorTypes} from "../constants/constants";
 import userService from '../lib/user-service';
 
-import FileUpload from './FileUpload';
+import UserAvatarUpload from './UserAvatarUpload';
 
 export default class EditProfile extends Component {
   
@@ -51,7 +51,7 @@ export default class EditProfile extends Component {
     const { username, avatar, description } = this.state;
     return (
       <>
-        <FileUpload type={'profile'} name={username} actualImg={avatar} updateFunction={this.setAvatar} />
+        <UserAvatarUpload type={'profile'} name={username} actualImg={avatar} updateFunction={this.setAvatar} />
         <br />
         <form className="container pt-3" onSubmit={this.handleFormSubmit}>
           <label>Username: </label>

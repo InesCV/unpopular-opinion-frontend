@@ -5,14 +5,25 @@ import { toast } from 'react-toastify';
 
 import {errorTypes} from "../constants/constants";
 
-class FileUpload extends Component {
+firebase.initializeApp({ 
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASEURL,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID
+})
+
+
+class UserAvatarUpload extends Component {
   state = {
     uploaded: 0,
   }
 
   handleFileChange (e) {
     const file = e.target.files[0];
-    const storageRef = firebase.storage().ref(`${this.props.type}/${Date.now()}`);
+    const storageRef = firebase.storage().ref(`${this.props.type}/${Date.now()} - ${this.props.name}`);
     const task = storageRef.put(file);
 
     task.on('state_changed', 
@@ -31,7 +42,6 @@ class FileUpload extends Component {
           this.props.updateFunction(newUrl);
           this.setState({
             uploaded: 0,
-            photo: newUrl,
           })
         })
       }
@@ -42,16 +52,17 @@ class FileUpload extends Component {
     const {uploaded} = this.state.uploaded;
     return (
       <div>
+
         <label
           className="d-flex flex-column justify-content-center align-items-center"
-          style={{ backgroundImage: `url(${this.state.photo})`,
+          style={{ backgroundImage: `url(${this.props.actualImg})`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           width: '100%',
           height: '50vh',
         }}>
-          Upload Photo
+          Edit
           <input type="file" style={{display: 'none'}} onChange={this.handleFileChange.bind(this)} />
           { (uploaded < 100) && <progress value={uploaded} max='100' style={{backgroundColor: 'blue'}}>{uploaded} %</progress> }
         </label>
@@ -61,4 +72,4 @@ class FileUpload extends Component {
   }
 }
 
-export default FileUpload
+export default UserAvatarUpload

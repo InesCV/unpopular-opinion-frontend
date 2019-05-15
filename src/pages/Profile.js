@@ -6,7 +6,7 @@ import userService from "../lib/user-service";
 
 import Spinner from "../components/Spinner";
 import Navbar from "../components/Navbar";
-import EditProfile from "../components/EditProfile";
+import UserEditProfile from "../components/UserEditProfile";
 import UserHome from "../components/UserHome";
 
 class Profile extends Component {
@@ -62,7 +62,7 @@ class Profile extends Component {
         : 
           <>
             { isEditing ?
-              <EditProfile user={user} toggleIsEditing={this.toggleIsEditing} />
+              <UserEditProfile user={user} toggleIsEditing={this.toggleIsEditing} />
             :
               <UserHome user={user} toggleIsEditing={this.toggleIsEditing} logout={this.props.logout}/>}
         </> }

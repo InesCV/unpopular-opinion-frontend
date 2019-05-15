@@ -13,6 +13,7 @@ const CreateOpinion = (props) => {
     if (opinion) {
       const newOpinion = { 
         category, 
+        photo: opinion.photo,
         question: opinion.question, 
         response: {
           x: opinion.responseX,
