@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { toast } from 'react-toastify';
 
 import auth from "./auth-service";
-import {spinnerTypes, errorTypes} from "../constants/constants";
+import {spinnerTypes} from "../constants/constants";
 
 import Spinner from "../components/Spinner";
 
@@ -55,9 +55,6 @@ class AuthProvider extends Component {
           isLoggedin: false,
           user: null,
           isLoading: false
-        });
-        toast.error(`Sorry. ${error.response.data.message}`, {
-          position: toast.POSITION.BOTTOM_RIGHT
         });
       });
   }

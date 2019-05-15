@@ -45,22 +45,22 @@ const routes = [
     component: Users,
   },
   {
-    type: Route,
+    type: PrivateRoute,
     path: '/opinions',
     component: Opinions,
   },
   {
-    type: Route,
+    type: PrivateRoute,
     path: '/opinions/all',
     component: Opinions,
   },
   {
-    type: Route,
+    type: PrivateRoute,
     path: '/opinions/create',
     component: CreateOpinion,
   },
   {
-    type: Route,
+    type: PrivateRoute,
     path: '/statistics',
     component: Statistics,
   },

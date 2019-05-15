@@ -6,9 +6,7 @@ function AnonRoute({ component: Component, isLoggedin, ...rest }) {
   return (
     <Route
       {...rest}
-      render={props =>
-        // TODO (es una pregunta), aquí redirigimos a Profile mejor, no? (Estaba a Private)
-        !isLoggedin ? <Component {...props} /> : <Redirect to="/profile" />
+      render={props => !isLoggedin ? <Component {...props} /> : <Redirect to="/profile" />
       }
     />
   );
