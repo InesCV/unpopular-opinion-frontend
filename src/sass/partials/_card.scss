@@ -129,8 +129,19 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  flex-direction: column
 }
 
-.author-link {
+.card-author-link {
   color: $white;
+}
+
+.card-author-img {
+  max-width: 25%;
+  max-height: 25%;
+  border-radius: 50%;
+}
+
+.card-author-description {
+  font-size: 0.75rem;
 }
