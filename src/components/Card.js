@@ -5,11 +5,10 @@ import CardBack from '../components/CardBack';
 
 // import { withDeck } from "../lib/DeckProvider";
 
-const Card = ({cards, i, opacity, transform, bind, rot, scale, trans}) => {
+const Card = ({cards, i, opacity, transform, bind, rot, scale, trans, isFlipped}) => {
   return (
     <animated.div className="cards" {...bind(i)} style={{ transform: interpolate([rot, scale], trans) }} >
-      <CardFront cards={cards} i={i} opacity={opacity} transform={transform} />
-      <CardBack cards={cards} i={i} opacity={opacity} transform={transform}/>
+      { isFlipped ? <CardBack cards={cards} i={i} opacity={opacity} transform={transform}/> : <CardFront cards={cards} i={i} opacity={opacity} transform={transform} /> }
     </animated.div>
   )
 }

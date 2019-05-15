@@ -10,7 +10,7 @@ const CardBack = ({cards, i, opacity, transform, user}) => {
   return (
     <animated.div className="card back" style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) } }>
       <div className="container author">
-        <Link to={{
+        <Link className="author-link" to={{
           pathname: path,
           state: {
             id: cards[i].author._id,

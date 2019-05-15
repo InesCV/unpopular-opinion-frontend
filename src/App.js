@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import './sass/stylesheets/styles.scss'
 
-
 class App extends Component {
   render() {
     return (
