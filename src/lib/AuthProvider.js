@@ -50,22 +50,21 @@ class AuthProvider extends Component {
           isLoading: false
         });
       })
-      .catch(() => {
+      .catch((error) => {
         this.setState({
           isLoggedin: false,
           user: null,
           isLoading: false
         });
-        toast.error(`Sorry. ${errorTypes.E404U}`, {
+        toast.error(`Sorry. ${error.response.data.message}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       });
   }
 
   signup = user => {
-    const { username, password } = user;
     auth
-      .signup({ username, password })
+      .signup(user)
       .then(user => {
         toast.success("User created successfully", {
           position: toast.POSITION.BOTTOM_RIGHT
@@ -78,11 +77,8 @@ class AuthProvider extends Component {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       })
-      .catch(({ response: { data: error } }) => {
-        this.setState({
-          message: error.statusMessage
-        });
-        toast.error(`Sorry. ${errorTypes.E422}`, {
+      .catch((error) => {
+        toast.error(`Sorry. ${error.response.data.message}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       });
@@ -104,8 +100,8 @@ class AuthProvider extends Component {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       })
-      .catch(() => {
-        toast.error(`Sorry. ${errorTypes.E404U}`, {
+      .catch((error) => {
+        toast.error(`Sorry. ${error.response.data.message}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       });
@@ -126,8 +122,8 @@ class AuthProvider extends Component {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       })
-      .catch(() => {
-        toast.error(`Sorry. ${errorTypes.E500}`, {
+      .catch((error) => {
+        toast.error(`Sorry. ${error.response.data.message}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       });
