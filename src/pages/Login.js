@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { inject, observer } from 'mobx-react';
 
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 
+@inject('clientStore', 'appStore')
+@observer
 class Login extends Component {
   state = {
     username: "",
@@ -11,8 +14,7 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
-    this.props.login({ username, password });
+    appStore.setUser(this.state);
   };
 
   handleChange = event => {
