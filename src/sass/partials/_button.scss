@@ -1,7 +1,7 @@
 @import '../stylesheets/variables';
 
 .btn {
-  border: none;
+  // border: none;
   // display: inline-block;
   // vertical-align: middle;
   border: 1px solid transparent;
@@ -17,8 +17,19 @@
   border-color: $primary-color;
 
   &:hover {
-    color: white;
+    color: $white;
     background-color: $primary-color;
+  }
+}
+
+.btn-secundary {
+  color: $secundary-color;
+  background-color: transparent;
+  border-color: black;
+
+  &:hover {
+    color: $white;
+    background-color: $secundary-color;
   }
 }
 
@@ -67,7 +78,19 @@
   }
 }
 
-.red {
+.btn-log {
+  color: $white;
+  background-color: transparent;
+  background-color: rgba($primary-color, 0.6);
+  border-color: black;
+
+  &:hover {
+    color: $white;
+    background-color: $secundary-color;
+  }
+}
+
+.btn-red {
   border-color: $red;
   color: $red;
 
