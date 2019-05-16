@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import UserUOPs from "../components/UserUOPs";
-import UserRate from "../components/UserRate";
+// import UserRate from "../components/UserRate";
+import UserInfoCard from "../components/UserInfoCard";
+
 
 const UserHome = ({ user, toggleIsEditing, logout }) => {
   return (
     <div className="container nav-after">
-      <img src={user.avatar} alt={user.username}/>
-      <h2 className="pt-3">Hey {user.username}</h2>
-      { user.description ? <p>{user.description}</p> : <p>You should upload a description</p>}
-      <UserRate userId={user._id} />
+      <h2 className="profile-title mt-2 mb-2 terciary-color">Your profile</h2>
+      <UserInfoCard user={user} />
       { user.opinions.length > 0 ? 
           <>
             { user.opinions.map((opinion, index) => <UserUOPs key={index} op={opinion}/>) }
