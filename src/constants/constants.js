@@ -27,7 +27,7 @@ export const errorTypes = {
   E422: "User already exist.",
   E500: "Can't connect to API.",
   E500C: "Categories couldn't be download from the API",
-  E500S: "Stats couldn't be download from the API",
-  E600: "Can't connect to Cloud.",
-  E600U: "Can't upload image to Cloud.",
+  E500S: "Stats couldn't be downloaded from the API",
+  E600: "Can't connect to the Cloud.",
+  E600U: "Can't upload image to the Cloud.",
 };

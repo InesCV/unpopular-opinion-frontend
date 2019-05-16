@@ -12,7 +12,6 @@ import Spinner from "../components/Spinner";
 import OpinionRate from "../components/OpinionRate";
 import OpinionBar from "../components/OpinionBar";
 
-
 class Opinions extends Component {
   state = {
     isLoading: true,

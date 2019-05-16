@@ -30,7 +30,7 @@ class App extends Component {
               <p>Don't be afraid to ask the most random questions, the community will answer them for you</p>
             </div>
           </div>
-          <div className="jumbotron mid-height d-flex justify-content-center center">
+          <div className="jumbotron bg-swipe mid-height d-flex justify-content-center center">
             <div className="container des">
               <h1 className="color-principal pb-2">¡¡Aquí va la Demo!!</h1>
               <p>Here you can find a small taste of how the platform works</p>
