@@ -1,77 +1,79 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+
+import {statTypes} from "../constants/constants";
+import {spinnerTypes, errorTypes} from "../constants/constants";
 
 import statsService from '../lib/statistics-service';
+
 import Spinner from "../components/Spinner";
-import {types} from "../lib/spiner-types";
-import {types as statTypes} from "../lib/stats-types";
 
-// TODO Remove
-const tryout = {
-  margin: 20,
-  border: "1px solid black",
-  padding: 20
-};
-
-const UserRate = ({user}) => {
+const UserRate = ({userId}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [stat, setStat] = useState(undefined);
   const [categoryStat, setCategoryStat] = useState(undefined);
-
+  
   useEffect(() => { 
     statsService.query({
-      type: statTypes.userRate,
-      user,
+      type: statTypes.USER_RATE,
+      user: userId,
     })
-    .then(stat => {
-      setStat (stat.stats.avg);
-      setIsLoading (false);
+    .then(data => {
+      if (!data){
+        setIsLoading (false);
+      } else {
+        setStat (data.stats.avg);
+        setIsLoading (false);
+      }
     }) 
     .catch((error)=> {
-      console.log("User statistics couldn't be downloaded from the API");
-      console.log(error);
+      toast.error(`Sorry. ${errorTypes.E500S}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
     });
    }, []);
 
-   function statPerCategory () {
+  function statPerCategory  () {
     statsService.query({
-      type: statTypes.categoryRate,
-      user,
+      type: statTypes.CATEGORY_RATE,
+      user: userId
     })
-    .then(stat => {
-      console.log(stat.stats.avg)
-      setCategoryStat (stat.stats.avg);
+    .then(data => {
+      setCategoryStat (data.stats.avg);
       setIsLoading (false);
     }) 
     .catch((error)=> {
-      console.log("User statistics couldn't be downloaded from the API");
-      console.log(error);
-    });   }
+      toast.error(`Sorry. ${errorTypes.E500S}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
+    });   
+  }
 
   
   return (
     <>
       { isLoading ? 
         (<>
-          <Spinner type={types.Spin} color={"blue"} /> 
+          <Spinner type={spinnerTypes.SPIN} color={"blue"} /> 
         </>) : 
-        (
-        <>
-          <div>
+        (<>
             { categoryStat ? ( 
               <>
-                { categoryStat.map((category) => 
-                  <div style={tryout}>
+                { categoryStat.map((category, index) => 
+                  <div className="card-tryout" key={index}>
                     <p>Category: {category.category}</p>
                     <p>Your popularity: {category.percent}%</p>
                     <p>From: {category.totalOpinions} users</p>
-                  </div>) }
+                  </div>) 
+                }
                   <button className="btn btn-black" onClick={() => setCategoryStat(undefined)}>Back to general stat</button>
               </>
-
-            ) : <><p>Your opinions are <button className="btn btn-black" onClick={statPerCategory}>{stat}%</button> popular</p></>}
-          </div>
-        </>
-        )
+              ) : 
+              (<>
+                { stat && <p>Popularity score: <button className="btn btn-black" onClick={statPerCategory}>{stat}%</button></p> }
+              </>)
+            }
+        </>)
       }
     </>
   )

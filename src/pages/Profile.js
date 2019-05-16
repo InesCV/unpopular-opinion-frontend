@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 
-import { Link } from 'react-router-dom';
+import { spinnerTypes } from "../constants/constants";
 import { withAuth } from "../lib/AuthProvider";
-import {types} from "../lib/spiner-types";
-import Navbar from "../components/Navbar";
-import Spinner from "../components/Spinner";
-import UserUOPs from "../components/UserUOPs";
 import userService from "../lib/user-service";
-import UserRate from "../components/UserRate";
+
+import Spinner from "../components/Spinner";
+import Navbar from "../components/Navbar";
+import UserEditProfile from "../components/UserEditProfile";
+import UserHome from "../components/UserHome";
 
 class Profile extends Component {
   state = {
+    isEditing: false,
     isLoading: true,
     user: {},
   }
@@ -21,7 +22,7 @@ class Profile extends Component {
         this.setState({
           isLoading: false,
           user,
-        }) 
+        })
       })
       .catch((error)=> {
         console.log("Couldn't get the user information from API.");
@@ -29,42 +30,44 @@ class Profile extends Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isEditing !== this.state.isEditing){
+      userService.profile()
+        .then(({user}) => {
+          this.setState({
+            isLoading: false,
+            user,
+          })
+        })
+        .catch((error)=> {
+          console.log("Couldn't get the user information from API.");
+          console.log(error);
+        });
+    }
+  }
+
+  toggleIsEditing = () => {
+    this.setState({
+      isEditing: !this.state.isEditing,
+    });
+  }
 
   render() {
-    const { logout } = this.props;
-    const { isLoading, user } = this.state;
-
+    const { isLoading, isEditing, user } = this.state
     return (
       <>
         <Navbar {...this.props}/>
         { isLoading ? 
-        (<>
-          <Spinner type={types.Spin} color={"blue"} />
-        </>) : 
-        (<div className="container">
-          <h2 className="pt-3">Hey {user.username}</h2>
-          { user.description ? (<p>Your description {user.description}</p>) : (<p>You should upload a description</p>)}
-          <UserRate user={user._id} />
-          { user.opinions ? 
-          (<>
-            { 
-              user.opinions.map((opinion, index) => 
-                <UserUOPs key={index} index={index} op={opinion} respond={this.onRespond} />
-              )
-            }
-            <Link className="btn btn-primary" to='/opinions/create'>Create more opinions</Link>
-
-          </>) : (
-            <>
-              <p className="mb-2">You have not created a single opinion</p>
-              <Link className="btn btn-primary" to='/opinions/create'>Create Opinion</Link>
-            </>
-          )}
-          <div className="d-flex justify-content-center pt-2 pb-3"><button className="btn btn-primary" onClick={logout}>Logout</button></div>
-        </div>)
-        }
+          <Spinner type={spinnerTypes.SPIN} color={"blue"} />
+        : 
+          <>
+            { isEditing ?
+              <UserEditProfile user={user} toggleIsEditing={this.toggleIsEditing} />
+            :
+              <UserHome user={user} toggleIsEditing={this.toggleIsEditing} logout={this.props.logout}/>}
+        </> }
       </>
-    );
+    )
   }
 }
 

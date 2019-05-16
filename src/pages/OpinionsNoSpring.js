@@ -6,11 +6,10 @@ import {spinnerTypes} from "../constants/constants";
 import opinionService from "../lib/opinion-service";
 import statsService from "../lib/statistics-service";
 
-import Deck from '../components/Deck';
+import Card from '../components/Card';
 import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 import OpinionRate from "../components/OpinionRate";
-import OpinionBar from "../components/OpinionBar";
 
 class Opinions extends Component {
   state = {
@@ -34,11 +33,6 @@ class Opinions extends Component {
       });
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.opinions.length !== this.state.opinions.length){
-  //   }
-  // }
-
   onRespond = async (index, res) => {
     const { opinions } = this.state;
     // Register the response to the opinion
@@ -54,7 +48,7 @@ class Opinions extends Component {
       })
   }
 
-  skipRate = (state) => {
+  skip = (state) => {
     this.setState({
       responded: false,
     })
@@ -63,13 +57,22 @@ class Opinions extends Component {
   render() {
     const { isLoading, opinions, responded, lastStat } = this.state;
     return (
-      <div className="deck-general">
-        { responded ? <OpinionRate skipRate={this.skipRate} stat={lastStat} /> : <></> }
+      <>
+        { responded ? <OpinionRate skip={this.skip} stat={lastStat} /> : <></> }
         <Navbar {...this.props}/>
-        {/* <div className="nav-after"></div> */}
-        { isLoading ? <Spinner type={spinnerTypes.SPIN} color={"black"} /> : <Deck cards={opinions} respond={this.onRespond} /> }
-        <OpinionBar skipRate={this.skipRate} cards={opinions} respond={this.onRespond} />
-      </div>
+        { isLoading ? 
+        (<>
+          <Spinner type={spinnerTypes.SPIN} color={"black"} />
+        </>) : 
+        (<>
+          {
+            opinions.map((opinion, index) => 
+              <Card key={index} index={index} card={opinion} respond={this.onRespond} />
+            )
+          }
+        </>)
+        }
+      </>
     );
   }
 }

@@ -56,16 +56,14 @@ class Navbar extends Component {
     const { path } = this.props.match;
     return (
       <>
-        {isLoggedin ? ( 
-          <div>
-            { this.navPath(path) }
-          </div>
-        ) : (
-          <div className="nav-home">
-            <Link to='/login'>Login</Link>
-            <Link to='/signup'>Signup</Link>
-          </div>
-        )} 
+        {isLoggedin ?  
+            <div> { this.navPath(path) } </div>
+          :
+            <div className="nav-home">
+              <Link to='/login'>Login</Link>
+              <Link to='/signup'>Signup</Link>
+            </div>
+        } 
       </>
     );
   }

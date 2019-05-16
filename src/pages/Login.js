@@ -23,29 +23,31 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
+      <div className="log-cnt-pos-total log-bg">
+        <form className="cnt-pos flex-column log-form" onSubmit={this.handleFormSubmit}>
+          {/* <label>Username:</label> */}
           <input
             type="text"
             name="username"
             value={username}
+            placeholder="Your super unique username"
             onChange={this.handleChange}
           />
-          <label>Password:</label>
+          {/* <label>Password:</label> */}
           <input
             type="password"
             name="password"
+            placeholder="Your secret password"
             value={password}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Login" />
+          <input className="btn btn-log" type="submit" value="Login"/>
         </form>
-        <p>
+        <p className="mt-2">
           You don't have an account?
-          <Link to={"/signup"}> Sign up</Link>
+          <Link className="primary-color primary-color-link" to={"/signup"}> Sign up</Link>
         </p>
-      </>
+      </div>
     );
   }
 }

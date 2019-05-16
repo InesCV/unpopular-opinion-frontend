@@ -2,6 +2,12 @@
 
 // All the main things you might use on a div
 
+.card-tryout {
+  margin: 20px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
 .jumbotron {
   background-size: cover;
   background-repeat: no-repeat;
@@ -73,6 +79,12 @@
   }
 }
 
+.bg-swipe {
+  background-image: url('https://media2.giphy.com/media/xT9DPxTnuhLPORFpvi/giphy.gif?cid=790b76115cdd7ca8783169766f8da8a4&rid=giphy.gif');
+  color: $white;
+  background-position: left; 
+  min-height: 80vh;
+}
 
 .bg-yellow {
   background-color: $mustard;

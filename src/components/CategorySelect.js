@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+
+import {spinnerTypes, errorTypes} from "../constants/constants";
 
 import opinionService from "../lib/opinion-service";
-import {types} from "../lib/spiner-types";
+
 import Spinner from "../components/Spinner";
 
-export default ({selected}) => {
+const CategorySelect = ({selected}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
@@ -15,8 +18,9 @@ export default ({selected}) => {
       setIsLoading (false);
     }) 
     .catch((error)=> {
-      console.log("Categories couldn't be download from the API");
-      console.log(error);
+      toast.error(`Sorry. ${errorTypes.E500C}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
     });
    }, []);
 
@@ -24,10 +28,10 @@ export default ({selected}) => {
     <div>
       {
         (isLoading)? 
-            <Spinner type={types.Spin} color={"blue"} />
+            <Spinner type={spinnerTypes.SPIN} color={"blue"} />
           : 
             (
-              <div className="d-flex flex-wrap">
+              <div className="d-flex flex-wrap nav-after">
                 {categories.map((category, index) => 
                     <button className="btn btn-primary mt-3 ml-4" key={index} onClick={() => selected(category)}>{category}</button>
                 )}
@@ -36,5 +40,6 @@ export default ({selected}) => {
       }
     </div>
   );
-
 }
+
+export default CategorySelect;

@@ -19,6 +19,12 @@ class User {
       .get(`users`)
       .then(({ data }) => data)
   }
+
+  update(user) {
+    return this.userConnect
+      .put('users', user)
+      .then(({ data }) => data)
+  };
 }
 
 const userService = new User();

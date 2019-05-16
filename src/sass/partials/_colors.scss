@@ -1,0 +1,60 @@
+@import '../stylesheets/variables';
+
+
+.primary-color {
+  color: $primary-color;
+}
+
+.primary-color-link {
+  &:hover {
+    color: $secundary-color;
+  }
+}
+
+.secundary-color {
+  color: $secundary-color;
+}
+
+.secundary-color-link {
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.terciary-color {
+  color: $terciary-color;
+}
+
+.white-color {
+  color: $white;
+}
+
+.black-color {
+  color: $black;
+}
+
+.bg-primary-color {
+  background-color: $primary-color;
+}
+
+.bg-secundary-color {
+  background-color: $secundary-color;
+}
+
+.bg-terciary-color {
+  background-color: $terciary-color;
+}
+
+.bg-white-color {
+  background-color: $white;
+}
+
+.bg-black-color {
+  background-color: $black;
+}
+
+.secundary-color-link {
+  &:hover {
+    color: $primary-color;
+  }
+}

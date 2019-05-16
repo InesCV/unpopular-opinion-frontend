@@ -9,16 +9,14 @@ class Auth {
   }
 
   signup(user) {
-    const { username, password } = user;
     return this.auth
-      .post("/auth/signup", { username, password })
+      .post("/auth/signup", user)
       .then(({ data }) => data);
   }
 
   login(user) {
-    const { username, password } = user;
     return this.auth
-      .post("/auth/login", { username, password })
+      .post("/auth/login", user)
       .then(({ data }) => data);
   }
 
