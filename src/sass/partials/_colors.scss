@@ -5,8 +5,20 @@
   color: $primary-color;
 }
 
+.primary-color-link {
+  &:hover {
+    color: $secundary-color;
+  }
+}
+
 .secundary-color {
   color: $secundary-color;
+}
+
+.secundary-color-link {
+  &:hover {
+    color: $primary-color;
+  }
 }
 
 .terciary-color {
@@ -39,4 +51,10 @@
 
 .bg-black-color {
   background-color: $black;
+}
+
+.secundary-color-link {
+  &:hover {
+    color: $primary-color;
+  }
 }

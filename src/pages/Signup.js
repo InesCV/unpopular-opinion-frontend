@@ -47,7 +47,6 @@ class Signup extends Component {
           />
           {/* <label>Password:</label> */}
           { passwordAdvice && <div className="log-comment"><p>Please don't reuse your bank password,</p><p>we didn't spent a lot on security for this app.</p></div>}
-        
           <input
             type="password"
             name="password"
@@ -59,7 +58,7 @@ class Signup extends Component {
         </form>
         <div className="mt-2">
           <p>Already have account?
-          <Link className="secundary-color" to={"/login"}> Login</Link></p>
+          <Link className="primary-color primary-color-link" to={"/login"}> Login</Link></p>
         </div>
       </div>
     );
