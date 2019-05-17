@@ -15,7 +15,7 @@ import { errorTypes} from "../constants/constants";
 import statsService from '../lib/statistics-service';
 
 
-const UserRate = ({userId}) => {
+const UserRate = ({userId, username, path}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [stat, setStat] = useState(100);
   const [categoryStat, setCategoryStat] = useState(undefined);
@@ -65,8 +65,8 @@ const UserRate = ({userId}) => {
             <div className="circular-prediv mt-2">
               <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secundary" />
             </div>
-            <p className="profile-scores-text">Popularity Score</p>
-            {/* <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button> */}
+            { (path === "/user") ? <p className="profile-scores-text">{username}'s Popularity Score</p> : <p className="profile-scores-text">Your Popularity Score</p> }
+            { (path !== "/user") && <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button>}
             {/* <p>Your popularity score is <animated.span>{springStat}</animated.span>%</p> */}
           </div>
         </> 
@@ -81,8 +81,8 @@ const UserRate = ({userId}) => {
                     // styles={circular} 
                     />
                 </div>
-                <p className="profile-scores-text">Popularity Score</p>
-                {/* <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button> */}
+                { (path !== "/user") ? <p className="profile-scores-text">{username}'s Popularity Score</p> : <p className="profile-scores-text">Your Popularity Score</p> }
+                { (path !== "/user") && <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button>}
                 {/* <p>Your popularity score is <animated.span>{springStat}</animated.span>%</p> */}
               </div>
               ) 
