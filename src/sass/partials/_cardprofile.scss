@@ -80,10 +80,10 @@
   width: 108%!important;
   
   .CircularProgressbar-path {
-    stroke: $primary-color!important;
-    fill: $primary-color!important;
+    stroke: $secundary-color!important;
+    fill: $secundary-color!important;
   }
-  
+
   .CircularProgressbar-trail {
     stroke: $terciary-color!important;
     fill: transparent!important;
@@ -91,7 +91,7 @@
 
   .CircularProgressbar-text {
     // stroke: pink!important;
-    fill: $terciary-color!important;
+    fill: $secundary-color!important;
   }
 
   .CircularProgressbar-background {

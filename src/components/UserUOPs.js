@@ -24,7 +24,7 @@ export default ({op}) => {
         <p className="text-left">{op.question}</p>
         <div className="d-flex justify-content-around mt-1">
           <p className="terciary-color">{op.response.x}</p>
-          <p className="primary-color">{op.response.y}</p>
+          <p className="secundary-color">{op.response.y}</p>
         </div>
       </div>
       <div className="profile-opinion-graph">
