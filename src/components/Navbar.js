@@ -12,7 +12,7 @@ class Navbar extends Component {
         return (
           <div className="nav-home">
             <Link to='/opinions'>Opinions</Link>
-            <Link to='/opinions/create'>Create Opinion</Link>
+            <Link to='/opinions/create'>Create</Link>
             <Link to='/profile'>Profile</Link>
           </div>
         );
@@ -27,22 +27,23 @@ class Navbar extends Component {
         return (
           <div className="nav">
             <Link to='/profile'>Profile</Link>
-            <Link to='/opinions/create'>Create Opinion</Link>
+            <Link to='/opinions/create'>Create</Link>
           </div>
         );
       case '/profile':
         return (
           <div className="nav">
             <Link to='/opinions'>Opinions</Link>
-            <Link to='/opinions/create'>Create Opinion</Link>
-            <Link to='/statistics'>Stats</Link>
+            <Link to='/opinions/create'>Create</Link>
+            {/* <Link to='/statistics'>Stats</Link> */}
+            <p className="nav-logout" onClick={this.props.logout}>Logout</p>
           </div>
         );
       default:
         return (
           <div className="nav">
             <Link to='/opinions'>Opinions</Link>
-            <Link to='/opinions/create'>Create Opinion</Link>
+            <Link to='/opinions/create'>Create</Link>
             <Link to='/profile'>Profile</Link>
           </div>
         )
