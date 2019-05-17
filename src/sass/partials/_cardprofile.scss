@@ -1,0 +1,118 @@
+@import '../stylesheets/variables';
+
+///////// USER PROFILE CARDS ////////////
+
+.your-profile {
+  width: 100%;
+  @media only screen and (min-width: 800px) {
+    width: 40%;
+  }
+}
+
+.your-opinions {
+  width: 100%;
+  @media only screen and (min-width: 800px) {
+    width: 60%;
+  }
+}
+
+.profile-title {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+
+.profile-user-card {
+  text-align: center;
+  padding: 2rem;
+  padding-bottom: 3rem;
+  border: 0.5px solid rgba(50, 50, 73, 0.3);
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 12.5px 20px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+
+.data-pie {
+  path: $primary-color;
+}
+
+// custom.css
+
+.circular {
+  width: 108%!important;
+}
+
+.circular-prediv {
+  max-width: 50%;
+}
+
+// NEW PRESET
+
+.CircularProgressbar-path {
+  stroke: $terciary-color!important;
+  fill: $terciary-color!important;
+
+  &:hover {
+    stroke: $secundary-color!important;
+    fill: $secundary-color!important; 
+  }
+}
+.CircularProgressbar-trail {
+  stroke: $darkwhite!important;
+  fill: transparent!important;
+}
+
+.CircularProgressbar-text {
+  // stroke: pink!important;
+  fill: $terciary-color!important;
+
+  &:hover {
+    fill: $secundary-color!important; 
+  }
+}
+
+.CircularProgressbar-background {
+  // stroke: pink!important;
+  // fill: pink!important;
+}
+
+// For opinion Rates
+
+.CircularProgressbar-pathtwo {
+  stroke: $primary-color!important;
+  fill: $primary-color!important;
+}
+
+.CircularProgressbar-trailtwo {
+  stroke: $terciary-color!important;
+  fill: transparent!important;
+}
+
+.bg-micra {
+  background-image: url('https://pixel.nymag.com/imgs/daily/vulture/2018/11/02/02-avatar-2.w700.h700.jpg');
+  background-position: center; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.profile-opinion-card {
+  text-align: center;
+  padding: 2rem 1.5rem 2rem 2rem;
+  border: 0.5px solid rgba(50, 50, 73, 0.3);
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 12.5px 20px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+
+.profile-opinion-text {
+  width: 75%;
+  margin: auto 1rem auto auto;
+}
+
+.profile-opinion-graph {
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+

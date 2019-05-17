@@ -36,6 +36,7 @@ class Navbar extends Component {
             <Link to='/opinions'>Opinions</Link>
             <Link to='/opinions/create'>Create Opinion</Link>
             <Link to='/statistics'>Stats</Link>
+            <p className="nav-logout" onClick={this.props.logout}>Logout</p>
           </div>
         );
       default:

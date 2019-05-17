@@ -90,6 +90,16 @@
   }
 }
 
+.btn-score {
+  color: $white;
+  background-color: $terciary-color;
+
+  &:hover {
+    color: $white;
+    background-color: $secundary-color;
+  }
+}
+
 .btn-red {
   border-color: $red;
   color: $red;

@@ -25,7 +25,7 @@ class App extends Component {
           </header>
           <div className="jumbotron bg-yellow mid-height d-flex justify-content-center center">
             <div className="container des">
-              <h1 className="pb-2 color-primary">Swipe & Share</h1>
+              <h1 className="pb-2 primary-color">Swipe & Share</h1>
               <h3 className="pb-3">Discover what all the <span>buzz</span> is about!</h3>
               <p>Don't be afraid to ask the most random questions, the community will answer them for you</p>
             </div>

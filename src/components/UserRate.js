@@ -1,23 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring'
+// import { useSpring, animated } from 'react-spring';
 
 import { toast } from 'react-toastify';
 
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import '../sass/stylesheets/styles.scss';
+
 import {statTypes} from "../constants/constants";
-import {spinnerTypes, errorTypes} from "../constants/constants";
+import { errorTypes} from "../constants/constants";
 
 import statsService from '../lib/statistics-service';
 
-import Spinner from "../components/Spinner";
+// const circular = {
+//   path: {
+//     // Path color
+//     stroke: `#ee7968`,
+//   },
+//   text: {
+//     // Text color
+//     fill: '#ee7968',
+//   }
+// }
 
 const UserRate = ({userId}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [stat, setStat] = useState(100);
   const [categoryStat, setCategoryStat] = useState(undefined);
-  // const [springStat, setSpringStat] = useState(undefined);
+  // const [springStat, setSpringStat] = useState(undefined); 
 
 
   useEffect(() => { 
+    
     statsService.query({
       type: statTypes.USER_RATE,
       user: userId,
@@ -69,16 +83,21 @@ const UserRate = ({userId}) => {
     <>
       { isLoading ? 
         <>
-          <p>And your popularity score is ...</p>
+          <p>And your <span>popularity score</span> is ...</p>
         </> 
         : 
         <>
           { !categoryStat ?
             <>
             { stat && (
-              <div>
-                <p>Popularity score: <button className="btn btn-black" onClick={statPerCategory}>{stat}%</button></p>
-                <button className="btn btn-black" onClick={statPerCategory}>Analyze score</button>
+              <div className="cnt-pos flex-column">
+                <p>Your Popularity score is:</p>
+                <div className="circular-prediv mt-2">
+                  <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular"
+                    // styles={circular} 
+                  />
+                </div>
+                <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button>
                 {/* <p>Your popularity score is <animated.span>{springStat}</animated.span>%</p> */}
               </div>
               ) }
