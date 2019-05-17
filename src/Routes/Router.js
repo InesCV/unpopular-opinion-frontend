@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from "../lib/AuthProvider";
 import routes from './routes';
 import appStore from "../stores/app-store";
-import clientStore from "../stores/client-store";
+import userStore from "../stores/user-store";
 
 // Notifications configuration
 toast.configure({
@@ -24,7 +24,7 @@ toast.configure({
 
 export default () => (
   <BrowserRouter>
-    <Provider clientStore={clientStore} appStore={appStore}>
+    {/* <Provider userStore={userStore} appStore={appStore}> */}
       <AuthProvider>
         <Switch>
           {routes.map(({type: Route, path, component}, key) => 
@@ -32,6 +32,6 @@ export default () => (
           )}
         </Switch>
       </AuthProvider>
-    </Provider>
+    {/* </Provider> */}
   </BrowserRouter>
 )

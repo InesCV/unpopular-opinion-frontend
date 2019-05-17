@@ -1,6 +1,6 @@
 import { observable } from 'mobx'; 
 
-class ClientStore {
+class UserStore {
     @observable history = [`login`];
     @observable step = `login`;
     @observable askUser = null;
@@ -29,6 +29,6 @@ class ClientStore {
     }
 }
 
-const clientStore = new ClientStore();
+const userStore = new UserStore();
 
-export default clientStore;
+export default userStore;
