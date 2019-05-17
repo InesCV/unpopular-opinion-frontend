@@ -4,14 +4,16 @@
 
 .your-profile {
   width: 100%;
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 900px) {
     width: 40%;
+    position: fixed;
   }
 }
 
 .your-opinions {
   width: 100%;
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 900px) {
+    margin-left: 40%;
     width: 60%;
   }
 }
@@ -38,55 +40,66 @@
 
 // custom.css
 
-.circular {
+.circular-secundary {
   width: 108%!important;
+  
+  .CircularProgressbar-path {
+    stroke: $terciary-color!important;
+    fill: $terciary-color!important;
+
+    &:hover {
+      stroke: $secundary-color!important;
+      fill: $secundary-color!important; 
+    }
+  }
+  .CircularProgressbar-trail {
+    stroke: $darkwhite!important;
+    fill: transparent!important;
+  }
+
+  .CircularProgressbar-text {
+    // stroke: pink!important;
+    fill: $terciary-color!important;
+
+    &:hover {
+      fill: $secundary-color!important; 
+    }
+  }
+
+  .CircularProgressbar-background {
+    // stroke: pink!important;
+    // fill: pink!important;
+  }
 }
 
 .circular-prediv {
   max-width: 50%;
 }
 
-// NEW PRESET
+.circular-uop {
+  width: 108%!important;
+  
+  .CircularProgressbar-path {
+    stroke: $primary-color!important;
+    fill: $primary-color!important;
+  }
+  
+  .CircularProgressbar-trail {
+    stroke: $terciary-color!important;
+    fill: transparent!important;
+  }
 
-.CircularProgressbar-path {
-  stroke: $terciary-color!important;
-  fill: $terciary-color!important;
+  .CircularProgressbar-text {
+    // stroke: pink!important;
+    fill: $terciary-color!important;
+  }
 
-  &:hover {
-    stroke: $secundary-color!important;
-    fill: $secundary-color!important; 
+  .CircularProgressbar-background {
+    // stroke: pink!important;
+    // fill: pink!important;
   }
 }
-.CircularProgressbar-trail {
-  stroke: $darkwhite!important;
-  fill: transparent!important;
-}
 
-.CircularProgressbar-text {
-  // stroke: pink!important;
-  fill: $terciary-color!important;
-
-  &:hover {
-    fill: $secundary-color!important; 
-  }
-}
-
-.CircularProgressbar-background {
-  // stroke: pink!important;
-  // fill: pink!important;
-}
-
-// For opinion Rates
-
-.CircularProgressbar-pathtwo {
-  stroke: $primary-color!important;
-  fill: $primary-color!important;
-}
-
-.CircularProgressbar-trailtwo {
-  stroke: $terciary-color!important;
-  fill: transparent!important;
-}
 
 .bg-micra {
   background-image: url('https://pixel.nymag.com/imgs/daily/vulture/2018/11/02/02-avatar-2.w700.h700.jpg');

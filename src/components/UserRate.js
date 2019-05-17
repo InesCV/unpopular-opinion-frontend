@@ -93,7 +93,7 @@ const UserRate = ({userId}) => {
               <div className="cnt-pos flex-column">
                 <p>Your Popularity score is:</p>
                 <div className="circular-prediv mt-2">
-                  <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular"
+                  <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular-secundary"
                     // styles={circular} 
                   />
                 </div>

@@ -28,7 +28,7 @@ export default ({op}) => {
         </div>
       </div>
       <div className="profile-opinion-graph">
-        <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular CircularProgressbar-pathtwo CircularProgressbar-trailtwo" 
+        <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular-uop" 
           styles={circular} 
         />
       </div>
