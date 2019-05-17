@@ -129,3 +129,17 @@
   align-items: center;
 }
 
+.profile-name {
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+.profile-description {
+  font-weight: 400;
+  color: $dark;
+}
+
+.profile-scores-text {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}

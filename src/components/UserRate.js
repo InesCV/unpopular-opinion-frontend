@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import { useSpring, animated } from 'react-spring';
+import { withAuth } from "../lib/AuthProvider";
 
 import { toast } from 'react-toastify';
 
@@ -10,25 +11,14 @@ import '../sass/stylesheets/styles.scss';
 import {statTypes} from "../constants/constants";
 import { errorTypes} from "../constants/constants";
 
+
 import statsService from '../lib/statistics-service';
 
-// const circular = {
-//   path: {
-//     // Path color
-//     stroke: `#ee7968`,
-//   },
-//   text: {
-//     // Text color
-//     fill: '#ee7968',
-//   }
-// }
 
 const UserRate = ({userId}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [stat, setStat] = useState(100);
   const [categoryStat, setCategoryStat] = useState(undefined);
-  // const [springStat, setSpringStat] = useState(undefined); 
-
 
   useEffect(() => { 
     
@@ -42,10 +32,6 @@ const UserRate = ({userId}) => {
       } else {
         setStat (data.stats.avg);
         setIsLoading (false);
-        // const number = useSpring({ number: 100, from: { number: 0 } });
-        // setSpringStat(number);
-        // console.log('paco')
-        // console.log(springStat)
       }
     }) 
     .catch((error)=> {
@@ -54,13 +40,6 @@ const UserRate = ({userId}) => {
       });
     });
    }, []);
-   
-  // const AnimatedDonut = animated(Donut);
-  // const springStat = useSpring({ number: 100, from: { number: 0 } })
-  // console.log(springStat)
-
-
-  
 
   function statPerCategory  () {
     statsService.query({
@@ -69,7 +48,6 @@ const UserRate = ({userId}) => {
     })
     .then(data => {
       setCategoryStat (data.stats.avg);
-
       setIsLoading (false);
     }) 
     .catch((error)=> {
@@ -83,7 +61,14 @@ const UserRate = ({userId}) => {
     <>
       { isLoading ? 
         <>
-          <p>And your <span>popularity score</span> is ...</p>
+          <div className="cnt-pos flex-column">
+            <div className="circular-prediv mt-2">
+              <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secundary" />
+            </div>
+            <p className="profile-scores-text">Popularity Score</p>
+            {/* <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button> */}
+            {/* <p>Your popularity score is <animated.span>{springStat}</animated.span>%</p> */}
+          </div>
         </> 
         : 
         <>
@@ -91,16 +76,17 @@ const UserRate = ({userId}) => {
             <>
             { stat && (
               <div className="cnt-pos flex-column">
-                <p>Your Popularity score is:</p>
                 <div className="circular-prediv mt-2">
                   <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular-secundary"
                     // styles={circular} 
-                  />
+                    />
                 </div>
-                <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button>
+                <p className="profile-scores-text">Popularity Score</p>
+                {/* <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button> */}
                 {/* <p>Your popularity score is <animated.span>{springStat}</animated.span>%</p> */}
               </div>
-              ) }
+              ) 
+            }
             </>
             : 
             <>
@@ -120,4 +106,4 @@ const UserRate = ({userId}) => {
   )
 }
 
-export default UserRate;
+export default withAuth(UserRate);

@@ -23,8 +23,8 @@ export default ({op}) => {
       <div className="profile-opinion-text">
         <p className="text-left">{op.question}</p>
         <div className="d-flex justify-content-around mt-1">
-          <p className="terciary-color">{op.response.x}</p>
-          <p className="secundary-color">{op.response.y}</p>
+          <p className="secundary-color">{op.response.x}</p>
+          <p className="terciary-color">{op.response.y}</p>
         </div>
       </div>
       <div className="profile-opinion-graph">
