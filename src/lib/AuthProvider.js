@@ -62,8 +62,10 @@ class AuthProvider extends Component {
     });
   }
 
-  componentDidUpdate() {
-    this.props.appStore.me(user);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isLoggedin !== this.state.isLoggedin){
+      this.props.appStore.me(this.state.user);
+    }
   }
 
 
@@ -119,7 +121,6 @@ class AuthProvider extends Component {
         toast.info(`See you soon ${this.state.user.username}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
-        this.props.appStore.cancelWatchingPosition();
         this.setState({
           isLoggedin: false,
           user: null
