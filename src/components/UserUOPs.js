@@ -35,10 +35,10 @@ export default ({op}) => {
     <div className="d-flex">
       <div className="profile-opinion-text">
         <p className="text-left">{op.question}</p>
-        <div className="d-flex justify-content-around mt-1">
-          <p className="secundary-color">{op.response.x}</p>
-          <p className="terciary-color">{op.response.y}</p>
-        </div>
+        <ul className="d-flex flex-column mt-2 ml-4">
+          <li className="secundary-color d-flex justify-content-start">&#9724;  {op.response.x}</li>
+          <li className="terciary-color d-flex justify-content-start">&#9724;  {op.response.y}</li>
+        </ul>
       </div>
       <div className="profile-opinion-graph">
         <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular-uop" />
