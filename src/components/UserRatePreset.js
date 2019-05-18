@@ -1,6 +1,4 @@
 import React from 'react';
-// import { useSpring, animated } from 'react-spring';
-import { withAuth } from "../lib/AuthProvider";
 
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';

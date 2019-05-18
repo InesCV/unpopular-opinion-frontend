@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { withAuth } from "../lib/AuthProvider";
-
 import UserRatePreset from './UserRatePreset';
 import CategoryRate from './CategoryRate';
 

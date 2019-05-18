@@ -30,13 +30,11 @@ const Deck = ({cards, respond}) => {
       const x = isGone ? (200 + window.innerWidth) * dir : down ? xDelta : 0 // When a card is gone it flys out left or right, otherwise goes back to zero
       const rot = xDelta / 100 + (isGone ? dir * 10 * velocity : 0) // How much the card tilts, flicking it harder makes it rotate faster
       const scale = down ? 1.15 : 1 // Active cards lift up a bit
-      if (down) { console.log('touched')} // Let's us know if the card has been lifted
+      // if (down) { console.log('touched')} // Let's us know if the card has been lifted
       // Tells us which way the card has gone
       if (isGone && x>1) { 
-        console.log('Swipe right');
         respond(i, 'y');
       } else if (isGone && x<-1) {
-        console.log('Swipe left')
         respond(i, 'x');
       }
       return { x, rot, scale, delay: undefined, config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 } }
