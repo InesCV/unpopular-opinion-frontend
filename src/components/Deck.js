@@ -44,7 +44,7 @@ const Deck = ({cards, respond}) => {
 
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return opCards.map(({ x, y, rot, scale }, i) => (
-    <animated.div key={i} style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }} onDoubleClick={() => setIsFlipped(state => !state)}>
+    <animated.div key={i} style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x/2}px,${y/2.5}px,0)`) }} onDoubleClick={() => setIsFlipped(state => !state)}>
       {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
       <Card cards={cards} i={i} opacity={opacity} transform={transform} bind={bind} rot={rot} scale={scale} trans={trans} isFlipped={isFlipped}/>
     </animated.div>
