@@ -5,7 +5,7 @@ import * as socketService from '../lib/socket-service';
 class AppStore {
     user = null;
     intervalId = null;
-    currentPosition = [];
+    currentPosition = [0, 0];
     nearOpiners = [];
     socket = "";
 
