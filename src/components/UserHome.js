@@ -6,13 +6,13 @@ import UserUOPs from "../components/UserUOPs";
 import UserInfoCard from "../components/UserInfoCard";
 
 
-const UserHome = ({ user, toggleIsEditing }) => {
+const UserHome = ({ user }) => {
   return (
     <div className="container nav-after d-flex flex-wrap">
       <div className="your-profile mb-2">
         <div className="d-flex justify-content-between profile-title mt-2 mb-2">
           <h2 className="terciary-color">Your profile</h2> 
-          <p className="d-flex align-items-center" onClick={toggleIsEditing}>Edit profile</p>
+          <Link to="/profile/edit" className="d-flex align-items-center">Edit profile</Link>
         </div>
         <UserInfoCard user={user} />
       </div>

@@ -44,6 +44,15 @@ class Navbar extends Component {
             <p className="nav-logout" onClick={() => this.handlelOnClick(this.props.logout)} >Logout</p>
           </div>
         );
+      case '/profile/edit':
+        return (
+          <div className="nav">
+            <Link to='/opinions'>Opinions</Link>
+            <Link to='/opinions/create'>Create</Link>
+            {/* <Link to='/statistics'>Stats</Link> */}
+            <p className="nav-logout" onClick={() => this.handlelOnClick(this.props.logout)} >Logout</p>
+          </div>
+        );
       default:
         return (
           <div className="nav">

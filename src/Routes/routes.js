@@ -12,6 +12,7 @@ import NotFound from '../pages/NotFound';
 import Users from '../pages/Users';
 import PrivateRoute from "../components/PrivateRoute";
 import AnonRoute from "../components/AnonRoute";
+import EditProfile from '../pages/EditProfile';
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     type: PrivateRoute,
     path: '/profile',
     component: Profile,
+  },
+  {
+    type: PrivateRoute,
+    path: '/profile/edit',
+    component: EditProfile,
   },
   {
     type: PrivateRoute,

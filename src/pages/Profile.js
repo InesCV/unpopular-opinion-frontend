@@ -6,12 +6,10 @@ import userService from "../lib/user-service";
 
 import Spinner from "../components/Spinner";
 import Navbar from "../components/Navbar";
-import UserEditProfile from "../components/UserEditProfile";
 import UserHome from "../components/UserHome";
 
 class Profile extends Component {
   state = {
-    isEditing: false,
     isLoading: true,
     user: {},
   }
@@ -22,7 +20,7 @@ class Profile extends Component {
         this.setState({
           isLoading: false,
           user,
-        })
+        });
       })
       .catch((error)=> {
         console.log("Couldn't get the user information from API.");
@@ -30,8 +28,7 @@ class Profile extends Component {
       });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.isEditing !== this.state.isEditing){
+  componentDidUpdate() {
       userService.profile()
         .then(({user}) => {
           this.setState({
@@ -43,13 +40,6 @@ class Profile extends Component {
           console.log("Couldn't get the user information from API.");
           console.log(error);
         });
-    }
-  }
-
-  toggleIsEditing = () => {
-    this.setState({
-      isEditing: !this.state.isEditing,
-    });
   }
 
   render() {
@@ -58,14 +48,9 @@ class Profile extends Component {
       <>
         <Navbar {...this.props}/>
         { isLoading ? 
-          <Spinner type={spinnerTypes.SPIN} color={"blue"} />
+          <Spinner className="cnt-pos" type={spinnerTypes.SPIN} color={"blue"} />
           : 
-          <>
-            { isEditing ?
-              <UserEditProfile user={user} toggleIsEditing={this.toggleIsEditing} />
-            :
-              <UserHome user={user} toggleIsEditing={this.toggleIsEditing} logout={this.props.logout}/>}
-          </> 
+          <UserHome user={user} logout={this.props.logout}/>
         }
       </>
     )
