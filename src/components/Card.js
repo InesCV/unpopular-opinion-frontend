@@ -7,7 +7,7 @@ import CardBack from '../components/CardBack';
 
 const Card = ({cards, i, opacity, transform, bind, rot, scale, trans, isFlipped}) => {
   return (
-    <animated.div className="cards" {...bind(i)} style={{ transform: interpolate([rot, scale], trans) }} >
+    <animated.div className="cards nav-after" {...bind(i)} style={{ transform: interpolate([rot, scale], trans) }} >
       { isFlipped ? <CardBack cards={cards} i={i} opacity={opacity} transform={transform}/> : <CardFront cards={cards} i={i} opacity={opacity} transform={transform} /> }
     </animated.div>
   )
