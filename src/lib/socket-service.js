@@ -14,8 +14,7 @@ socket.on('message', (sms) => console.log(sms));
 
 // Incoming nearOpiniers
 socket.on('NearUopers', (nearUopers) => {
-    console.log('Front - uopers: ', nearUopers);
-    // appStore.nearOpiners = opiners;
+    appStore.nearUopers = nearUopers;
 });
 
 
