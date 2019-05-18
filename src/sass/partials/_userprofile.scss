@@ -23,7 +23,6 @@
   margin-right: 5%;
 }
 
-
 .profile-user-card {
   text-align: center;
   padding: 2rem;
@@ -38,7 +37,7 @@
   path: $primary-color;
 }
 
-// custom.css
+///// custom.css for the stats ////
 
 .circular-secundary {
   width: 108%!important;
@@ -71,6 +70,39 @@
     // fill: pink!important;
   }
 }
+
+.circular-red {
+  width: 108%!important;
+  
+  .CircularProgressbar-path {
+    stroke: $red!important;
+    fill: $red!important;
+
+    &:hover {
+      stroke: $secundary-color!important;
+      fill: $secundary-color!important; 
+    }
+  }
+  .CircularProgressbar-trail {
+    stroke: $darkwhite!important;
+    fill: transparent!important;
+  }
+
+  .CircularProgressbar-text {
+    // stroke: pink!important;
+    fill: $red!important;
+
+    &:hover {
+      fill: $secundary-color!important; 
+    }
+  }
+
+  .CircularProgressbar-background {
+    // stroke: pink!important;
+    // fill: pink!important;
+  }
+}
+
 
 .circular-prediv {
   max-width: 50%;
@@ -109,6 +141,11 @@
   border-radius: 50%;
 }
 
+
+//////// CARD STRUCTURE IN PROFILE ////////////
+
+
+
 .profile-opinion-card {
   text-align: center;
   padding: 2rem 1.5rem 2rem 2rem;
@@ -127,5 +164,105 @@
   width: 25%;
   display: flex;
   align-items: center;
+}
+
+.profile-name {
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+.profile-description {
+  font-weight: 400;
+  color: $dark;
+}
+
+.profile-scores-text {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+
+.profile-img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 7rem;
+  height: 7rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+///////// EDIT PROFILE //////////
+
+.profile-edit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-update-img {
+  width: 100%;
+  height: 90vw;
+
+  @media only screen and (min-width: 500px) {
+    max-width: 400px;
+    height: 400px;
+  }
+}
+
+.profile-upload-img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 90%;
+  height: 100%;
+  color: white; 
+  font-size: 2.5rem;
+  font-weight: 600;
+  border-radius: 50%;
+
+  @media only screen and (min-width: 500px) {
+    height: 90%;
+  }
+
+}
+
+.profile-edit-user {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  width: 100%;
+  
+  @media only screen and (min-width: 500px) {
+    max-width: 400px;  
+  }
+
+  label {
+    font-weight: 600;
+    color: $secundary-color
+  }
+}
+
+// .profile-edit-form {
+//   width: 90vw;
+
+//   @media only screen and (min-width: 500px) {
+//     width: 100%;
+//   }
+// }
+
+.profile-edit-box {
+  width: 100%;
+  border-radius: 5%;
+  border: 3px solid $secundary-color;
+  font-family: 'Raleway', 'Quicksand', sans-serif;
+  font-size: 1rem;
+}
+
+.profile-edit-username {
+  height: 2rem;
+}
+
+.profile-edit-description {
+  height: 5rem;
 }
 

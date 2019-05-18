@@ -6,7 +6,7 @@ import UserUOPs from "../components/UserUOPs";
 import UserInfoCard from "../components/UserInfoCard";
 
 
-const UserHome = ({ user, toggleIsEditing, logout }) => {
+const UserHome = ({ user, toggleIsEditing }) => {
   return (
     <div className="container nav-after d-flex flex-wrap">
       <div className="your-profile mb-2">
@@ -24,10 +24,12 @@ const UserHome = ({ user, toggleIsEditing, logout }) => {
               <Link className="btn btn-primary" to='/opinions/create'>Create more opinions</Link>
             </div> 
           : 
-            <>
-              <p className="mb-2">You have not created a single opinion</p>
-              <Link className="btn btn-primary" to='/opinions/create'>Create Opinion</Link>
-            </>
+            <div className="cnt-pos flex-column">
+              <div className="profile-opinion-card mt-2 mb-5">
+                <p className="mb-4">Create opinions of your own to get <span>answers</span> from the community</p>
+                <Link className="btn btn-primary" to='/opinions/create'>Create Opinion</Link>
+              </div>
+            </div>
         }
       </div>
     </div>

@@ -16,6 +16,7 @@
     padding: 0.25rem;
     color: $white;
     margin: auto 1.5rem;
+    font-size: 1.3rem;
 
     &:hover {
       color: $terciary-color;
@@ -44,6 +45,7 @@
   padding: 0.25rem;
   color: $black;
   margin: auto 1.5rem;
+  font-size: 1.3rem;
 
   &:hover {
     color: $terciary-color;
@@ -51,19 +53,19 @@
 }
 
 .nav-after {
-  padding-top: 2.5rem;
+  padding-top: 6vh;
 }
 
 .nav-after-m {
-  margin-top: 2.5rem;
+  margin-top: 6vh;
 }
 
 .op-bar {
-  margin-top: 80vh;
-  height: 20vh;
+  margin-top: 85vh;
+  height: 15vh;
   max-height: 10rem;
   z-index: 2;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   background-color: $darkwhite;
 }

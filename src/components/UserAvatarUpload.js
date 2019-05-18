@@ -51,17 +51,8 @@ class UserAvatarUpload extends Component {
   render () {
     const {uploaded} = this.state.uploaded;
     return (
-      <div>
-
-        <label
-          className="d-flex flex-column justify-content-center align-items-center"
-          style={{ backgroundImage: `url(${this.props.actualImg})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          width: '100%',
-          height: '50vh',
-        }}>
+      <div className="d-flex justify-content-center profile-update-img">
+        <label className="cnt-pos profile-upload-img" style={{ backgroundImage: `url(${this.props.actualImg})`}}>
           Edit
           <input type="file" style={{display: 'none'}} onChange={this.handleFileChange.bind(this)} />
           { (uploaded < 100) && <progress value={uploaded} max='100' style={{backgroundColor: 'blue'}}>{uploaded} %</progress> }

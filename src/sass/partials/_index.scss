@@ -5,7 +5,7 @@
 body {
   font-family: 'Raleway', 'Quicksand', sans-serif;
   line-height: 1.5;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 }
 
 h1 {
@@ -36,7 +36,7 @@ h4 {
 }
 
 p {
-  font-size: 1em;
+  font-size: 1.25rem;
 }
 
 span {
@@ -47,4 +47,15 @@ a {
   color: $primary-color;
 }
 
+b {
+  font-weight: 600;
+}
+
+i {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+}
 

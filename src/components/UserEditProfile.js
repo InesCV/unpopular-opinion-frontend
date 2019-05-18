@@ -50,29 +50,33 @@ export default class EditProfile extends Component {
   render (){
     const { username, avatar, description } = this.state;
     return (
-      <>
-        <UserAvatarUpload type={'profile'} name={username} actualImg={avatar} updateFunction={this.setAvatar} />
-        <br />
-        <form className="container pt-3" onSubmit={this.handleFormSubmit}>
-          <label>Username: </label>
-          <input className="form-control"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <br />
-          <label>Description: </label>
-          <textarea className="form-control"
-            type="text"
-            name="description"
-            value={description}
-            onChange={this.handleChange}
-          /><br />
-          <input className="btn btn-primary" type="submit" value="Save" />
-        </form>
-        <button className="btn btn-primary" onClick={this.handleCancel}>Cancel</button>
-      </>
+      <div className="nav-after">
+        <div className="profile-edit mt-4">
+          <UserAvatarUpload type={'profile'} name={username} actualImg={avatar} updateFunction={this.setAvatar} />
+          <div className="profile-edit-user mt-4">
+            <form className="d-flex flex-column profile-edit-form" onSubmit={this.handleFormSubmit}>
+              <label>Username:</label>
+              <input className="profile-edit-box profile-edit-username"
+                type="text"
+                name="username"
+                value={username}
+                onChange={this.handleChange}
+                />
+              <label className="mt-2">Description:</label>
+              <textarea className="profile-edit-box profile-edit-description"
+                type="text"
+                name="description"
+                value={description}
+                onChange={this.handleChange}
+              />
+            </form>
+          </div>
+        </div>
+        <div className="d-flex justify-content-center mt-4">
+          <input className="btn btn-secundary mr-2" type="submit" value="Save" onClick={this.handleFormSubmit}/>
+          <button className="btn btn-red ml-2" onClick={this.handleCancel}>Cancel</button>
+        </div>
+        </div>
     )
   }
 }
