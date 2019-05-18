@@ -23,7 +23,7 @@ const UserRate = ({userId, username, path}) => {
     .then(data => {
       if (!data){
         setIsLoading (false);
-      } else if (data.message === "Sorry, the user hasn't responded any opinion yet.") {
+      } else if (data.message === "Sorry, the user hasn't responded to any opinion yet.") {
         setIsLoading (false);
         setResponded(false);
       } else {

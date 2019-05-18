@@ -71,6 +71,39 @@
   }
 }
 
+.circular-red {
+  width: 108%!important;
+  
+  .CircularProgressbar-path {
+    stroke: $red!important;
+    fill: $red!important;
+
+    &:hover {
+      stroke: $secundary-color!important;
+      fill: $secundary-color!important; 
+    }
+  }
+  .CircularProgressbar-trail {
+    stroke: $darkwhite!important;
+    fill: transparent!important;
+  }
+
+  .CircularProgressbar-text {
+    // stroke: pink!important;
+    fill: $red!important;
+
+    &:hover {
+      fill: $secundary-color!important; 
+    }
+  }
+
+  .CircularProgressbar-background {
+    // stroke: pink!important;
+    // fill: pink!important;
+  }
+}
+
+
 .circular-prediv {
   max-width: 50%;
 }
