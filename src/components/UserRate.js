@@ -81,7 +81,7 @@ const UserRate = ({userId, username, path}) => {
                     // styles={circular} 
                     />
                 </div>
-                { (path !== "/user") ? <p className="profile-scores-text">{username}'s Popularity Score</p> : <p className="profile-scores-text">Your Popularity Score</p> }
+                { (path !== "/user") ? <p className="profile-scores-text">Your Popularity Score</p> : <p className="profile-scores-text">{username}'s Popularity Score</p> }
                 { (path !== "/user") && <button className="btn btn-score mt-4" onClick={statPerCategory}>Analyze score</button>}
                 {/* <p>Your popularity score is <animated.span>{springStat}</animated.span>%</p> */}
               </div>

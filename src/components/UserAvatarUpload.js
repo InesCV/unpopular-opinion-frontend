@@ -51,7 +51,7 @@ class UserAvatarUpload extends Component {
   render () {
     const {uploaded} = this.state.uploaded;
     return (
-      <div className="profile-img d-flex justify-content-center">
+      <div className="d-flex justify-content-center profile-update-img">
         <label className="cnt-pos profile-upload-img" style={{ backgroundImage: `url(${this.props.actualImg})`}}>
           Edit
           <input type="file" style={{display: 'none'}} onChange={this.handleFileChange.bind(this)} />

@@ -73,7 +73,7 @@ export default class EditProfile extends Component {
           </div>
         </div>
         <div className="d-flex justify-content-center mt-4">
-          <input className="btn btn-secundary mr-2" type="submit" value="Save" />
+          <input className="btn btn-secundary mr-2" type="submit" value="Save" onClick={this.handleFormSubmit}/>
           <button className="btn btn-red ml-2" onClick={this.handleCancel}>Cancel</button>
         </div>
         </div>

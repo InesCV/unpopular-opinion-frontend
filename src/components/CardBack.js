@@ -16,7 +16,10 @@ const CardBack = ({cards, i, opacity, transform, user}) => {
               id: cards[i].author._id,
             }
           }}> 
-            <img className="card-author-img mr-2" src={cards[i].author.avatar} alt={cards[i].author.username}/>
+            <div className="d-flex justify-content-center">
+              <div className="card-author-img" style={{ backgroundImage: `url(${cards[i].author.avatar})`}}/>
+            </div>
+            {/* <img className="card-author-img" src={cards[i].author.avatar} alt={cards[i].author.username}/> */}
             <h4>{cards[i].author.username}</h4>
           </Link>
           <p className="card-author-description">{cards[i].author.description}</p>
