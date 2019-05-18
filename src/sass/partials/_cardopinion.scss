@@ -137,10 +137,16 @@
 }
 
 .card-author-img {
-  max-width: 25%;
-  max-height: 25%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 5rem;
+  width: 5rem;
   border-radius: 50%;
+  margin-bottom: 0.5rem;
 }
+
+
 
 .card-author-description {
   font-size: 0.75rem;

@@ -59,13 +59,14 @@ class Profile extends Component {
         <Navbar {...this.props}/>
         { isLoading ? 
           <Spinner type={spinnerTypes.SPIN} color={"blue"} />
-        : 
+          : 
           <>
             { isEditing ?
               <UserEditProfile user={user} toggleIsEditing={this.toggleIsEditing} />
             :
               <UserHome user={user} toggleIsEditing={this.toggleIsEditing} logout={this.props.logout}/>}
-        </> }
+          </> 
+        }
       </>
     )
   }

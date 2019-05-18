@@ -25,11 +25,22 @@
 .btn-secundary {
   color: $secundary-color;
   background-color: transparent;
-  border-color: black;
+  border-color: $secundary-color;
 
   &:hover {
     color: $white;
     background-color: $secundary-color;
+  }
+}
+
+.btn-terciary {
+  color: $terciary-color;
+  background-color: transparent;
+  border-color: $terciary-color;
+
+  &:hover {
+    color: $white;
+    background-color: $terciary-color;
   }
 }
 
@@ -55,9 +66,31 @@
   }
 }
 
+.btn-red {
+  color: $red;
+  background-color: transparent;
+  border-color: $red;
+
+  &:hover {
+    color: $white;
+    background-color: $red;
+  }
+}
+
+.btn-mustard {
+  color: $mustard;
+  background-color: transparent;
+  border-color: $mustard;
+
+  &:hover {
+    color: $white;
+    background-color: $mustard;
+  }
+}
+
 .btn-op-bar {
   border: none;
-  background-color: $white;
+  background-color: white;
   font-weight: bold;
   font-size: 2rem!important;
   // display: inline-block;
@@ -65,18 +98,29 @@
   border: 3px solid $mustard;
   border-radius: 50%;
   line-height: 1.5;
-  height: 14vh;
-  width: 14vh;
+  height: 10vh;
+  width: 10vh;
   padding: 0.375rem 0.75rem;
   font-size: 1.1rem;
   color: $mustard;
-  box-shadow: 0 12.5px 20px -10px rgba($mustard, 0.4), 0 10px 10px -10px rgba($mustard, 0.3);
+  box-shadow: 0 15px 20px -10px rgba($black, 0.4), 0 15px 10px -10px rgba($black, 0.3);
 
   &:hover {
     color: white;
     background-color: $mustard;
   }
 }
+
+.btn-op-bar-red {
+  border-color: $red;
+  color: $red;
+
+  &:hover {
+    color: white;
+    background-color: $red;
+  }
+}
+
 
 .btn-log {
   color: $white;
@@ -90,12 +134,13 @@
   }
 }
 
-.btn-red {
-  border-color: $red;
-  color: $red;
+.btn-score {
+  color: $white;
+  background-color: $terciary-color;
 
   &:hover {
-    color: white;
-    background-color: $red;
+    color: $white;
+    background-color: $secundary-color;
   }
 }
+
