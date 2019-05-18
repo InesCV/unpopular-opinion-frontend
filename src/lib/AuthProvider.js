@@ -51,8 +51,7 @@ class AuthProvider extends Component {
         user,
         isLoading: false
       });
-      this.props.appStore.user = user;
-      this.props.appStore.me();
+      this.props.appStore.me(user);
     })
     .catch((error) => {
       this.setState({
@@ -62,7 +61,6 @@ class AuthProvider extends Component {
       });
     });
   }
-
 
   signup = user => {
     auth
@@ -75,6 +73,7 @@ class AuthProvider extends Component {
           isLoggedin: true,
           user
         });
+        this.props.appStore.me(user);
         toast.info(`Welcome ${user.username}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });
@@ -98,6 +97,7 @@ class AuthProvider extends Component {
           isLoggedin: true,
           user
         });
+        this.props.appStore.me(user);
         toast.info(`Welcome ${user.username}`, {
           position: toast.POSITION.BOTTOM_RIGHT
         });

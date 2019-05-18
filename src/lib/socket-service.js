@@ -15,7 +15,7 @@ socket.on('message', (sms) => console.log(sms));
 
 // Incoming nearOpiniers
 socket.on('NearOpiners', (opiners) => {
-    console.log(opiners);
+    console.log('Opiners devueltos: ', opiners);
     // appStore.nearOpiners = opiners;
 });
 

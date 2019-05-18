@@ -6,28 +6,28 @@ class AppStore {
     user = null;
     intervalId = null;
     currentPosition = [];
-    @observable nearOpiners = [];
+    nearOpiners = [];
     socket = "";
 
     // Store and send logged user info to server to update socket info
-    me() {
-        socketService.me(this.user._id);
-        this.watchingPosition();
+    async me(user) {
+        this.user = user;
+        await socketService.me(user._id);
+        this.updatePosition();
+        //this.watchingPosition();
     }
 
-    // Refresh user position every 10 seconds
+    // Refresh user position every 5 seconds
     watchingPosition() {
         this.cancelWatchingPosition();
         this.intervalId = window.setInterval(() => {
             this.updatePosition();
-        }, 10000);
+        }, 5000);
     }
 
     // Update user position
-    updatePosition() {
-        this.getPosition();
-        socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
-
+    async updatePosition() {
+        await this.getPosition();
         //socketService.findNear({ position: this.currentPosition });
     }
 
@@ -41,9 +41,10 @@ class AppStore {
         }
         navigator.geolocation.getCurrentPosition(async pos => {
             this.currentPosition = [
-                pos.coords.latitude,
-                pos.coords.longitude
+                pos.coords.longitude,
+                pos.coords.latitude
             ];
+            socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
         }, () => {
             toast.error("Sorry, can't retrieve your current position.", {
                 position: toast.POSITION.BOTTOM_RIGHT
