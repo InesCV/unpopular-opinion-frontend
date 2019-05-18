@@ -5,7 +5,6 @@ import appStore from '../stores/app-store';
 // Connect App with server
 const socket = io(process.env.REACT_APP_URL);
 
-
 /*
 ** Service listeners
 */
@@ -14,8 +13,8 @@ const socket = io(process.env.REACT_APP_URL);
 socket.on('message', (sms) => console.log(sms));
 
 // Incoming nearOpiniers
-socket.on('NearOpiners', (opiners) => {
-    console.log(opiners);
+socket.on('NearUopers', (uopers) => {
+    console.log(uopers);
     // appStore.nearOpiners = opiners;
 });
 

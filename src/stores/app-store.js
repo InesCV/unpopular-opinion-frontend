@@ -1,4 +1,4 @@
-import { observable } from 'mobx'; 
+import { toast } from 'react-toastify';
 
 import * as socketService from '../lib/socket-service';
 
@@ -6,13 +6,16 @@ class AppStore {
     user = null;
     intervalId = null;
     currentPosition = [];
-    @observable nearOpiners = [];
+    nearOpiners = [];
     socket = "";
 
     // Store and send logged user info to server to update socket info
-    me() {
-        socketService.me(this.user._id);
-        this.watchingPosition();
+    me(user) {
+        if (user) {
+            this.user = user;
+            socketService.me(this.user._id);
+            this.watchingPosition();
+        }
     }
 
     // Refresh user position every 10 seconds
@@ -21,6 +24,12 @@ class AppStore {
         this.intervalId = window.setInterval(() => {
             this.updatePosition();
         }, 10000);
+    }
+
+    // Cancel user update position interval
+    cancelWatchingPosition() {
+        clearInterval(this.intervalId);
+        //socketService.stopUpdateInterval();
     }
 
     // Update user position
@@ -34,37 +43,34 @@ class AppStore {
     // Get user current position
     getPosition() {
         if (!navigator.geolocation) {
-            toast.error("Sorry, can't retrieve your current position.", {
+            toast.error("Sorry, your navigator doesn't support geolocation.", {
               position: toast.POSITION.BOTTOM_RIGHT
             });
             return;
         }
         navigator.geolocation.getCurrentPosition(async pos => {
-            this.currentPosition = [
-                pos.coords.latitude,
-                pos.coords.longitude
-            ];
-        }, () => {
-            toast.error("Sorry, can't retrieve your current position.", {
-                position: toast.POSITION.BOTTOM_RIGHT
-            });
-        });
-    }
-
-    // Cancel user update position interval
-    cancelWatchingPosition() {
-        clearInterval(this.intervalId);
-        socketService.stopUpdateInterval();
-    }
-
-    serverSocketLogout() {
-        socketService.logout(this.user._id);
-        this.user = null;
-    }
+                this.currentPosition = [
+                    pos.coords.longitude,
+                    pos.coords.latitude
+                ];
+            }, 
+            () => {
+                toast.error("Sorry, can't retrieve your current position.", {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                });
+            }
+        );
+    } 
 
     // Query opiners in my zone
     inMyZone() {
         socketService.inMyZone(this.user._id);
+    }
+    
+    // Logout
+    serverSocketLogout() {
+        socketService.logout(this.user._id);
+        this.user = null;
     }
 }
 

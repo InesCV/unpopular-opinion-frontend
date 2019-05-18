@@ -51,8 +51,7 @@ class AuthProvider extends Component {
         user,
         isLoading: false
       });
-      this.props.appStore.user = user;
-      this.props.appStore.me();
+      this.props.appStore.me(user);
     })
     .catch((error) => {
       this.setState({
@@ -61,6 +60,10 @@ class AuthProvider extends Component {
         isLoading: false
       });
     });
+  }
+
+  componentDidUpdate() {
+    this.props.appStore.me(user);
   }
 
 
