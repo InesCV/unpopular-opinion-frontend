@@ -42,7 +42,6 @@ class App extends Component {
               <h4>We are just trying to get some answers. If we have to create an platform to do so... <span>Unpopular Opinion</span> it is.</h4>
             </div>
             <div className="overlay">
-
             </div>
           </div>
         </>
