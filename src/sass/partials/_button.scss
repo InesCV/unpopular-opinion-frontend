@@ -25,11 +25,22 @@
 .btn-secundary {
   color: $secundary-color;
   background-color: transparent;
-  border-color: black;
+  border-color: $secundary-color;
 
   &:hover {
     color: $white;
     background-color: $secundary-color;
+  }
+}
+
+.btn-terciary {
+  color: $terciary-color;
+  background-color: transparent;
+  border-color: $terciary-color;
+
+  &:hover {
+    color: $white;
+    background-color: $terciary-color;
   }
 }
 
@@ -52,6 +63,28 @@
   &:hover {
     color: $primary-color;
     border-color: $primary-color;
+  }
+}
+
+.btn-red {
+  color: $red;
+  background-color: transparent;
+  border-color: $red;
+
+  &:hover {
+    color: $white;
+    background-color: $red;
+  }
+}
+
+.btn-mustard {
+  color: $mustard;
+  background-color: transparent;
+  border-color: $mustard;
+
+  &:hover {
+    color: $white;
+    background-color: $mustard;
   }
 }
 
@@ -100,12 +133,3 @@
   }
 }
 
-.btn-red {
-  border-color: $red;
-  color: $red;
-
-  &:hover {
-    color: white;
-    background-color: $red;
-  }
-}
