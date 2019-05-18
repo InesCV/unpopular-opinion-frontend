@@ -11,8 +11,8 @@ class AppStore {
 
     // Store and send logged user info to server to update socket info
     me(user) {
+        this.user = user;
         if (user) {
-            this.user = user;
             socketService.me(this.user._id);
             this.watchingPosition();
         }
@@ -29,6 +29,7 @@ class AppStore {
     // Cancel user update position interval
     cancelWatchingPosition() {
         clearInterval(this.intervalId);
+        this.intervalId = null;
         //socketService.stopUpdateInterval();
     }
 
@@ -36,8 +37,6 @@ class AppStore {
     updatePosition() {
         this.getPosition();
         socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
-
-        //socketService.findNear({ position: this.currentPosition });
     }
 
     // Get user current position
@@ -69,6 +68,7 @@ class AppStore {
     
     // Logout
     serverSocketLogout() {
+        this.cancelWatchingPosition();
         socketService.logout(this.user._id);
         this.user = null;
     }

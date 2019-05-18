@@ -13,8 +13,8 @@ const socket = io(process.env.REACT_APP_URL);
 socket.on('message', (sms) => console.log(sms));
 
 // Incoming nearOpiniers
-socket.on('NearUopers', (uopers) => {
-    console.log(uopers);
+socket.on('NearUopers', (nearUopers) => {
+    console.log('Front - uopers: ', nearUopers);
     // appStore.nearOpiners = opiners;
 });
 
