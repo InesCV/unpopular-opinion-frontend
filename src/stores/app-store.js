@@ -6,7 +6,7 @@ class AppStore {
     user = null;
     intervalId = null;
     currentPosition = [0, 0];
-    nearOpiners = [];
+    nearUopers = null;
     socket = "";
 
     // Store and send logged user info to server to update socket info
@@ -22,7 +22,8 @@ class AppStore {
     watchingPosition() {
         this.cancelWatchingPosition();
         this.intervalId = window.setInterval(() => {
-            this.updatePosition();
+            if(this.currentPosition)
+                this.updatePosition();
         }, 10000);
     }
 
