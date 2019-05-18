@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { inject, observer } from 'mobx-react';
+import { inject } from 'mobx-react';
 
 import { withAuth } from "../lib/AuthProvider";
 import statsService from "../lib/statistics-service";
 import Navbar from "../components/Navbar";
 
 @inject('appStore')
-@observer
 class Statistics extends Component {
   state = {
     stats: {},
@@ -48,7 +47,7 @@ class Statistics extends Component {
   }
 
   inMyZone = (e) => {
-    this.props.appStore.inMyZone();
+    this.props.appStore.inMyZone(this.props.user._id);
   }
 
   render() {
