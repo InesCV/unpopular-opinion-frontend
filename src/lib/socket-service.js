@@ -3,7 +3,8 @@ import io from 'socket.io-client';
 import appStore from '../stores/app-store';
 
 // Connect App with server
-export const socket = io(process.env.REACT_APP_URL);
+const socket = io(process.env.REACT_APP_URL);
+
 
 /*
 ** Service listeners
@@ -13,7 +14,10 @@ export const socket = io(process.env.REACT_APP_URL);
 socket.on('message', (sms) => console.log(sms));
 
 // Incoming nearOpiniers
-socket.on('NearOpiners', (opiners) => appStore.inMyZone(opiners));
+socket.on('NearOpiners', (opiners) => {
+    console.log(opiners);
+    // appStore.nearOpiners = opiners;
+});
 
 
 
@@ -22,13 +26,23 @@ socket.on('NearOpiners', (opiners) => appStore.inMyZone(opiners));
 */
 
 // Send logged user info to server
-export function me(user) {
-    socket.emit('me', user);
+export function me(userId) {
+    socket.emit('me', userId);
 }
 
 // Send new position to server
 export function updatePosition(update) {
     socket.emit('update-position', update);
+}
+
+// Send bbdd update interval stop
+export function stopUpdateInterval() {
+    socket.emit('stopUpdateInterval');
+}
+
+// Send logout to server
+export function logout(userId) {
+    socket.emit('logout', userId);
 }
 
 // InMyZone calc

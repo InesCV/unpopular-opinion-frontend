@@ -1,20 +1,18 @@
-import { observable } from 'mobx';
+import { observable } from 'mobx'; 
 
-import { login, findNear, askUser, decline, accept, sendChatMessage } from '../lib/socket-service';
-import { socket } from '../lib/socket-service';
-
-import clientStore from './user-store';
+import * as socketService from '../lib/socket-service';
 
 class AppStore {
     user = null;
     intervalId = null;
     currentPosition = [];
-    nearOpiners = [];
+    @observable nearOpiners = [];
+    socket = "";
 
     // Store and send logged user info to server to update socket info
-    me(user) {
-        this.user = user;
-        socket.me(user);
+    me() {
+        socketService.me(this.user._id);
+        this.watchingPosition();
     }
 
     // Refresh user position every 10 seconds
@@ -28,7 +26,8 @@ class AppStore {
     // Update user position
     updatePosition() {
         this.getPosition();
-        socket.updatePosition({userId: this.user._id, position: this.currentPosition});
+        socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
+
         //socketService.findNear({ position: this.currentPosition });
     }
 
@@ -42,8 +41,8 @@ class AppStore {
         }
         navigator.geolocation.getCurrentPosition(async pos => {
             this.currentPosition = [
-                pos.coords.longitude,
-                pos.coords.latitude
+                pos.coords.latitude,
+                pos.coords.longitude
             ];
         }, () => {
             toast.error("Sorry, can't retrieve your current position.", {
@@ -55,11 +54,17 @@ class AppStore {
     // Cancel user update position interval
     cancelWatchingPosition() {
         clearInterval(this.intervalId);
+        socketService.stopUpdateInterval();
+    }
+
+    serverSocketLogout() {
+        socketService.logout(this.user._id);
+        this.user = null;
     }
 
     // Query opiners in my zone
     inMyZone() {
-        
+        socketService.inMyZone(this.user._id);
     }
 }
 
