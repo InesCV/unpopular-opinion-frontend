@@ -6,7 +6,7 @@ import UserUOPs from "../components/UserUOPs";
 import UserInfoCard from "../components/UserInfoCard";
 
 
-const UserHome = ({ user, toggleIsEditing, logout }) => {
+const UserHome = ({ user, toggleIsEditing }) => {
   return (
     <div className="container nav-after d-flex flex-wrap">
       <div className="your-profile mb-2">

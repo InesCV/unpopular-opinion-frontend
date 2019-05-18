@@ -6,6 +6,11 @@ import { withAuth } from '../lib/AuthProvider';
 
 class Navbar extends Component {
 
+  handlelOnClick(logout) {
+    logout();
+    this.props.history.push(`/`);
+  }
+
   navPath = (path) => {
     switch (path) {
       case '/':
@@ -36,7 +41,7 @@ class Navbar extends Component {
             <Link to='/opinions'>Opinions</Link>
             <Link to='/opinions/create'>Create</Link>
             {/* <Link to='/statistics'>Stats</Link> */}
-            <p className="nav-logout" onClick={this.props.logout}>Logout</p>
+            <p className="nav-logout" onClick={() => this.handlelOnClick(this.props.logout)} >Logout</p>
           </div>
         );
       default:

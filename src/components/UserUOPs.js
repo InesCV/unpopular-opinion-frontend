@@ -1,21 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
+
+import { toast } from 'react-toastify';
+
+import {statTypes, errorTypes} from "../constants/constants";
+import statsService from '../lib/statistics-service';
+
 
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import '../sass/stylesheets/styles.scss';
 
+
 export default ({op}) => {
-  const stat = 25;
-  const circular = {
-    path: {
-      // Path color
-      stroke: `#ee7968`,
-    },
-    text: {
-      // Text color
-      fill: '#ee7968',
-    }
-  }
+  // const [isLoading, setIsLoading] = useState(true);
+  const [stat, setStat] = useState(50);
+
+  useEffect(() => { 
+    statsService.query({
+      type: statTypes.OPINION_SCORE,
+      opinion: op._id,
+    })
+    .then(data => {
+      setStat(data.stats.xAvg)
+    }) 
+    .catch((error)=> {
+      toast.error(`Sorry. ${errorTypes.E500S}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
+    });
+   }, []);
 
   return (
   <div className="profile-opinion-card mt-2 mb-4">
@@ -28,9 +41,7 @@ export default ({op}) => {
         </div>
       </div>
       <div className="profile-opinion-graph">
-        <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular-uop" 
-          styles={circular} 
-        />
+        <CircularProgressbar value={stat} text={`${stat}%`} className="cnt-pos circular-uop" />
       </div>
     </div>
   </div>
