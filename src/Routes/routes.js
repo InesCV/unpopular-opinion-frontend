@@ -8,7 +8,6 @@ import Login from "../pages/Login";
 import Opinions from "../pages/Opinions";
 import CreateOpinion from "../pages/CreateOpinion";
 import Statistics from "../pages/Statistics";
-import InMyZone from "../pages/InMyZone";
 import NotFound from '../pages/NotFound';
 import Users from '../pages/Users';
 import PrivateRoute from "../components/PrivateRoute";
@@ -64,11 +63,6 @@ const routes = [
     type: PrivateRoute,
     path: '/statistics',
     component: Statistics,
-  },
-  {
-    type: PrivateRoute,
-    path: '/inmyzone',
-    component: InMyZone,
   },
   {
     type: Route,
