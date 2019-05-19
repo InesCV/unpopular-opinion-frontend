@@ -32,6 +32,7 @@ class Navbar extends Component {
         return (
           <div className="nav">
             <Link to='/profile'>Profile</Link>
+            <button onClick={ this.props.imzToggle }>InMyZone</button>
             <Link to='/opinions/create'>Create</Link>
           </div>
         );
@@ -40,7 +41,6 @@ class Navbar extends Component {
           <div className="nav">
             <Link to='/opinions'>Opinions</Link>
             <Link to='/opinions/create'>Create</Link>
-            {/* <Link to='/statistics'>Stats</Link> */}
             <p className="nav-logout" onClick={() => this.handlelOnClick(this.props.logout)} >Logout</p>
           </div>
         );
