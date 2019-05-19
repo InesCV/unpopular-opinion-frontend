@@ -118,16 +118,16 @@ class AuthProvider extends Component {
     auth
       .logout()
       .then(() => {
+        this.props.appStore.serverSocketLogout();
         toast.info(`See you soon ${this.state.user.username}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
+        toast.success("Successfully logged out", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
         this.setState({
           isLoggedin: false,
           user: null
-        });
-        this.props.appStore.serverSocketLogout();
-        toast.success("Successfully logged out", {
-          position: toast.POSITION.BOTTOM_RIGHT
         });
       })
       .catch((error) => {
@@ -135,7 +135,7 @@ class AuthProvider extends Component {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       });
-  };x
+  };
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     return isLoading ? (
