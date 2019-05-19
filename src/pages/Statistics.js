@@ -47,7 +47,7 @@ class Statistics extends Component {
   }
 
   inMyZone = (e) => {
-    this.props.appStore.inMyZone(this.props.user._id);
+    this.props.appStore.inMyZone();
   }
 
   render() {
