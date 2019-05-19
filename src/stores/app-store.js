@@ -5,7 +5,7 @@ import * as socketService from '../lib/socket-service';
 class AppStore {
     user = null;
     intervalId = null;
-    currentPosition = [0, 0];
+    currentPosition = null;
     nearUopers = null;
     socket = "";
 
@@ -22,8 +22,7 @@ class AppStore {
     watchingPosition() {
         this.cancelWatchingPosition();
         this.intervalId = window.setInterval(() => {
-            if(this.currentPosition)
-                this.updatePosition();
+            this.updatePosition();
         }, 10000);
     }
 
@@ -37,7 +36,8 @@ class AppStore {
     // Update user position
     updatePosition() {
         this.getPosition();
-        socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
+        if(this.currentPosition)
+            socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
     }
 
     // Get user current position
