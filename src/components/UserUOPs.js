@@ -23,12 +23,12 @@ export default ({op}) => {
       opinion: op._id,
     })
     .then(data => {
-      if (data.message = `Sorry, this Opinion doesn't have any response yet`) {
+      if (!data.stats) {
         setStat(50);
         setNotEnoughData(true);
-        // setIsLoading(false);
       } else {
-      setStat(data.stats.xAvg)
+        setStat(data.stats.xAvg)
+        setNotEnoughData(false);      
       }
     }) 
     .catch((error)=> {
@@ -36,7 +36,7 @@ export default ({op}) => {
         position: toast.POSITION.BOTTOM_RIGHT
       });
     });
-   }, []);
+   }, [stat]);
 
   return (
   <div className="profile-opinion-card mt-2 mb-4">

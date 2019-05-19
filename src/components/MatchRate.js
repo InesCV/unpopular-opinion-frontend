@@ -19,7 +19,7 @@ const MatchRate = ({userId, username, notEnoughData, setNotEnoughData}) => {
       userMatch: userId,
     })
     .then(data => {
-      if (data.message = `Sorry, ${username} doesn't have responses yet.`) {
+      if (!data.stats) {
         setMatch(50);
         setNotEnoughData(true);
         setIsLoading(false);
