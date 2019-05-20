@@ -30,6 +30,9 @@ const UserHome = ({ user, toggleIsEditing }) => {
               </div>
             </div>
         }
+        <div className="d-flex justify-content-center">
+         <p className="mt-2 mb-5 btn btn-terciary" onClick={() => this.handlelOnClick(this.props.logout)} >Logout</p>
+        </div>
       </div>
     </div>
   );

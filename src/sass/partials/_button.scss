@@ -34,15 +34,16 @@
 }
 
 .btn-terciary {
-  color: $terciary-color;
+  color: $terciary-color!important;
   background-color: transparent;
   border-color: $terciary-color;
 
   &:hover {
-    color: $white;
+    color: $white!important;
     background-color: $terciary-color;
   }
 }
+
 
 .btn-white {
   color: $white;
