@@ -1,3 +1,4 @@
+import { observable } from 'mobx'; 
 import { toast } from 'react-toastify';
 
 import * as socketService from '../lib/socket-service';
@@ -6,14 +7,13 @@ class AppStore {
     user = null;
     intervalId = null;
     currentPosition = null;
-    nearUopers = null;
-    socket = "";
+    @observable.shallow nearUopers = null;
 
     // Store and send logged user info to server to update socket info
     me(user) {
         this.user = user;
         if (user) {
-            socketService.me(this.user._id);
+            socketService.me(user._id);
             this.watchingPosition();
         }
     }
@@ -23,7 +23,8 @@ class AppStore {
         this.cancelWatchingPosition();
         this.intervalId = window.setInterval(() => {
             this.updatePosition();
-        }, 10000);
+            // this.inMyZone(this.user._id);
+        }, 5000);
     }
 
     // Cancel user update position interval
@@ -63,8 +64,8 @@ class AppStore {
     } 
 
     // Query opiners in my zone
-    inMyZone() {
-        socketService.inMyZone(this.user._id);
+    inMyZone(userId) {
+        socketService.inMyZone(userId);
     }
     
     // Logout
