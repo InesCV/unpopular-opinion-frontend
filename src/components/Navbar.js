@@ -32,7 +32,7 @@ class Navbar extends Component {
         return (
           <div className="nav">
             <Link to='/profile'>Profile</Link>
-            <button onClick={ this.props.imzToggle }>InMyZone</button>
+            <Link to='/InMyZone'>InMyZone</Link>
             <Link to='/opinions/create'>Create</Link>
           </div>
         );
