@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import UserUOPs from "../components/UserUOPs";
-// import UserRate from "../components/UserRate";
 import UserInfoCard from "../components/UserInfoCard";
 
 

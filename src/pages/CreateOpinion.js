@@ -22,7 +22,6 @@ const CreateOpinion = (props) => {
       };
       opinionService.create(newOpinion)
       .then(createdOpinon => {
-        console.log(createdOpinon);
         props.history.push(`/profile`);
       })
       .catch((error) => {

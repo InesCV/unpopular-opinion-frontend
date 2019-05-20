@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { inject } from 'mobx-react';
 
 import { withAuth } from "../lib/AuthProvider";
 import statsService from "../lib/statistics-service";
 import Navbar from "../components/Navbar";
 
+@inject('appStore')
 class Statistics extends Component {
   state = {
     stats: {},
@@ -44,6 +46,10 @@ class Statistics extends Component {
       });
   }
 
+  inMyZone = (e) => {
+    this.props.appStore.inMyZone();
+  }
+
   render() {
     const { stats } = this.state;
     return (
@@ -52,6 +58,10 @@ class Statistics extends Component {
         <div className="nav-after">
           <button className="btn btn-primary mt-4 ml-4" onClick={ this.handleClick } >Consultar</button>
           {console.log(stats)}
+        </div>
+        <div className="nav-after">
+          <button className="btn btn-primary mt-4 ml-4" onClick={ this.inMyZone } >InMyZone</button>
+          {console.log(this.props.appStore.nearOpiners)}
         </div>
       </>
     );

@@ -11,8 +11,7 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
-    this.props.login({ username, password });
+    this.props.login(this.state);
   };
 
   handleChange = event => {
@@ -25,7 +24,6 @@ class Login extends Component {
     return (
       <div className="log-cnt-pos-total log-bg">
         <form className="cnt-pos flex-column log-form" onSubmit={this.handleFormSubmit}>
-          {/* <label>Username:</label> */}
           <input
             type="text"
             name="username"
@@ -33,7 +31,6 @@ class Login extends Component {
             placeholder="Your super unique username"
             onChange={this.handleChange}
           />
-          {/* <label>Password:</label> */}
           <input
             type="password"
             name="password"

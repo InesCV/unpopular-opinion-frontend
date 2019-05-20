@@ -10,7 +10,6 @@ export default ({sendOpinion}) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(photo)
     sendOpinion({ photo, question, responseX, responseY });
   };
 
