@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-
-import { withAuth } from "../lib/AuthProvider";
-
+import {Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CircularProgressbar, CircularProgressbarWithChildren} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import '../sass/stylesheets/styles.scss';
 
+import { withAuth } from "../lib/AuthProvider";
+import statsService from '../lib/statistics-service';
+
 import {statTypes, errorTypes} from "../constants/constants";
 
-import statsService from '../lib/statistics-service';
 
 class InMyZoneUopers extends Component {
   state = {
@@ -37,7 +37,6 @@ class InMyZoneUopers extends Component {
           notEnoughData: false,
         });
       }
-      console.log(data)
     }) 
     .catch((error)=> {
       toast.error(`Sorry. ${errorTypes.E500S}`, {
@@ -75,14 +74,28 @@ class InMyZoneUopers extends Component {
                 <p className="profile-scores-text">Can't create your affinity with {user.username}</p>
               </div>
               :
-              <div className="cnt-pos flex-column">
-                <div className="circular-prediv mt-2 mb-2" >
-                  <CircularProgressbarWithChildren value={this.state.match} text={`${this.state.match}%`} className="cnt-pos circular-secundary"> 
-                    <div className="profile-imz-img" style={{ backgroundImage: `url(${user.avatar})`}}/>  
-                    
+              <div className="cnt-pos flex-column" style={{marginBottom: "2rem"}}>
+                <div className="circular-prediv mt-2" >
+                  <CircularProgressbarWithChildren value={this.state.match} className="cnt-pos circular-secundary"> 
+                    <Link className="card-author-link" to={{
+                      pathname: '/user',
+                      state: {
+                        id: user._id,
+                      }
+                    }}> 
+                      <div className="profile-imz-img" style={{ backgroundImage: `url(${user.avatar})`}}/>  
+                    </Link>
                   </CircularProgressbarWithChildren>
                 </div>
-                <p className="profile-scores-text">Your affinity with {user.username}</p>
+                <p className="profile-scores-text">{this.state.match}% affinity with 
+                <Link className="card-author-link" to={{
+                    pathname: '/user',
+                    state: {
+                      id: user._id,
+                    }
+                  }}>
+                  {user.username}
+                </Link></p>
               </div>      
             }
           </>
