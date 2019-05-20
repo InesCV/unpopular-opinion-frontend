@@ -24,6 +24,30 @@
   }
 }
 
+.nav-tryout {
+  background-color: red;
+  margin: 0;
+  height: 6vh;;
+  max-height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  
+  a {
+    padding: 0.25rem;
+    color: $white;
+    margin: auto 1.5rem;
+    font-size: 1.3rem;
+
+    &:hover {
+      color: $terciary-color;
+    }
+  }
+}
+
 .nav-home {
   background-color: transparent;
   margin: 0;
@@ -43,7 +67,7 @@
 
 .nav-logout {
   padding: 0.25rem;
-  color: $black;
+  color: $secundary-color;
   margin: auto 1.5rem;
   font-size: 1.3rem;
 
