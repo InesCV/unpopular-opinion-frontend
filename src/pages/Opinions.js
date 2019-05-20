@@ -44,7 +44,6 @@ class Opinions extends Component {
     await opinionService.response({opinion: opinions[index]._id, response: res});
     // Consult the statistics of the opinion the user just responded to
     const stat = await statsService.query({type: statTypes.OPINION_RATE, opinion: opinions[index]._id});
-    console.log(stat);
     this.state.opinions.splice(index, 1);
     this.setState({
         opinions: this.state.opinions,
