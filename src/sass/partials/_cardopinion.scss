@@ -72,7 +72,8 @@
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  margin-bottom: 10%
 }
 
 .response {
@@ -80,25 +81,35 @@
   // text-align: center;
   align-items: center;
   justify-content: center;
-  height: 18%;
-  color: $white;
-  background-color: $primary-color;
+  // height: 18%;
+  height: 25%;
+  // color: $white;
+  // background-color: $primary-color;
   font-size: 0.8rem;
   margin: 2%;
 }
 
-.response-arrow {
-  text-align: center;
-  width: 20%;
-  font-size: 1.5rem;
-  color: $darkwhite;
-  padding: 0.5rem;
-}
+// .response-arrow {
+//   text-align: center;
+//   width: 10%;
+//   font-size: 1.5rem;
+//   color: $darkwhite;
+//   padding: 0.5rem;
+// }
 
 .response-text {
+  font-size: 1rem;
+  font-weight: 500;
   width: 80%;
-  padding: 10%;
+  padding: 5%;
   text-align: center;
+}
+
+.response-arrow {
+  width: 80%;
+  text-align: center;
+  font-weight: 800;
+  font-size: 2rem;
 }
 
 // .response-text-left {
