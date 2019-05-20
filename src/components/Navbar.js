@@ -35,8 +35,9 @@ class Navbar extends Component {
           <div className="nav">
             <Link to='/profile'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link>
             {/* <img className="icon-1" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img> */}
-            <button onClick={ this.props.imzToggle }><img className="icon" src="https://image.flaticon.com/icons/svg/181/181508.svg" alt="In my zone"></img></button>
+            <Link to="/InMyZone"><img className="icon" src="https://image.flaticon.com/icons/svg/181/181508.svg" alt="In my zone"></img></Link>
             <Link to='/opinions/create'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181518.svg" alt="Create Opinions"></img></Link>
+
           </div>
         );
       case '/profile':
