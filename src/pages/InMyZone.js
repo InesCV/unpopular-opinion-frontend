@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import { inject, observer } from 'mobx-react';
-import { toast } from 'react-toastify';
 
-import {statTypes} from "../constants/constants";
-import {errorTypes} from "../constants/constants";
 import {spinnerTypes} from "../constants/constants";
 
 import { withAuth } from '../lib/AuthProvider';
-import statsService from '../lib/statistics-service';
 
 import Spinner from "../components/Spinner";
+import Navbar from "../components/Navbar";
 import InMyZoneUopers from "../components/InMyZoneUopers";
 
 @inject('appStore')
@@ -18,7 +15,6 @@ class InMyZone extends Component {
   state = {
     isLoading: true,
     nearUopers: null,
-    notEnoughData: true,
   }
   
   componentDidMount() {
@@ -28,16 +24,19 @@ class InMyZone extends Component {
   render() {
     return (
       <>
+        <Navbar {...this.props}/>
         {this.props.appStore.nearUopers === null
           ? <Spinner type={spinnerTypes.SPIN} color={"black"} />
           : 
             <div className="container nav-after d-flex flex-wrap">
               <h2 className="profile-title pt-3 terciary-color mb-2">Uopers nearby you</h2>
-              {this.props.appStore.nearUopers.toJS().map((uoper, index)=> {
-                if (uoper.username !== this.props.user.username){
-                }
-                return <InMyZoneUopers key={index} user={uoper} />
-              })}
+              <div className="container nav-after d-flex flex-wrap">
+                {this.props.appStore.nearUopers.toJS().map((uoper, index)=> {
+                  if (uoper.username !== this.props.user.username){
+                    return <InMyZoneUopers key={index} user={uoper} />
+                  }
+                })}
+              </div>
             </div>              
         } 
       </>
