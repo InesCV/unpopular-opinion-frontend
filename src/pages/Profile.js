@@ -54,6 +54,7 @@ class Profile extends Component {
 
   render() {
     const { isLoading, isEditing, user } = this.state
+
     return (
       <>
         <Navbar {...this.props}/>
@@ -64,7 +65,7 @@ class Profile extends Component {
             { isEditing ?
               <UserEditProfile user={user} toggleIsEditing={this.toggleIsEditing} />
             :
-              <UserHome user={user} toggleIsEditing={this.toggleIsEditing} logout={this.props.logout}/>}
+              <UserHome user={user} toggleIsEditing={this.toggleIsEditing} logout={this.props.logout} history={this.props.history}/>}
           </> 
         }
       </>

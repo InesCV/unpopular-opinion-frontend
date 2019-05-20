@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withAuth } from "../lib/AuthProvider";
+
 
 import UserUOPs from "../components/UserUOPs";
 import UserInfoCard from "../components/UserInfoCard";
 
 
-const UserHome = ({ user, toggleIsEditing }) => {
+const UserHome = ({ user, toggleIsEditing, logout, history }) => {
+
+  function handlelOnClick(logout) {
+    logout();
+    history.push(`/`);
+  }
+
   return (
     <div className="container nav-after d-flex flex-wrap">
       <div className="your-profile mb-2">
@@ -31,11 +39,11 @@ const UserHome = ({ user, toggleIsEditing }) => {
             </div>
         }
         <div className="d-flex justify-content-center">
-         <p className="mt-2 mb-5 btn btn-tertiary" onClick={() => this.handlelOnClick(this.props.logout)} >Logout</p>
+         <p className="mt-2 mb-5 btn btn-tertiary" onClick={() => handlelOnClick(logout)}>Logout</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default UserHome;
+export default withAuth(UserHome);
