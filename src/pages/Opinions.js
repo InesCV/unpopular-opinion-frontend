@@ -12,7 +12,7 @@ import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 import OpinionRate from "../components/OpinionRate";
 import OpinionBar from "../components/OpinionBar";
-import InMyZone from "../components/InMyZone";
+import InMyZone from "./InMyZone";
 
 class Opinions extends Component {
   state = {
@@ -20,7 +20,6 @@ class Opinions extends Component {
     opinions: [],
     responded: false,
     lastStat: null,
-    imzSwitch: false,
   }
 
   componentDidMount() {
@@ -58,18 +57,12 @@ class Opinions extends Component {
     })
   }
 
-  inMyZone = () => {
-    this.setState({
-      imzSwitch: !this.state.imzSwitch,
-    });
-  }
-
   render() {
     const { isLoading, opinions, responded, lastStat, imzSwitch } = this.state;
     return (
       <div className="deck-general">
         { responded ? <OpinionRate skipRate={this.skipRate} stat={lastStat} /> : <></> }
-        <Navbar {...this.props} imzToggle={this.inMyZone}/>
+        <Navbar {...this.props}/>
         {
           isLoading
           ? <Spinner type={spinnerTypes.SPIN} color={"black"} />
