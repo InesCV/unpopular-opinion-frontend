@@ -43,7 +43,7 @@ class Login extends Component {
           />
           <input className="btn btn-log" type="submit" value="Login"/>
         </form>
-        <p className="mt-2">
+        <p className="color-white mt-2">
           You don't have an account?
           <Link className="primary-color primary-color-link" to={"/signup"}> Sign up</Link>
         </p>

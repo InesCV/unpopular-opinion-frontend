@@ -16,8 +16,10 @@
 }
 
 .secundary-color-link {
+  color: $secundary-color;
+  
   &:hover {
-    color: $primary-color;
+    color: $terciary-color;
   }
 }
 
@@ -25,11 +27,11 @@
   color: $terciary-color;
 }
 
-.white-color {
+.color-white {
   color: $white;
 }
 
-.black-color {
+.color-black {
   color: $black;
 }
 
@@ -51,10 +53,4 @@
 
 .bg-black-color {
   background-color: $black;
-}
-
-.secundary-color-link {
-  &:hover {
-    color: $primary-color;
-  }
 }
