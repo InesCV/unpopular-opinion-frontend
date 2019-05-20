@@ -29,7 +29,7 @@ class InMyZone extends Component {
           ? <Spinner type={spinnerTypes.SPIN} color={"black"} />
           : 
             <div className="container nav-after d-flex flex-wrap">
-              <h2 className="profile-title pt-3 terciary-color mb-2">Uopers nearby you</h2>
+              <h2 className="profile-title pt-3 tertiary-color mb-2">Uopers nearby you</h2>
               <div className="container nav-after d-flex flex-wrap">
                 {this.props.appStore.nearUopers.toJS().map((uoper, index)=> {
                   if (uoper.username !== this.props.user.username){

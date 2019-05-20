@@ -43,7 +43,7 @@ class User extends Component {
             (<div className="container nav-after d-flex flex-wrap">
             {/* Profile card */}
               <div className="your-profile mb-2">
-                <h2 className="profile-title pt-3 terciary-color">{user.username}'s Profile</h2>
+                <h2 className="profile-title pt-3 tertiary-color">{user.username}'s Profile</h2>
                 <div className="cnt-pos">
                   <div className="profile-user-card cnt-pos flex-column">
                     <img src={user.avatar} alt={user.username} className="card-author-img mr-2"/>
@@ -55,7 +55,7 @@ class User extends Component {
               </div>
             {/* Opinion cards */}              
               <div className="your-opinions">
-                <h2 className="profile-title mt-2 terciary-color">{user.username}'s opinions</h2> 
+                <h2 className="profile-title mt-2 tertiary-color">{user.username}'s opinions</h2> 
                 { opinions ? 
                   <div className="cnt-pos flex-column">
                     { opinions.map((opinion, index) => <UserUOPs key={index} op={opinion} />) }

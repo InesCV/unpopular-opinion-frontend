@@ -58,7 +58,7 @@ class Signup extends Component {
         </form>
         <div className="mt-2">
           <p className="color-white">Already have account?
-          <Link className="secundary-color-link" to={"/login"}> Login</Link></p>
+          <Link className="secondary-color-link" to={"/login"}> Login</Link></p>
         </div>
       </div>
     );

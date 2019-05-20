@@ -17,7 +17,7 @@ class Navbar extends Component {
         return (
           <div className="nav nav-home">
             <Link to="/profile">Profile</Link>
-            <Link to="/opinions" className="btn btn-terciary">Opinions</Link>
+            <Link to="/opinions" className="btn btn-tertiary">Opinions</Link>
             {/* <Link to='/opinions'><img className="icon icon-home" src="https://image.flaticon.com/icons/svg/181/181521.svg" alt="Opinions"></img></Link>
             <Link to='/opinions/create'><img className="icon icon-home" src="https://image.flaticon.com/icons/svg/181/181518.svg" alt="Create Opinions"></img></Link>
             <Link to='/profile'><img className="icon icon-home" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link> */}
@@ -68,7 +68,7 @@ class Navbar extends Component {
           :
           <div className="nav nav-home">
             <Link to="/login">Log in</Link>
-            <Link to="/signup" className="btn btn-terciary">Sign up</Link>
+            <Link to="/signup" className="btn btn-tertiary">Sign up</Link>
           </div>
         } 
       </>

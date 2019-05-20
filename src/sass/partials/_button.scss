@@ -22,25 +22,25 @@
   }
 }
 
-.btn-secundary {
-  color: $secundary-color;
+.btn-secondary {
+  color: $secondary-color;
   background-color: transparent;
-  border-color: $secundary-color;
+  border-color: $secondary-color;
 
   &:hover {
     color: $white;
-    background-color: $secundary-color;
+    background-color: $secondary-color;
   }
 }
 
-.btn-terciary {
-  color: $terciary-color!important;
+.btn-tertiary {
+  color: $tertiary-color!important;
   background-color: transparent;
-  border-color: $terciary-color;
+  border-color: $tertiary-color;
 
   &:hover {
     color: $white!important;
-    background-color: $terciary-color;
+    background-color: $tertiary-color;
   }
 }
 
@@ -131,17 +131,17 @@
 
   &:hover {
     color: $white;
-    background-color: $secundary-color;
+    background-color: $secondary-color;
   }
 }
 
 .btn-score {
   color: $white;
-  background-color: $terciary-color;
+  background-color: $tertiary-color;
 
   &:hover {
     color: $white;
-    background-color: $secundary-color;
+    background-color: $secondary-color;
   }
 }
 

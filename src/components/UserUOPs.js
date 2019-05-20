@@ -44,8 +44,8 @@ export default ({op}) => {
       <div className="profile-opinion-text">
         <p className="text-left">{op.question}</p>
         <ul className="d-flex flex-column mt-2 ml-4">
-          <li className="secundary-color d-flex justify-content-start">&#9724;  {op.response.x}</li>
-          <li className="terciary-color d-flex justify-content-start">&#9724;  {op.response.y}</li>
+          <li className="secondary-color d-flex justify-content-start">&#9724;  {op.response.x}</li>
+          <li className="d-flex justify-content-start"><p className="dark-white-color"> &#9724; </p>&nbsp;{op.response.y}</li>
         </ul>
       </div>
       <div className="profile-opinion-graph">

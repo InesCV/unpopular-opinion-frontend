@@ -60,7 +60,7 @@ class InMyZoneUopers extends Component {
         { this.state.isLoading ?
           <div className="cnt-pos flex-column">
             <div className="circular-prediv mt-2">
-              <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secundary" />
+              <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secondary" />
             </div>
             <p className="profile-scores-text">Your Affinity with {user.username}</p>
           </div>
@@ -76,7 +76,7 @@ class InMyZoneUopers extends Component {
               :
               <div className="cnt-pos flex-column" style={{marginBottom: "2rem"}}>
                 <div className="circular-prediv mt-2" >
-                  <CircularProgressbarWithChildren value={this.state.match} className="cnt-pos circular-secundary"> 
+                  <CircularProgressbarWithChildren value={this.state.match} className="cnt-pos circular-secondary"> 
                     <Link className="card-author-link" to={{
                       pathname: '/user',
                       state: {
@@ -88,13 +88,12 @@ class InMyZoneUopers extends Component {
                   </CircularProgressbarWithChildren>
                 </div>
                 <p className="profile-scores-text">{this.state.match}% affinity with 
-                <Link className="card-author-link" to={{
+                <Link className="tertiary-color" to={{
                     pathname: '/user',
                     state: {
                       id: user._id,
                     }
-                  }}>
-                  {user.username}
+                  }}> {user.username}
                 </Link></p>
               </div>      
             }

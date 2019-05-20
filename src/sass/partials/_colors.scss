@@ -7,24 +7,28 @@
 
 .primary-color-link {
   &:hover {
-    color: $secundary-color;
+    color: $secondary-color;
   }
 }
 
-.secundary-color {
-  color: $secundary-color;
+.secondary-color {
+  color: $secondary-color;
 }
 
-.secundary-color-link {
-  color: $secundary-color;
+.secondary-color-link {
+  color: $secondary-color;
   
   &:hover {
-    color: $terciary-color;
+    color: $tertiary-color;
   }
 }
 
-.terciary-color {
-  color: $terciary-color;
+.tertiary-color {
+  color: $tertiary-color;
+}
+
+.quaternary-color {
+  color: $quaternary-color;
 }
 
 .color-white {
@@ -35,16 +39,24 @@
   color: $black;
 }
 
+.color-dark {
+  color: $dark;
+}
+
+.dark-white-color {
+  color: $darkwhite;
+}
+
 .bg-primary-color {
   background-color: $primary-color;
 }
 
-.bg-secundary-color {
-  background-color: $secundary-color;
+.bg-secondary-color {
+  background-color: $secondary-color;
 }
 
-.bg-terciary-color {
-  background-color: $terciary-color;
+.bg-tertiary-color {
+  background-color: $tertiary-color;
 }
 
 .bg-white-color {

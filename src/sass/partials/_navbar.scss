@@ -1,7 +1,7 @@
 @import '../stylesheets/variables';
 
 .nav {
-  background-color: $terciary-color;
+  background-color: $tertiary-color;
   margin: 0;
   height: 6.5vh;;
   max-height: 3rem;
@@ -21,7 +21,7 @@
     font-size: 1.3rem;
 
     &:hover {
-      color: $terciary-color;
+      color: $tertiary-color;
     }
   }
 
@@ -46,7 +46,7 @@
   font-size: 1.3rem;
 
   &:hover {
-    color: $terciary-color;
+    color: $tertiary-color;
   }
 }
 
@@ -72,7 +72,7 @@
   width: 5vh;
   height: 85%;  
   max-height: 2.5rem;
-  background-color: $terciary-color;
+  background-color: $tertiary-color;
   display: flex;
   align-items: center;
 }
