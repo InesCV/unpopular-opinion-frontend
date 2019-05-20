@@ -17,11 +17,10 @@ const UserHome = ({ user, toggleIsEditing, logout, history }) => {
   return (
     <div className="container nav-after d-flex flex-wrap">
       <div className="your-profile mb-2">
-        <div className="d-flex justify-content-between profile-title mt-2 mb-2">
+        <div className="profile-title mt-2 mb-2">
           <h2 className="tertiary-color">Your profile</h2> 
-          <p className="d-flex align-items-center" onClick={toggleIsEditing}>Edit profile</p>
         </div>
-        <UserInfoCard user={user} />
+        <UserInfoCard user={user} toggleIsEditing={toggleIsEditing}/>
       </div>
       <div className="your-opinions">
         <h2 className="profile-title mt-2 tertiary-color">Your opinions</h2> 
