@@ -28,15 +28,15 @@ class Statistics extends Component {
     const ejercicios = '5ccdb11e7427b04330d4199e';
     const dios = '5ccdcdedb42ef4551aa21cbb';
 
-    const ines = '5cbf65dd62fad57dada0ec51';
-    const jorge = '5cc4be8ecffd381f71d9761d';
-    const paco = '5ccdb0d17427b04330d41997';
+    const ines = '5ce1b07e5afe790017613be4';
+    const jorge = '5ce1b1475afe790017613be7';
+    const paco = '5ce1b5966780eb1ce66d9afa';
 
     const query = {
-      type: 'user',
+      type: 'inMyZoneCategory',
       // opinion: suicidas,
       // category: 'Philosoraptor',
-      // user: ines,
+      nearUopers: ['5ce1b07e5afe790017613be4', '5ce1b5966780eb1ce66d9afa', '5ce1b1475afe790017613be7'],
     };
 
 
@@ -61,7 +61,7 @@ class Statistics extends Component {
     return (
       <>
         <Navbar {...this.props}/>
-        <button className="btn btn-primary mt-4 ml-4" onClick={ this.handleClick } >Consultar</button>
+        <button className="btn btn-primary mt-4 ml-4" style={{marginTop: '100px'}} onClick={ this.handleClick } >Consultar</button>
         {console.log(stats)}
       </>
     );
