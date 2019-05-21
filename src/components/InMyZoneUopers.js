@@ -56,7 +56,7 @@ class InMyZoneUopers extends Component {
     const { user } = this.props;
 
     return (
-      <>
+      <div className="cnt-pos">
         { this.state.isLoading ?
           <div className="cnt-pos flex-column">
             <div className="circular-prediv mt-2">
@@ -87,7 +87,7 @@ class InMyZoneUopers extends Component {
                     </Link>
                   </CircularProgressbarWithChildren>
                 </div>
-                <p className="profile-scores-text">{this.state.match}% affinity with 
+                <p className="profile-scores-text"><b>{this.state.match}%</b> affinity with 
                 <Link className="tertiary-color" to={{
                     pathname: '/user',
                     state: {
@@ -99,7 +99,7 @@ class InMyZoneUopers extends Component {
             }
           </>
         }
-      </>
+      </div>
     );
   }
 }
