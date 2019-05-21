@@ -64,7 +64,7 @@ const UserRate = ({userId, username, path}) => {
         { responded ? 
           <>
           { categoryStat ?
-            <CategoryRate categoryStat={categoryStat} setCategoryStat={() => setCategoryStat()}/>
+            <CategoryRate categoryStat={categoryStat} setCategoryStat={() => setCategoryStat()} />
             :
             <UserRatePreset stat={stat} text={`${stat}%`} statPerCategory={() => statPerCategory()} path={path} username={username}/>
           }

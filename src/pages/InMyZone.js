@@ -38,7 +38,7 @@ class InMyZone extends Component {
               </div>
               <div className="your-opinions">
                 <h2 className="profile-title pt-3 tertiary-color mb-2">Uopers around you</h2>
-                <div className="container d-flex flex-wrap">
+                <div className="container cnt-pos flex-wrap">
                   {this.props.appStore.nearUopers.toJS().map((uoper, index)=> {
                     if (uoper.username !== this.props.user.username){
                       return <InMyZoneUopers key={index} user={uoper} />

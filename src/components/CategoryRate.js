@@ -3,14 +3,16 @@ import React from 'react';
 const CategoryRate = ({ categoryStat, setCategoryStat }) => {
   return (
     <>
-      { categoryStat.map((category, index) => 
-        <div className="card-tryout" key={index}>
-          <p>Category: {category.category}</p>
-          <p>Your popularity: {category.percent}%</p>
-          <p>From: {category.totalOpinions} users</p>
-        </div>) 
-      }
-        <button className="btn btn-black" onClick={() => setCategoryStat(undefined)}>Back to general stat</button>
+      <div className="d-flex flex-wrap flex-row cnt-pos">
+        { categoryStat.map((category, index) => 
+          <div className="analyze-by-category" key={index}>
+            <b>{category.category}</b>
+            <p>Your popularity: {category.percent}%</p>
+            <p>From: {category.totalOpinions} responses</p>
+          </div>) 
+        }
+      </div>
+      <button className="btn btn-black" onClick={() => setCategoryStat(undefined)}>Back to general stat</button>
     </>
   )
 }
