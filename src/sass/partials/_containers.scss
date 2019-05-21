@@ -20,6 +20,10 @@
   margin: auto 1rem;
 }
 
+.container-big {
+  margin: auto 3rem;
+}
+
 .super-container {
   padding: auto 5%;
 }
@@ -145,5 +149,17 @@
   background-size: cover;
   background-position: center; 
   padding: 5%;
+}
+
+.opscore-cross {
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 2rem;
+  color: $white;
+  z-index: 2;
 }
 
