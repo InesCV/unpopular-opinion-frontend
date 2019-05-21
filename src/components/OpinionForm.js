@@ -5,12 +5,11 @@ import FileUpload from './FileUpload';
 export default ({sendOpinion}) => {
   const [photo, setPhoto] = useState("");
   const [question, setQuestion] = useState("");
-  const [responseX, setResponseX] = useState("");
-  const [responseY, setResponseY] = useState("");
+  const [responseX, setResponseX] = useState("Sí");
+  const [responseY, setResponseY] = useState("No");
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(photo)
     sendOpinion({ photo, question, responseX, responseY });
   };
 

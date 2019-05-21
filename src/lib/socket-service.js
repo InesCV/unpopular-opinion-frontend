@@ -3,44 +3,45 @@ import io from 'socket.io-client';
 import appStore from '../stores/app-store';
 
 // Connect App with server
-export const socket = io(process.env.REACT_APP_URL);
+const socket = io(process.env.REACT_APP_URL);
 
-// App listeners
-socket.on('message', (resp) => console.log(resp));
-socket.on(`found-near`, (resp) => appStore.foundNear(resp));
-socket.on(`chat-request`, (resp) => appStore.chatRequest(resp));
-socket.on(`request-accepted`, (resp) => appStore.accepted(resp));
-socket.on(`request-denied`, (resp) => appStore.denied(resp));
-socket.on(`chat-message`, (resp) => appStore.chatMessage(resp));
+/*
+** Service listeners
+*/
 
-// App emitters
-export function login({ displayName, position, gender, message }) {
-    return new Promise((resolve) => {
-        socket.emit(`login`, { displayName, position, gender, message });
-        socket.once(`logged-in`, resolve);
-    });
-} 
+// Incoming server msg
+socket.on('message', (sms) => console.log(sms));
 
-export function findNear({ position }) {
-    socket.emit(`find-near`, position);
+// Incoming nearOpiniers
+socket.on('NearUopers', (nearUopers) => appStore.nearUopers = nearUopers );
+
+
+
+/*
+** Service emitters
+*/
+
+// Send logged user info to server
+export function me(userId) {
+    socket.emit('me', userId);
 }
 
-export function askUser(id) {
-    socket.emit(`ask-user`, id);
+// Send new position to server
+export function updatePosition(update) {
+    socket.emit('update-position', update);
 }
 
-export function decline(id) {
-    socket.emit(`request-denied`, id);
+// Send bbdd update interval stop
+export function stopUpdateInterval() {
+    socket.emit('stopUpdateInterval');
 }
 
-export function accept(id) {
-    socket.emit(`request-accepted`, id);
+// Send logout to server
+export function logout(userId) {
+    socket.emit('logout', userId);
 }
 
-export function sendChatMessage({ userId, message }) {
-    socket.emit(`send-chat-message`, { userId, message });
+// InMyZone calc
+export function inMyZone(userId) {
+    socket.emit(`InMyZone`, userId);
 }
-
-window.addEventListener(`unload`, () => {
-    socket.emit(`delete`);
-});

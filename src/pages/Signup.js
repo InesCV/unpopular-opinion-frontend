@@ -46,19 +46,19 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
           {/* <label>Password:</label> */}
-          { passwordAdvice && <div className="log-comment"><p>Please don't reuse your bank password,</p><p>we didn't spent a lot on security for this app.</p></div>}
           <input
             type="password"
             name="password"
             placeholder="Secret password"
             value={password}
             onChange={this.handleChange}
-          />
+            />
+          { passwordAdvice && <div className="log-comment"><p>&#9888; Please don't reuse your bank password,</p><p>we didn't spent a lot on security for this app.</p></div>}
           <input className="btn btn-log" type="submit" value="Signup" />
         </form>
         <div className="mt-2">
-          <p>Already have account?
-          <Link className="primary-color primary-color-link" to={"/login"}> Login</Link></p>
+          <p className="color-white">Already have account?
+          <Link className="secondary-color-link" to={"/login"}> Login</Link></p>
         </div>
       </div>
     );

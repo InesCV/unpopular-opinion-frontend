@@ -1,201 +1,81 @@
-import { observable } from 'mobx';
+import { observable } from 'mobx'; 
+import { toast } from 'react-toastify';
 
-import auth from "./auth-service";
-import { login, findNear, askUser, decline, accept, sendChatMessage } from '../lib/socket-service';
-import socketService from '../lib/socket-service';
-
-import clientStore from './client-store';
+import * as socketService from '../lib/socket-service';
 
 class AppStore {
-    @observable nearUsers = [];
-    @observable user = null;
-    @observable currentPosition = [];
-    @observable userRequest = null;
-    @observable chatUser = null;
-    @observable chatMessages = [];
+    user = null;
+    intervalId = null;
+    currentPosition = null;
+    @observable.shallow nearUopers = null;
 
-    signup(data) {
-        this.getPosition();
-        
-    }
-
-    login(data) {
-        this.getPosition();
-
-    }
-
-    setUser(user) {
-        if (!user.username === this.user.username) {
-            this.user = user;
+    // Store and send logged user info to server to update socket info
+    me(user) {
+        this.user = user;
+        if (user) {
+            socketService.me(user._id);
+            this.watchingPosition();
         }
-        refreshingPosition();
     }
 
+    // Refresh user position every 10 seconds
+    watchingPosition() {
+        this.cancelWatchingPosition();
+        this.intervalId = window.setInterval(() => {
+            this.updatePosition();
+            // this.inMyZone(this.user._id);
+        }, 5000);
+    }
+
+    // Cancel user update position interval
+    cancelWatchingPosition() {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+        //socketService.stopUpdateInterval();
+    }
+
+    // Update user position
+    updatePosition() {
+        this.getPosition();
+        if(this.currentPosition)
+            socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
+    }
+
+    // Get user current position
     getPosition() {
         if (!navigator.geolocation) {
-            toast.error(`Sorry, can't retrieve your current position.`, {
+            toast.error("Sorry, your navigator doesn't support geolocation.", {
               position: toast.POSITION.BOTTOM_RIGHT
             });
             return;
         }
         navigator.geolocation.getCurrentPosition(async pos => {
-            this.currentPosition = [
-                pos.coords.longitude,
-                pos.coords.latitude
-            ];
-            clientStore.setNextStep(`near`);
-        }, () => {
-            toast.error(`Sorry, can't retrieve your current position.`, {
-                position: toast.POSITION.BOTTOM_RIGHT
-            });
-        });
+                this.currentPosition = [
+                    pos.coords.longitude,
+                    pos.coords.latitude
+                ];
+            }, 
+            () => {
+                toast.error("Sorry, can't retrieve your current position.", {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                });
+            }
+        );
+    } 
+
+    // Query opiners in my zone
+    inMyZone(userId) {
+        socketService.inMyZone(userId);
+    }
     
-    }
-
-    updatePosition(actualPosition) {
-        if (actualPosition)
-            this.currentPosition = actualPosition;
-        
-        if (!this.user)
-            return;
-        
-        socketService.findNear({ position: this.currentPosition });
-    }
-
-
-    foundNear(users) {
-        this.nearUsers = users;
-        if (!this.user.profilePictureUrl)
-            this.user = this.findUserById(this.user._id);
-    }
-
-    async login({ displayName, gender, message }) {
-        clientStore.setLoading(`Trying to retrieve your current position...`)
-        if (!navigator.geolocation) {
-            clientStore.setNotification(`Sorry, can't retrieve your current position.`);
-            clientStore.setLoading(false);
-            return;
-        }
-        navigator.geolocation.getCurrentPosition(async pos => {
-            this.currentPosition = [
-                pos.coords.longitude,
-                pos.coords.latitude
-            ];
-            clientStore.setLoading(`Connecting you with people nearby...`);
-            const _id = await login({ displayName, position: this.currentPosition, gender, message });
-            this.user = { displayName, gender, message , _id };
-            clientStore.setNextStep(`near`);
-            clientStore.setLoading(false);
-            refreshingPosition();
-        }, () => {
-            clientStore.setNotification(`Sorry, can't retrieve your current position.`);
-            clientStore.setLoading(false);
-        });
-    }
-
-    findUserById(id) {
-        return this.nearUsers.find(({ _id }) => _id === id);
-    }
-
-    askUser(id) {
-        askUser(id);
-        clientStore.setLoading(`Waiting for an answer...`);
-    }
-
-    chatRequest(id) {
-        // Is user even in my list?
-        const userWhoAsked = this.nearUsers.find(u => u._id === id);
-        console.log(`Got chat request`, userWhoAsked);
-        if (!userWhoAsked)
-            return;
-        
-        clientStore.setNextStep(`request`);
-        this.userRequest = id;
-    }
-
-    decline() {
-        if (!this.userRequest)
-            return;
-        
-        decline(this.userRequest);
-        clientStore.setNextStep(`near`);
-    }
-
-    accept() {
-        if (!this.userRequest)
-            return;
-        
-        accept(this.userRequest);
-        this.openChat(this.userRequest);
-    }
-
-    accepted(id) {
-        clientStore.setLoading(false);
-        this.openChat(clientStore.askUser);
-    }
-
-    denied(id) {
-        clientStore.setNextStep(`near`);
-        clientStore.setLoading(false);
-        clientStore.setNotification(`I don't want to chat right now, sorry.footer__text`);
-    }
-
-    openChat(userId) {
-        const found = this.findUserById(userId);
-        if (!found) {
-            clientStore.setNotification(`Sorry, I'm offline now.`);
-            return;
-        }
-        this.chatUser = userId;
-        clientStore.setNextStep(`chat`);
-    }
-
-    closeChat() {
-        this.chatUser = null;
-        this.chatMessages = [];
-        clientStore.setNextStep(`near`);
-    }
-
-    sendChatMessage(m) {
-        if (!m)
-            return;
-        sendChatMessage({ userId: this.chatUser, message: m });
-        this.chatMessages.push({
-            userId: this.user._id,
-            message: m
-        });
-        // THIS certainly doens't belong here: FIND A BETTER SOLUTION!
-        window.scrollTo(0, 100000000000)
-    }
-
-    chatMessage(m) {
-        this.chatMessages.push({
-            userId: this.chatUser,
-            message: m
-        });
-        // THIS certainly doens't belong here: FIND A BETTER SOLUTION!
-        window.scrollTo(0, 100000000000)
+    // Logout
+    serverSocketLogout() {
+        this.cancelWatchingPosition();
+        socketService.logout(this.user._id);
+        this.user = null;
     }
 }
 
 const appStore = new AppStore();
-
-// Refresh user position every 3 seconds
-function refreshingPosition() {
-    navigator.geolocation.watchPosition((pos) => {
-        appStore.updatePosition([
-            pos.coords.longitude,
-            pos.coords.latitude
-        ]);
-    }, error => {
-        toast.error(`Sorry, can't retrieve your current position.`, {
-            position: toast.POSITION.BOTTOM_RIGHT
-        });
-    });
-    
-    window.setInterval(() => {
-        appStore.updatePosition();
-    }, 3000);
-}
 
 export default appStore;

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { toast } from 'react-toastify';
+import { inject } from 'mobx-react';
 
-import auth from "./auth-service";
 import {spinnerTypes} from "../constants/constants";
+import auth from "./auth-service";
 
 import Spinner from "../components/Spinner";
 
@@ -33,6 +34,7 @@ export const withAuth = Comp => {
   };
 };
 
+@inject('appStore')
 class AuthProvider extends Component {
   state = {
     isLoggedin: false,
@@ -42,22 +44,30 @@ class AuthProvider extends Component {
 
   componentDidMount() {
     auth
-      .me()
-      .then(user => {
-        this.setState({
-          isLoggedin: true,
-          user,
-          isLoading: false
-        });
-      })
-      .catch((error) => {
-        this.setState({
-          isLoggedin: false,
-          user: null,
-          isLoading: false
-        });
+    .me()
+    .then(user => {
+      this.setState({
+        isLoggedin: true,
+        user,
+        isLoading: false
       });
+      this.props.appStore.me(user);
+    })
+    .catch((error) => {
+      this.setState({
+        isLoggedin: false,
+        user: null,
+        isLoading: false
+      });
+    });
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isLoggedin !== this.state.isLoggedin){
+      this.props.appStore.me(this.state.user);
+    }
+  }
+
 
   signup = user => {
     auth
@@ -108,15 +118,16 @@ class AuthProvider extends Component {
     auth
       .logout()
       .then(() => {
+        this.props.appStore.serverSocketLogout();
         toast.info(`See you soon ${this.state.user.username}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
+        toast.success("Successfully logged out", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
         this.setState({
           isLoggedin: false,
           user: null
-        });
-        toast.success("Successfully logged out", {
-          position: toast.POSITION.BOTTOM_RIGHT
         });
       })
       .catch((error) => {
@@ -124,7 +135,7 @@ class AuthProvider extends Component {
           position: toast.POSITION.BOTTOM_RIGHT
         });
       });
-  };x
+  };
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     return isLoading ? (

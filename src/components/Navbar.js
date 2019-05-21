@@ -15,42 +15,45 @@ class Navbar extends Component {
     switch (path) {
       case '/':
         return (
-          <div className="nav-home">
-            <Link to='/opinions'>Opinions</Link>
-            <Link to='/opinions/create'>Create</Link>
-            <Link to='/profile'>Profile</Link>
+          <div className="nav nav-home">
+            <Link to="/profile">Profile</Link>
+            <Link to="/opinions" className="btn btn-tertiary">Opinions</Link>
+            {/* <Link to='/opinions'><img className="icon icon-home" src="https://image.flaticon.com/icons/svg/181/181521.svg" alt="Opinions"></img></Link>
+            <Link to='/opinions/create'><img className="icon icon-home" src="https://image.flaticon.com/icons/svg/181/181518.svg" alt="Create Opinions"></img></Link>
+            <Link to='/profile'><img className="icon icon-home" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link> */}
           </div>
         );
       case '/opinions/create':
         return (
           <div className="nav">
-            <Link to='/opinions'>Opinions</Link>
-            <Link to='/profile'>Profile</Link>
+            <Link to='/opinions'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181521.svg" alt="Opinions"></img></Link>
+            <Link to='/profile'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link>
           </div>
         );
       case '/opinions':
         return (
           <div className="nav">
-            <Link to='/profile'>Profile</Link>
-            <Link to='/opinions/create'>Create</Link>
+            <Link to='/profile'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link>
+            {/* <img className="icon-1" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img> */}
+            <Link to="/InMyZone"><img className="icon" src="https://image.flaticon.com/icons/svg/181/181508.svg" alt="In my zone"></img></Link>
+            <Link to='/opinions/create'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181518.svg" alt="Create Opinions"></img></Link>
+
           </div>
         );
       case '/profile':
         return (
           <div className="nav">
-            <Link to='/opinions'>Opinions</Link>
-            <Link to='/opinions/create'>Create</Link>
-            {/* <Link to='/statistics'>Stats</Link> */}
-            <p className="nav-logout" onClick={() => this.handlelOnClick(this.props.logout)} >Logout</p>
+            <Link to='/opinions'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181521.svg" alt="Opinions"></img></Link>
+            <Link to="/InMyZone"><img className="icon" src="https://image.flaticon.com/icons/svg/181/181508.svg" alt="In my zone"></img></Link>
+            <Link to='/opinions/create'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181518.svg" alt="Create Opinions"></img></Link>
           </div>
         );
       default:
         return (
           <div className="nav">
-            <Link to='/opinions'>Opinions</Link>
-            <Link to='/opinions/create'>Create</Link>
-            <Link to='/profile'>Profile</Link>
-            <Link to='/statistics'>Stats</Link>
+            <Link to='/opinions'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181521.svg" alt="Opinions"></img></Link>
+            <Link to='/opinions/create'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181518.svg" alt="Create Opinions"></img></Link>
+            <Link to='/profile'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link>
           </div>
         )
     }
@@ -62,12 +65,12 @@ class Navbar extends Component {
     return (
       <>
         {isLoggedin ?  
-            <div> { this.navPath(path) } </div>
+          <div> { this.navPath(path) } </div>
           :
-            <div className="nav-home">
-              <Link to='/login'>Login</Link>
-              <Link to='/signup'>Signup</Link>
-            </div>
+          <div className="nav nav-home">
+            <Link to="/login">Log in</Link>
+            <Link to="/signup" className="btn btn-tertiary">Sign up</Link>
+          </div>
         } 
       </>
     );

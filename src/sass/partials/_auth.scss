@@ -14,10 +14,10 @@
 }
 
 .log-bg {
-  background-image: url("https://media3.giphy.com/media/l378wcSfS7eXWQgla/giphy.gif?cid=790b76115cdd4f852f6c4d3163f9075a&rid=giphy.gif");
+  background-image: url("https://media3.giphy.com/media/eWwPtxs25Gb2o/giphy.gif?cid=790b76115ce2b6d54d6f367951539d50&rid=giphy.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  // background-color: rgba($secundary-color, 0.6);
+  // background-color: rgba($secondary-color, 0.6);
   color: $black;
   background-position: center; 
   min-height: 80vh;
@@ -45,10 +45,12 @@
   }
 }
 
-.log-comment {
-  font-size: 0.9rem;
+.log-comment > p {
+  font-size: 0.8rem;
   font-style: italic;
-  margin: 0.5rem auto auto;
+  line-height: 1;
+  margin: 0.1rem auto 0.5rem auto;
+  color: $white;
 }
 
 // .wrapper-form{

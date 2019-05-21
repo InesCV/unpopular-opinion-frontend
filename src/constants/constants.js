@@ -7,6 +7,8 @@ export const statTypes = {
   USER: 'user', // avg por response de las response del usuario
   USER_RATE: 'userRate', // avg del usuario en la comunidad
   MATCH_RATE: 'matchRate', // total mach percent of two users
+  IN_MY_ZONE_RATE: 'inMyZoneRate', // avg de las respuestas del usuario en la zona
+  IN_MY_ZONE_CATEGORY: 'inMyZoneCategory', // avg por category del usuario en la zona
 }
 
 export const spinnerTypes = {

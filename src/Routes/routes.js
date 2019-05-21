@@ -12,6 +12,7 @@ import NotFound from '../pages/NotFound';
 import Users from '../pages/Users';
 import PrivateRoute from "../components/PrivateRoute";
 import AnonRoute from "../components/AnonRoute";
+import InMyZone from "../pages/InMyZone";
 
 const routes = [
   {
@@ -63,6 +64,11 @@ const routes = [
     type: PrivateRoute,
     path: '/statistics',
     component: Statistics,
+  },
+  {
+    type: PrivateRoute,
+    path: '/InMyZone',
+    component: InMyZone,
   },
   {
     type: Route,

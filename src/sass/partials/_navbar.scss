@@ -1,9 +1,9 @@
 @import '../stylesheets/variables';
 
 .nav {
-  background-color: $primary-color;
+  background-color: $tertiary-color;
   margin: 0;
-  height: 6vh;;
+  height: 6.5vh;;
   max-height: 3rem;
   display: flex;
   justify-content: space-between;
@@ -11,33 +11,31 @@
   position: fixed;
   width: 100%;
   z-index: 1;
-  
+  padding-right: 1rem;
+  padding-left: 1rem;
+
   a {
     padding: 0.25rem;
     color: $white;
-    margin: auto 1.5rem;
+    margin: auto 0.2rem;
     font-size: 1.3rem;
 
     &:hover {
-      color: $terciary-color;
+      color: $tertiary-color;
     }
   }
+
+  @media only screen and (min-width: 600px) {
+    justify-content: flex-end;
+  }
+
 }
 
 .nav-home {
   background-color: transparent;
-  margin: 0;
-  height: 2.5rem;;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  width: 100%;
 
   a {
-    padding: 0.25rem;
     color: lightgrey;
-    margin: auto 1.5rem
   }
 }
 
@@ -48,7 +46,7 @@
   font-size: 1.3rem;
 
   &:hover {
-    color: $terciary-color;
+    color: $tertiary-color;
   }
 }
 
@@ -68,4 +66,17 @@
   display: flex;
   justify-content: center;
   background-color: $darkwhite;
+}
+
+.icon {
+  width: 5vh;
+  height: 85%;  
+  max-height: 2.5rem;
+  background-color: $tertiary-color;
+  display: flex;
+  align-items: center;
+}
+
+.icon-home {
+  background-color: transparent;
 }

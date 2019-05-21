@@ -25,7 +25,7 @@
 
 .profile-user-card {
   text-align: center;
-  padding: 2rem;
+  padding: 5%;
   padding-bottom: 3rem;
   border: 0.5px solid rgba(50, 50, 73, 0.3);
   width: 90%;
@@ -39,16 +39,16 @@
 
 ///// custom.css for the stats ////
 
-.circular-secundary {
+.circular-secondary {
   width: 108%!important;
   
   .CircularProgressbar-path {
-    stroke: $terciary-color!important;
-    fill: $terciary-color!important;
+    stroke: $tertiary-color!important;
+    fill: $tertiary-color!important;
 
     &:hover {
-      stroke: $secundary-color!important;
-      fill: $secundary-color!important; 
+      stroke: $secondary-color!important;
+      fill: $secondary-color!important; 
     }
   }
   .CircularProgressbar-trail {
@@ -58,10 +58,10 @@
 
   .CircularProgressbar-text {
     // stroke: pink!important;
-    fill: $terciary-color!important;
+    fill: $tertiary-color!important;
 
     &:hover {
-      fill: $secundary-color!important; 
+      fill: $secondary-color!important; 
     }
   }
 
@@ -79,8 +79,8 @@
     fill: $red!important;
 
     &:hover {
-      stroke: $secundary-color!important;
-      fill: $secundary-color!important; 
+      stroke: $secondary-color!important;
+      fill: $secondary-color!important; 
     }
   }
   .CircularProgressbar-trail {
@@ -93,7 +93,7 @@
     fill: $red!important;
 
     &:hover {
-      fill: $secundary-color!important; 
+      fill: $secondary-color!important; 
     }
   }
 
@@ -112,18 +112,18 @@
   width: 108%!important;
   
   .CircularProgressbar-path {
-    stroke: $secundary-color!important;
-    fill: $secundary-color!important;
+    stroke: $secondary-color!important;
+    fill: $secondary-color!important;
   }
 
   .CircularProgressbar-trail {
-    stroke: $terciary-color!important;
+    stroke: $darkwhite!important;
     fill: transparent!important;
   }
 
   .CircularProgressbar-text {
     // stroke: pink!important;
-    fill: $secundary-color!important;
+    fill: $secondary-color!important;
   }
 
   .CircularProgressbar-background {
@@ -192,6 +192,19 @@
   border-radius: 50%;
 }
 
+.profile-imz-img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 8rem;
+  height: 8rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  border-radius: 50%;
+  margin-top: -1.5rem;
+  margin-left: 0.7rem;
+}
+
 ///////// EDIT PROFILE //////////
 
 .profile-edit {
@@ -238,7 +251,7 @@
 
   label {
     font-weight: 600;
-    color: $secundary-color
+    color: $secondary-color
   }
 }
 
@@ -253,7 +266,7 @@
 .profile-edit-box {
   width: 100%;
   border-radius: 5%;
-  border: 3px solid $secundary-color;
+  border: 3px solid $secondary-color;
   font-family: 'Raleway', 'Quicksand', sans-serif;
   font-size: 1rem;
 }

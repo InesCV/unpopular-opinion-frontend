@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { toast } from 'react-toastify';
 
 import {statTypes} from "../constants/constants";
 import {spinnerTypes} from "../constants/constants";
@@ -11,6 +12,7 @@ import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 import OpinionRate from "../components/OpinionRate";
 import OpinionBar from "../components/OpinionBar";
+import InMyZone from "./InMyZone";
 
 class Opinions extends Component {
   state = {
@@ -29,15 +31,11 @@ class Opinions extends Component {
         }) 
       })
       .catch((error)=> {
-        console.log("Couldn't get the opinions");
-        console.log(error);
+        toast.error("Couldn't get the opinions from the API", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       });
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.opinions.length !== this.state.opinions.length){
-  //   }
-  // }
 
   onRespond = async (index, res) => {
     const { opinions } = this.state;
@@ -45,7 +43,6 @@ class Opinions extends Component {
     await opinionService.response({opinion: opinions[index]._id, response: res});
     // Consult the statistics of the opinion the user just responded to
     const stat = await statsService.query({type: statTypes.OPINION_RATE, opinion: opinions[index]._id});
-    console.log(stat);
     this.state.opinions.splice(index, 1);
     this.setState({
         opinions: this.state.opinions,
@@ -61,14 +58,23 @@ class Opinions extends Component {
   }
 
   render() {
-    const { isLoading, opinions, responded, lastStat } = this.state;
+    const { isLoading, opinions, responded, lastStat, imzSwitch } = this.state;
     return (
       <div className="deck-general">
         { responded ? <OpinionRate skipRate={this.skipRate} stat={lastStat} /> : <></> }
         <Navbar {...this.props}/>
-        {/* <div className="nav-after"></div> */}
-        { isLoading ? <Spinner type={spinnerTypes.SPIN} color={"black"} /> : <Deck cards={opinions} respond={this.onRespond} /> }
-        <OpinionBar skipRate={this.skipRate} cards={opinions} respond={this.onRespond} />
+        {
+          isLoading
+          ? <Spinner type={spinnerTypes.SPIN} color={"black"} />
+          : (
+            imzSwitch
+            ? <InMyZone />
+            : <>
+                <Deck cards={opinions} respond={this.onRespond} />
+                <OpinionBar skipRate={this.skipRate} cards={opinions} respond={this.onRespond} />
+              </>
+          )
+        }
       </div>
     );
   }

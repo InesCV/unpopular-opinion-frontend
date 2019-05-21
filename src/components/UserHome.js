@@ -1,23 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withAuth } from "../lib/AuthProvider";
+
 
 import UserUOPs from "../components/UserUOPs";
-// import UserRate from "../components/UserRate";
 import UserInfoCard from "../components/UserInfoCard";
 
 
-const UserHome = ({ user, toggleIsEditing }) => {
+const UserHome = ({ user, toggleIsEditing, logout, history }) => {
+
+  function handlelOnClick(logout) {
+    logout();
+    history.push(`/`);
+  }
+
   return (
     <div className="container nav-after d-flex flex-wrap">
       <div className="your-profile mb-2">
-        <div className="d-flex justify-content-between profile-title mt-2 mb-2">
-          <h2 className="terciary-color">Your profile</h2> 
-          <p className="d-flex align-items-center" onClick={toggleIsEditing}>Edit profile</p>
+        <div className="profile-title mt-2 mb-2">
+          <h2 className="tertiary-color">Your profile</h2> 
         </div>
-        <UserInfoCard user={user} />
+        <UserInfoCard user={user} toggleIsEditing={toggleIsEditing}/>
       </div>
       <div className="your-opinions">
-        <h2 className="profile-title mt-2 terciary-color">Your opinions</h2> 
+        <h2 className="profile-title mt-2 tertiary-color">Your opinions</h2> 
         { user.opinions.length > 0 ? 
             <div className="cnt-pos flex-column">
               { user.opinions.map((opinion, index) => <UserUOPs key={index} op={opinion}/>) }
@@ -31,9 +37,12 @@ const UserHome = ({ user, toggleIsEditing }) => {
               </div>
             </div>
         }
+        <div className="d-flex justify-content-center">
+         <p className="mt-2 mb-5 btn btn-tertiary" onClick={() => handlelOnClick(logout)}>Logout</p>
+        </div>
       </div>
     </div>
   );
 }
 
-export default UserHome;
+export default withAuth(UserHome);
