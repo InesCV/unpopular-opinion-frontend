@@ -26,8 +26,8 @@ class InMyZone extends Component {
     return (
       <>
         <Navbar {...this.props}/>
-        {this.props.appStore.nearUopers === null
-          ? <Spinner type={spinnerTypes.SPIN} color={"black"} />
+        { (this.props.appStore.nearUopers === null) ? 
+          <Spinner type={spinnerTypes.SPIN} color={"black"} />
           : 
             <div className="container nav-after d-flex flex-wrap">
               <div className="your-profile mb-2">
