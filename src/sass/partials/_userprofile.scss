@@ -166,6 +166,12 @@
   align-items: center;
 }
 
+.profile-opinion-graph-big {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
 .profile-name {
   font-weight: 600;
   font-size: 1.7rem;
@@ -278,4 +284,6 @@
 .profile-edit-description {
   height: 5rem;
 }
+
+
 
