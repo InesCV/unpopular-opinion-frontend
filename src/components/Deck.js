@@ -21,6 +21,7 @@ const Deck = ({cards, respond}) => {
     transform: `perspective(600px) rotateY(${isFlipped ? 180 : 0}deg)`,
     config: { mass: 7, tension: 500, friction: 80 }
   })
+
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
   const bind = useGesture(({ args: [index], down, delta: [xDelta], distance, direction: [xDir], velocity }) => {
     const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out
@@ -55,9 +56,9 @@ const Deck = ({cards, respond}) => {
       } else if (isGone && x<-1) {
         respond(i, 'x');
       }
-      return { x, rot, scale, delay: undefined, config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 } }
+      // return { x, rot, scale, delay: undefined, config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 } }
     })
-    if (!down && gone.size === cards.length) setTimeout(() => gone.clear() || setOpCards(i => to(i)), 600) // It makes the cards return after there are none left
+    // if (!down && gone.size === cards.length) setTimeout(() => gone.clear() || setOpCards(i => to(i)), 600) // It makes the cards return after there are none left
   })
 
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
