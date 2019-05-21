@@ -57,7 +57,7 @@ class InMyZoneUopers extends Component {
           <div className="cnt-pos">
             <div className="profile-user-card ">
               <div className="cnt-pos flex-column">
-                <p className="profile-scores-text">Well {this.props.user.username}, let's see how safe is this area...</p>
+                <p className="profile-scores-text">Well {this.props.user.username}, let's see how safe this area is for you...</p>
                 <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big">
                   <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secondary" />
                 </div>
@@ -70,7 +70,7 @@ class InMyZoneUopers extends Component {
               <div className="profile-user-card ">
                 { this.state.notEnoughData 
                   ? <div className="cnt-pos flex-column">
-                      <p className="profile-scores-text">Sorry, we can't help you, this time you are alone...</p>
+                      <p className="profile-scores-text">Sorry, we can't help you, you are alone in your zone...</p>
                       <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big">
                         <CircularProgressbar value={50} text={'no data'} className="cnt-pos circular-red" /> 
                       </div>
@@ -78,7 +78,7 @@ class InMyZoneUopers extends Component {
                   : <div className="cnt-pos flex-column">
                       <p className="profile-scores-text">This is your acceptance in this area, use it with wisdom...</p>
                       <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big">
-                        <CircularProgressbar value={this.state.data.stats.avg} text={`${this.state.data.stats.avg}%`} className="cnt-pos circular-uop" />
+                        <CircularProgressbar value={this.state.data.stats.avg} text={`${this.state.data.stats.avg}%`} className="cnt-pos circular-secondary" />
                       </div>
                     </div>
                 } 
