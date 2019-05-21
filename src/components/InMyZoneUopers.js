@@ -56,7 +56,7 @@ class InMyZoneUopers extends Component {
     const { user } = this.props;
 
     return (
-      <>
+      <div className="cnt-pos">
         { this.state.isLoading ?
           <div className="cnt-pos flex-column">
             <div className="circular-prediv mt-2">
@@ -99,7 +99,7 @@ class InMyZoneUopers extends Component {
             }
           </>
         }
-      </>
+      </div>
     );
   }
 }
