@@ -54,31 +54,35 @@ class InMyZoneUopers extends Component {
     return (
       <>
         { this.state.isLoading ?
-          <div className="cnt-pos flex-column">
-            <div className="circular-prediv mt-2">
-              <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secondary" />
+          <div className="cnt-pos">
+            <div className="profile-user-card ">
+              <div className="cnt-pos flex-column">
+                <p className="profile-scores-text">Well {this.props.user.username}, let's see how safe this area is for you...</p>
+                <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big">
+                  <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secondary" />
+                </div>
+              </div>
             </div>
-            <p className="profile-scores-text">Well {this.props.user.username}, let's see how safe is this area...</p>
           </div>
           : 
           <>
             <div className="cnt-pos">
               <div className="profile-user-card ">
-                <div className="cnt-pos flex-column">
-                  <div className="profile-opinion-graph">
-                    { this.state.notEnoughData 
-                      ? <>
-                          <CircularProgressbar value={50} text={'no data'} className="cnt-pos circular-red" /> 
-                          <p className="profile-scores-text">Sorry, we can't help you, this time you are alone...</p>
-                        </>
-                      : <>
-                          <CircularProgressbar value={this.state.data.stats.avg} text={`${this.state.data.stats.avg}%`} className="cnt-pos circular-uop" />
-                          <p className="profile-scores-text">This is your acceptance in this area, use it with wisdom...</p>
-                        </>
-                    } 
-                  </div>
-                  <button className="btn btn-score mt-4" onClick={this.statPerCategory}>Analyze score</button>
-                </div>
+                { this.state.notEnoughData 
+                  ? <div className="cnt-pos flex-column">
+                      <p className="profile-scores-text">Sorry, we can't help you, you are alone in your zone...</p>
+                      <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big">
+                        <CircularProgressbar value={50} text={'no data'} className="cnt-pos circular-red" /> 
+                      </div>
+                    </div>
+                  : <div className="cnt-pos flex-column">
+                      <p className="profile-scores-text">This is your acceptance in this area, use it with wisdom...</p>
+                      <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big">
+                        <CircularProgressbar value={this.state.data.stats.avg} text={`${this.state.data.stats.avg}%`} className="cnt-pos circular-secondary" />
+                      </div>
+                    </div>
+                } 
+                <button className="btn btn-score mt-4" onClick={this.statPerCategory}>Analyze score</button>
               </div>
             </div>
           </>
