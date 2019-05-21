@@ -87,7 +87,7 @@ class InMyZoneUopers extends Component {
                     </Link>
                   </CircularProgressbarWithChildren>
                 </div>
-                <p className="profile-scores-text">{this.state.match}% affinity with 
+                <p className="profile-scores-text"><b>{this.state.match}%</b> affinity with 
                 <Link className="tertiary-color" to={{
                     pathname: '/user',
                     state: {
