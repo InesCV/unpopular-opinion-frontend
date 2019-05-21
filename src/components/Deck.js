@@ -34,13 +34,13 @@ const Deck = ({cards, respond}) => {
       const rot = xDelta / 100 + (isGone ? dir * 10 * velocity : 0) // How much the card tilts, flicking it harder makes it rotate faster
       const scale = down ? 1.15 : 1 // Active cards lift up a bit
       // Let's us know if the card has been lifted
-      if (down && x<1) {
+      if (down && x<0) {
           setChosenX({
             fontWeight: 800,
             color: '#292824',
           }) 
           setChosenY(null);
-      } else if (down && x>1) {
+      } else if (down && x>0) {
         setChosenY({
           fontWeight: 800,
           color: '#292824',
@@ -56,7 +56,7 @@ const Deck = ({cards, respond}) => {
       } else if (isGone && x<-1) {
         respond(i, 'x');
       }
-      // return { x, rot, scale, delay: undefined, config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 } }
+      return { x, rot, scale, delay: undefined, config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 } }
     })
     // if (!down && gone.size === cards.length) setTimeout(() => gone.clear() || setOpCards(i => to(i)), 600) // It makes the cards return after there are none left
   })
