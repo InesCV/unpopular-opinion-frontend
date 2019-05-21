@@ -7,6 +7,7 @@ import { withAuth } from '../lib/AuthProvider';
 
 import Spinner from "../components/Spinner";
 import Navbar from "../components/Navbar";
+import InMyZoneUser from "../components/InMyZoneUser";
 import InMyZoneUopers from "../components/InMyZoneUopers";
 
 @inject('appStore')
@@ -29,6 +30,12 @@ class InMyZone extends Component {
           ? <Spinner type={spinnerTypes.SPIN} color={"black"} />
           : 
             <div className="container nav-after d-flex flex-wrap">
+              <div className="your-profile mb-2">
+                <div className="profile-title mt-2 mb-2">
+                  <h2 className="tertiary-color">In My Zone</h2> 
+                </div>
+                <InMyZoneUser nearUopers={this.props.appStore.nearUopers.toJS()}/>
+              </div>
               <h2 className="profile-title pt-3 tertiary-color mb-2">Uopers nearby you</h2>
               <div className="container nav-after d-flex flex-wrap">
                 {this.props.appStore.nearUopers.toJS().map((uoper, index)=> {
