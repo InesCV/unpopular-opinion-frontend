@@ -13,7 +13,7 @@ const CardBack = ({cards, i, opacity, transform, user}) => {
           <Link className="card-author-link" to={{
             pathname: path,
             state: {
-              id: cards[i].author,
+              id: cards[i].author._id,
             }
           }}> 
             <div className="d-flex justify-content-center">
