@@ -19,13 +19,14 @@ const MatchRate = ({userId, username, notEnoughData, setNotEnoughData}) => {
       userMatch: userId,
     })
     .then(data => {
-      if (!data.stats) {
+      if (!data) {
         setMatch(50);
         setNotEnoughData(true);
         setIsLoading(false);
       } else {
         setMatch (data.avg);
         setIsLoading(false);
+        setNotEnoughData(false);
       }
     }) 
     .catch((error)=> {

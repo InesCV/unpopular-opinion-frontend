@@ -4,15 +4,15 @@ import UserRate from "./UserRate";
 import MatchRate from "../components/MatchRate";
 
 
-const UserAffinity = ({ user, userId, path }) => {
+const UserAffinity = ({ user, path }) => {
   const [notEnoughData, setNotEnoughData] = useState(true);
 
   return (
     <>
     <div className="cnt-pos">
       <div className="d-flex flex-row">
-        <UserRate userId={userId} path={path} username={user.username}/>
-        <MatchRate userId={userId} username={user.username} notEnoughData={notEnoughData} setNotEnoughData={setNotEnoughData} />
+        <UserRate userId={user._id} path={path} username={user.username}/>
+        <MatchRate userId={user._id} username={user.username} notEnoughData={notEnoughData} setNotEnoughData={setNotEnoughData} />
       </div>
     </div>
     <div className="mt-2">
