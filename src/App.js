@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 
-import MockupPhone from './mockups/MockupPhone.png'; // Tell Webpack this JS file uses this image
+import MockupPhone from './mockups/MockupPhone.png';
+import Logo from './mockups/UOPlogo.png'; 
 import Navbar from "./components/Navbar";
 import './sass/stylesheets/styles.scss'
 
@@ -13,8 +14,9 @@ class App extends Component {
             <Navbar {...this.props}/>
             <div className="cnt-pos">
               <div className="d-flex flex-wrap nav-after">
-                <div className= "d-flex flex-column align-items-center pb-4 flex-grow-1 container padding">
-                  <h1 className="des pt-5 pb-3">Unpopular Opinion</h1>
+                <div className= "d-flex flex-column align-items-center pb-4 flex-grow-1 container">
+                  <div className="des pt-5 home-logo"><img src={Logo} alt="Logo" /></div>
+                  <h2 className="des pb-3">#UnpopularOpinion</h2>
                   <h4 className="des mb-3">It’s a Social Network to see how popular are your thoughts within a community</h4>
                   <Link className="btn btn-tertiary-reverse" to='/signup'>Sign up</Link>
                 </div>
@@ -26,7 +28,7 @@ class App extends Component {
               </div>
             </div>
           </header>
-          <div className="jumbotron bg-mockup full-height">
+          <div className="jumbotron bg-mockup mockup full-height">
             <div className="des-mockup">
               <h1 className="pb-2 tertiary-color">Swipe & Share</h1>
               <h3 className="pb-3">Discover what all the <span>buzz</span> is about!</h3>
@@ -42,7 +44,7 @@ class App extends Component {
           <div className="jumbotron bg-about full-height d-flex justify-content-center center">
             <div className="container des index-1">
               <h1 className="pt-5 pb-3">About us</h1>
-              <h4>We are just trying to get some answers. If we have to create an platform to do so... <span className="tertiary-color">Unpopular Opinion</span> it is.</h4>
+              <p>We are just trying to get some answers. If we have to create an platform to do so... <span className="tertiary-color bold">UOP #UnpopularOpinion</span> it is.</p>
             </div>
             <div className="overlay">
             </div>

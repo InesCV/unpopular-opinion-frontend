@@ -11,7 +11,6 @@ import Navbar from "../components/Navbar";
 import SpinnerCentral from "../components/SpinnerCentral";
 import OpinionRate from "../components/OpinionRate";
 import OpinionBar from "../components/OpinionBar";
-import InMyZone from "./InMyZone";
 
 class Opinions extends Component {
   state = {
@@ -50,10 +49,18 @@ class Opinions extends Component {
       })
   }
 
-  skipRate = (state) => {
+  skipRate = () => {
     this.setState({
-      responded: false,
-    })
+      responded: !this.state.responded,
+    });
+  }
+
+  skipOpinion = (index) => {
+    this.state.opinions.splice(index, 1);
+    this.setState({
+        opinions: this.state.opinions,
+        responded: false,
+      })
   }
 
   render() {
@@ -68,7 +75,7 @@ class Opinions extends Component {
           : 
             <>
               <Deck cards={opinions} respond={this.onRespond} />
-              <OpinionBar isResponded={responded} cards={opinions} respond={this.onRespond} />
+              <OpinionBar isResponded={responded} cards={opinions} respond={this.onRespond} skipOpinion={this.skipOpinion} />
             </>
         }
       </div>

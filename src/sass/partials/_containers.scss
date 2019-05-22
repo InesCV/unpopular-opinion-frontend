@@ -78,6 +78,22 @@
   min-height: 100vh;
 }
 
+.home-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  > img {
+    width: 250x;
+    height: 100px;
+
+    @media only screen and (min-width: 600px) {
+      width: 375x;
+      height: 150px;
+    }
+  }
+}
+
 .bg-about {
   background-image: url("/img/UOP-team.png");
   background-color: $black;
@@ -91,9 +107,13 @@
     background-position: center;
   }
 
-  &:hover{
-    background-color: $primary-color;
+  @media only screen and (min-width: 1000px) {
+    background-position: 50% 35%;
   }
+
+  // &:hover{
+  //   background-color: $secondary-color;
+  // }
 }
 
 .bg-swipe {
@@ -103,26 +123,30 @@
   min-height: 80vh;
 }
 
-.bg-mockup {
+.mockup {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/img/MockupBig.png');
-  color: $black;
-  background-position: 50% 35%;
-  background-size: cover;
-  background-blend-mode: screen;
-  position: relative;
-  background-position: center; 
 
   @media only screen and (min-width: 600px) {
     background-position: center;
     align-items: flex-start;
     justify-content: flex-end;
-    // background-color: $white;
-    // background-blend-mode: screen;
   }
+}
 
+.bg-mockup {
+  background-image: url('/img/MockupBig.png');
+  background-position: 50% 35%;
+  background-size: cover;
+  position: relative;
+  color: $black;
+  
+  @media only screen and (max-width: 600px) {
+    background-color: $grey;
+    background-blend-mode: multiply;
+    color: $white;
+  }
 }
 
 .device-container {
