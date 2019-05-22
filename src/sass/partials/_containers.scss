@@ -35,6 +35,10 @@
 }
 
 .margin {
+  margin: 4rem;
+}
+
+.padding {
   padding: 4rem;
 }
 
@@ -165,5 +169,19 @@
 
 .spinner-little {
   height: 20vh;;
+}
+
+.bg-radar {
+  background-color: $black;
+  background-image: url("https://media.giphy.com/media/dOrYKxiH8cQXC/giphy.gif");
+  background-blend-mode: screen;
+  color: $white;
+  background-size: cover;
+  background-position: center; 
+  height: 50vh;
+}
+
+.min-full-height {
+  min-height: 100vh;
 }
 

@@ -12,12 +12,12 @@ class App extends Component {
             <Navbar {...this.props}/>
             <div className="cnt-pos">
               <div className="d-flex flex-wrap nav-after">
-                <div className= "d-flex flex-column align-items-center pb-4 flex-grow-1 container margin">
+                <div className= "d-flex flex-column align-items-center pb-4 flex-grow-1 container padding">
                   <h1 className="des pt-5 pb-3">Unpopular Opinion</h1>
                   <h4 className="des mb-3">It’s a Social Network to see how popular are your thoughts within a community</h4>
                   <Link className="btn btn-secondary" to='/signup'>Sign up</Link>
                 </div>
-                <div className="device-container flex-grow-1 margin">
+                <div className="device-container flex-grow-1 padding">
                   <div className="d-flex justify-content-center">
                       <img className="device" src="http://canyoupickthisup.com/cyptu/device-mockups/iphone_6_plus/iphone_6_plus_white_port.png" alt="device"></img>
                   </div>

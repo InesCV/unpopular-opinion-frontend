@@ -81,19 +81,19 @@ class InMyZoneUopers extends Component {
       <>
         { this.state.isLoading ?
           <div className="cnt-pos">
-            <div className="profile-user-card ">
-              <div className="cnt-pos flex-column">
+            <div className="profile-user-card bg-radar">
+              {/* <div className="cnt-pos flex-column">
                 <p className="profile-scores-text">Well {this.props.user.username}, let's see how safe this area is for you...</p>
                 <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big mb-2">
                   <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secondary" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           : 
           <>
             <div className="cnt-pos">
-              <div className="profile-user-card ">
+              <div className="profile-user-card">
                 { this.state.notEnoughData 
                   ? <div className="cnt-pos flex-column">
                       <p className="profile-scores-text">Sorry, we have not found any UOPER near you.</p>

@@ -67,7 +67,7 @@ class InMyZoneUopers extends Component {
           : 
           <>
             { this.state.notEnoughData ?
-              <div className="cnt-pos flex-column">
+              <div className="cnt-pos flex-column" style={{marginBottom: "2rem"}}>
                 <div className="circular-prediv mt-2">
                   <CircularProgressbar value={50} text={`no data`} className="cnt-pos circular-red" />
                 </div>
