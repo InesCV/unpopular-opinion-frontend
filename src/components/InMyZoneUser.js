@@ -6,6 +6,7 @@ import { CircularProgressbar} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import '../sass/stylesheets/styles.scss';
 
+import { imzMessages } from "../constants/constants";
 import { withAuth } from "../lib/AuthProvider";
 import statsService from '../lib/statistics-service';
 
@@ -18,12 +19,14 @@ class InMyZoneUopers extends Component {
     isLoading: true,
     notEnoughData: false,
     data: undefined,
+    advice: '',
   }
 
   componentDidMount(){
     statsService.query({
       type: statTypes.IN_MY_ZONE_RATE,
-      nearUopers: this.props.appStore.nearUopers.toJS(),
+      // nearUopers: this.props.appStore.nearUopers.toJS(),
+      nearUopers: this.props.nearUopers,
     })
     .then(data => {
       if (data.stats === null) {
@@ -32,10 +35,27 @@ class InMyZoneUopers extends Component {
           isLoading: false,
         });
       } else {
+        let advice;
+        if (this.props.nearUopers.length === 1) {
+          advice = imzMessages.rnobody;
+        } else {
+          if(data.stats.avg < 10){
+            advice = imzMessages.r10;
+          } else if (data.stats.avg < 30) {
+            advice = imzMessages.r30;
+          } else if (data.stats.avg < 60) {
+            advice = imzMessages.r60;
+          } else if (data.stats.avg < 90){
+            advice = imzMessages.r90;
+          } else {
+            advice = imzMessages.r100;
+          }
+        }
         this.setState({
           data,
           isLoading: false,
           notEnoughData: false,
+          advice,
         });
       }
     }) 
@@ -77,12 +97,13 @@ class InMyZoneUopers extends Component {
                     </div>
                   : <div className="cnt-pos flex-column">
                       <p className="profile-scores-text">This is your acceptance in this area, use it with wisdom...</p>
-                      <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big">
+                      <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big mb-2">
                         <CircularProgressbar value={this.state.data.stats.avg} text={`${this.state.data.stats.avg}%`} className="cnt-pos circular-secondary" />
                       </div>
+                      <p className="profile-scores-text">{this.state.advice}</p>
                     </div>
                 } 
-                <button className="btn btn-score mt-4" onClick={this.statPerCategory}>Analyze score</button>
+                {/* <button className="btn btn-score mt-4" onClick={this.statPerCategory}>Analyze score</button> */}
               </div>
             </div>
           </>
