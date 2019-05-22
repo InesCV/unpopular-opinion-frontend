@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { toast } from 'react-toastify';
 
 import {statTypes} from "../constants/constants";
-import {spinnerTypes} from "../constants/constants";
 
 import opinionService from "../lib/opinion-service";
 import statsService from "../lib/statistics-service";
 
 import Deck from '../components/Deck';
 import Navbar from "../components/Navbar";
-import Spinner from "../components/Spinner";
+import SpinnerCentral from "../components/SpinnerCentral";
 import OpinionRate from "../components/OpinionRate";
 import OpinionBar from "../components/OpinionBar";
 import InMyZone from "./InMyZone";
@@ -64,15 +63,16 @@ class Opinions extends Component {
         { responded ? <OpinionRate skipRate={this.skipRate} stat={lastStat} /> : <></> }
         <Navbar {...this.props}/>
         {
-          isLoading
-          ? <Spinner type={spinnerTypes.SPIN} color={"black"} />
-          : (
-            imzSwitch
-            ? <InMyZone />
-            : <>
-                <Deck cards={opinions} respond={this.onRespond} />
-                <OpinionBar skipRate={this.skipRate} cards={opinions} respond={this.onRespond} />
-              </>
+          isLoading? 
+          <SpinnerCentral />
+          : 
+          ( imzSwitch ? 
+            <InMyZone />
+            : 
+            <>
+              <Deck cards={opinions} respond={this.onRespond} />
+              <OpinionBar skipRate={this.skipRate} cards={opinions} respond={this.onRespond} />
+            </>
           )
         }
       </div>

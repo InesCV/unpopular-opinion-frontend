@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
-import { spinnerTypes } from "../constants/constants";
 import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
 
-import Spinner from "../components/Spinner";
+import SpinnerCentral from "../components/SpinnerCentral";
 import Navbar from "../components/Navbar";
 import UserEditProfile from "../components/UserEditProfile";
 import UserHome from "../components/UserHome";
@@ -59,7 +58,7 @@ class Profile extends Component {
       <>
         <Navbar {...this.props}/>
         { isLoading ? 
-          <Spinner type={spinnerTypes.SPIN} color={"blue"} />
+          <SpinnerCentral />
           : 
           <>
             { isEditing ?

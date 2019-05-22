@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import { inject, observer } from 'mobx-react';
 
-import {spinnerTypes} from "../constants/constants";
-
 import { withAuth } from '../lib/AuthProvider';
 
-import Spinner from "../components/Spinner";
+import SpinnerCentral from "../components/SpinnerCentral";
 import Navbar from "../components/Navbar";
 import InMyZoneUser from "../components/InMyZoneUser";
 import InMyZoneUopers from "../components/InMyZoneUopers";
@@ -27,7 +25,7 @@ class InMyZone extends Component {
       <>
         <Navbar {...this.props}/>
         { (this.props.appStore.nearUopers === null) ? 
-          <Spinner type={spinnerTypes.SPIN} color={"black"} />
+          <SpinnerCentral />
           : 
             <div className="container nav-after d-flex flex-wrap">
               <div className="your-profile mb-2">
