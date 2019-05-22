@@ -2,7 +2,7 @@ import React from 'react';
 
 import UserRate from "./UserRate";
 
-const UserInfoCard = ({ user, toggleIsEditing }) => {
+const UserInfoCard = ({ user, toggleIsEditing, toggleHasStat }) => {
   return (
     <div className="cnt-pos">
       <div className="profile-user-card ">
@@ -11,7 +11,7 @@ const UserInfoCard = ({ user, toggleIsEditing }) => {
           <div className="profile-img" style={{ backgroundImage: `url(${user.avatar})`}}/>
           <h2 className="profile-name pt-3">{user.username}</h2>
           { user.description ? <p className="profile-description mb-2">{user.description}</p> : <p>You should upload a description</p>}
-          <UserRate userId={user._id} />
+          <UserRate userId={user._id} toggleHasStat={toggleHasStat} />
         </div>
       </div>
     </div>

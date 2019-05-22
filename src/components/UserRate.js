@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import {statTypes, errorTypes} from "../constants/constants";
 import statsService from '../lib/statistics-service';
 
-const UserRate = ({userId, username, path}) => {
+const UserRate = ({userId, username, path, toggleHasStat}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [responded, setResponded] = useState(true);
   const [stat, setStat] = useState(100);
@@ -38,22 +38,6 @@ const UserRate = ({userId, username, path}) => {
       });
     });
    }, []);
-
-  function statPerCategory  () {
-    statsService.query({
-      type: statTypes.CATEGORY_RATE,
-      user: userId
-    })
-    .then(data => {
-      setCategoryStat (data.stats.avg);
-      setIsLoading (false);
-    }) 
-    .catch((error)=> {
-      toast.error(`Sorry. ${errorTypes.E500S}`, {
-        position: toast.POSITION.BOTTOM_RIGHT
-      });
-    });   
-  }
   
   return (
     <>
@@ -66,7 +50,7 @@ const UserRate = ({userId, username, path}) => {
           { categoryStat ?
             <CategoryRate categoryStat={categoryStat} setCategoryStat={() => setCategoryStat()} />
             :
-            <UserRatePreset stat={stat} text={`${stat}%`} statPerCategory={() => statPerCategory()} path={path} username={username}/>
+            <UserRatePreset stat={stat} text={`${stat}%`} path={path} username={username} toggleHasStat={toggleHasStat}/>
           }
           </>
           :

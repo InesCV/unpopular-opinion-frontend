@@ -12,14 +12,12 @@ import statsService from '../lib/statistics-service';
 
 
 const UserHome = ({ user, toggleIsEditing, logout, history }) => {
-  // const [categoryStat, setCategoryStat] = useState(undefined);
   const [hasStat, setHasStat] = useState(false);
 
   function handlelOnClick(logout) {
     logout();
     history.push(`/`);
   }
-    
 
   function toggleHasStat () {
     setHasStat(!hasStat);
@@ -31,8 +29,8 @@ const UserHome = ({ user, toggleIsEditing, logout, history }) => {
         <div className="profile-title mt-2 mb-2">
           <h2 className="tertiary-color">Your profile</h2> 
         </div>
-        <UserInfoCard user={user} toggleIsEditing={toggleIsEditing} />
-        <button className="btn btn-score mt-4"  onClick={toggleHasStat}>Analyze score</button>
+        <UserInfoCard user={user} toggleIsEditing={toggleIsEditing} toggleHasStat={toggleHasStat}/>
+        {/* <button className="btn btn-score mt-4"  onClick={toggleHasStat}>Analyze score</button> */}
       </div>
       { hasStat ? 
         <div className="your-opinions">
