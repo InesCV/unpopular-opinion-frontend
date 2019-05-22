@@ -62,7 +62,7 @@ export default class EditProfile extends Component {
                 value={username}
                 onChange={this.handleChange}
                 />
-              <label className="secondary-color mt-2">Description:</label>
+              <label className="mt-2">Description:</label>
               <textarea className="profile-edit-box profile-edit-description"
                 type="text"
                 name="description"

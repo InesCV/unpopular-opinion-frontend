@@ -41,7 +41,7 @@ class FileUpload extends Component {
   render () {
     const {uploaded} = this.state.uploaded;
     return (
-      <div>
+      <div className="file-upload">
         <label
           className="d-flex flex-column justify-content-center align-items-center"
           style={{ backgroundImage: `url(${this.state.photo})`,
