@@ -44,6 +44,16 @@
   }
 }
 
+.btn-tertiary-reverse {
+  color: $white!important;
+  background-color: $tertiary-color;
+  border-color: $tertiary-color;
+
+  &:hover {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+  }
+}
 
 .btn-white {
   color: $white;

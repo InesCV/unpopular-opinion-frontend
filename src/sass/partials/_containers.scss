@@ -103,10 +103,26 @@
   min-height: 80vh;
 }
 
-.bg-yellow {
-  background-color: $mustard;
+.bg-mockup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/img/MockupBig.png');
   color: $black;
+  background-position: 50% 35%;
+  background-size: cover;
+  background-blend-mode: screen;
+  position: relative;
   background-position: center; 
+
+  @media only screen and (min-width: 600px) {
+    background-position: center;
+    align-items: flex-start;
+    justify-content: flex-end;
+    // background-color: $white;
+    // background-blend-mode: screen;
+  }
+
 }
 
 .device-container {
