@@ -254,11 +254,6 @@ f
   @media only screen and (min-width: 500px) {
     max-width: 400px;  
   }
-
-  label {
-    font-weight: 600;
-    color: $secondary-color
-  }
 }
 
 // .profile-edit-form {
@@ -272,7 +267,7 @@ f
 .profile-edit-box {
   width: 100%;
   border-radius: 5%;
-  border: 3px solid $secondary-color;
+  border: 3px solid $tertiary-color;
   font-family: 'Raleway', 'Quicksand', sans-serif;
   font-size: 1rem;
 }
@@ -306,6 +301,36 @@ f
     width: 40%;
   }
 }
+
+.file-upload {
+  width: 100%;
+  height: 200px;;
+}
+
+.opinion-create-question {
+  height: 5rem;
+  max-width: 600px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.opinion-create-response {
+  height: 2rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: start;
+}
+
+.opinion-comment {
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1;
+  margin: 0.1rem auto 0.5rem auto;
+  color: $grey;
+}
+
+
+
 
 
 
