@@ -11,7 +11,6 @@ import Navbar from "../components/Navbar";
 import SpinnerCentral from "../components/SpinnerCentral";
 import OpinionRate from "../components/OpinionRate";
 import OpinionBar from "../components/OpinionBar";
-import InMyZone from "./InMyZone";
 
 class Opinions extends Component {
   state = {
@@ -48,6 +47,12 @@ class Opinions extends Component {
         responded: true,
         lastStat: stat,
       })
+  }
+
+  skipRate = () => {
+    this.setState({
+      responded: !this.state.responded,
+    });
   }
 
   skipOpinion = (index) => {
