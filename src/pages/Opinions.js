@@ -50,10 +50,12 @@ class Opinions extends Component {
       })
   }
 
-  skipRate = (state) => {
+  skipOpinion = (index) => {
+    this.state.opinions.splice(index, 1);
     this.setState({
-      responded: false,
-    })
+        opinions: this.state.opinions,
+        responded: false,
+      })
   }
 
   render() {
@@ -68,7 +70,7 @@ class Opinions extends Component {
           : 
             <>
               <Deck cards={opinions} respond={this.onRespond} />
-              <OpinionBar isResponded={responded} cards={opinions} respond={this.onRespond} />
+              <OpinionBar isResponded={responded} cards={opinions} respond={this.onRespond} skipOpinion={this.skipOpinion} />
             </>
         }
       </div>
