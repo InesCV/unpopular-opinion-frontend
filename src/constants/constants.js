@@ -33,3 +33,13 @@ export const errorTypes = {
   E600: "Can't connect to the Cloud.",
   E600U: "Can't upload image to the Cloud.",
 };
+
+// Custom message by acepptance rate in place (InMyZone)
+export const imzMessages = {
+  rnobody: "You are the only OUPER in the place. We can't help you. You are alone.", // If there is no upers nearby, r will be 100% (but is not real)
+  r10: "You are not wellcome in this place, keep your mouth close!",
+  r30: "There is someone that will laught your jokes, but be carefull.",
+  r60: "You are very luky. You are in a safe zone, go and meet interesant Uopers.",
+  r90: "Uoh! You are the soul of the party. Fell free to open your mouth!!!!",
+  r100: "You are 'The Wolf of Wall Street'. All the UOPERS in this place want to ear your battles.",
+}
