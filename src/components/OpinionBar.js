@@ -1,11 +1,15 @@
 import React from 'react';
 
 
-const OpinionBar = ({isResponded, respond, cards}) => {
+const OpinionBar = ({isResponded, respond, cards, skipOpinion}) => {
 
   function handleClick(event) {
-    if ( !isResponded && event.target.id !== 'skip') {
-      respond((cards.length -1), `${event.target.id}`);
+    if (!isResponded) {
+      if (event.target.id === 'skip') {
+        skipOpinion((cards.length -1));
+      } else {
+        respond((cards.length -1), `${event.target.id}`);
+      }
     }
   }
   
