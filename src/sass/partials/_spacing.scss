@@ -10,6 +10,17 @@
   text-align: center;
 }
 
+.des-mockup {
+  max-width: 450px;
+  text-align: center;
+  padding: 3rem;
+
+  @media only screen and (min-width: 600px) {
+    text-align: right;
+  
+  }
+}
+
 // Margin tops
 
 .mt-1 {

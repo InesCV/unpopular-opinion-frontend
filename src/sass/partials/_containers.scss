@@ -35,6 +35,10 @@
 }
 
 .margin {
+  margin: 4rem;
+}
+
+.padding {
   padding: 4rem;
 }
 
@@ -99,10 +103,26 @@
   min-height: 80vh;
 }
 
-.bg-yellow {
-  background-color: $mustard;
+.bg-mockup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/img/MockupBig.png');
   color: $black;
+  background-position: 50% 35%;
+  background-size: cover;
+  background-blend-mode: screen;
+  position: relative;
   background-position: center; 
+
+  @media only screen and (min-width: 600px) {
+    background-position: center;
+    align-items: flex-start;
+    justify-content: flex-end;
+    // background-color: $white;
+    // background-blend-mode: screen;
+  }
+
 }
 
 .device-container {
@@ -165,5 +185,19 @@
 
 .spinner-little {
   height: 20vh;;
+}
+
+.bg-radar {
+  background-color: $black;
+  background-image: url("https://media.giphy.com/media/dOrYKxiH8cQXC/giphy.gif");
+  background-blend-mode: screen;
+  color: $white;
+  background-size: cover;
+  background-position: center; 
+  height: 50vh;
+}
+
+.min-full-height {
+  min-height: 100vh;
 }
 

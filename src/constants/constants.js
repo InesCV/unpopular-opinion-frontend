@@ -36,10 +36,10 @@ export const errorTypes = {
 
 // Custom message by acepptance rate in place (InMyZone)
 export const imzMessages = {
-  rnobody: "You are the only OUPER in 500 meters. We can't help you. You are alone.", // If there is no upers nearby, r will be 100% (but is not real)
-  r10: "You are not wellcome in this place, keep your mouth close!",
-  r30: "There is someone that will laught your jokes, but be carefull.",
-  r60: "You are very luky. You are in a safe zone, go and meet interesant Uopers.",
-  r90: "Uoh! You are the soul of the party. Fell free to open your mouth!!!!",
-  r100: "You are 'The Wolf of Wall Street'. All the UOPERS in this place want to ear your battles.",
+  rnobody: "You are the only Uoper in the area (500 meters). We can't help you. You are alone.", // If there is no upers nearby, r will be 100% (but is not real)
+  r10: "Your thoughts are not popular in this zone, better keep your mouth shut...",
+  r30: "Maybe someone will laugh at your jokes, but be careful...",
+  r60: "Lucky! You are in a safe zone, go and meet other interesting Uopers.",
+  r90: "Uoh! You are the soul of the party. Fell free to share your thoughts! They are accepted here",
+  r100: "You are 'The Wolf of Wall Street'. All the Uopers in this place want to hear about your thoughts.",
 }

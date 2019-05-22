@@ -40,7 +40,7 @@ p {
 }
 
 span {
-  color: $primary-color;
+  color: $tertiary-color;
 }
 
 a {
@@ -57,5 +57,9 @@ i {
 
 u {
   text-decoration: underline;
+}
+
+label {
+  color: $tertiary-color;
 }
 

@@ -57,23 +57,19 @@ class Opinions extends Component {
   }
 
   render() {
-    const { isLoading, opinions, responded, lastStat, imzSwitch } = this.state;
+    const { isLoading, opinions, responded, lastStat } = this.state;
     return (
       <div className="deck-general">
         { responded ? <OpinionRate skipRate={this.skipRate} stat={lastStat} /> : <></> }
         <Navbar {...this.props}/>
         {
           isLoading? 
-          <SpinnerCentral />
+            <SpinnerCentral />
           : 
-          ( imzSwitch ? 
-            <InMyZone />
-            : 
             <>
               <Deck cards={opinions} respond={this.onRespond} />
-              <OpinionBar skipRate={this.skipRate} cards={opinions} respond={this.onRespond} />
+              <OpinionBar isResponded={responded} cards={opinions} respond={this.onRespond} />
             </>
-          )
         }
       </div>
     );
