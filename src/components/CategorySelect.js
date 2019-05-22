@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
 
-import {spinnerTypes, errorTypes} from "../constants/constants";
-
+import {errorTypes} from "../constants/constants";
 import opinionService from "../lib/opinion-service";
-
-import Spinner from "../components/Spinner";
+import SpinnerCentral from './SpinnerCentral';
+import { toast } from 'react-toastify';
 
 const CategorySelect = ({selected}) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,17 +24,14 @@ const CategorySelect = ({selected}) => {
 
   return (
     <div>
-      {
-        (isLoading)? 
-            <Spinner type={spinnerTypes.SPIN} color={"blue"} />
-          : 
-            (
-              <div className="d-flex flex-wrap nav-after">
-                {categories.map((category, index) => 
-                    <button className="btn btn-primary mt-3 ml-4" key={index} onClick={() => selected(category)}>{category}</button>
-                )}
-              </div>
-            )
+      { isLoading ? 
+        <SpinnerCentral />
+        : 
+        <div className="d-flex flex-wrap nav-after">
+          {categories.map((category, index) => 
+              <button className="btn btn-primary mt-3 ml-4" key={index} onClick={() => selected(category)}>{category}</button>
+          )}
+        </div>    
       }
     </div>
   );

@@ -5,30 +5,22 @@ import { withAuth } from "../lib/AuthProvider";
 
 import UserUOPs from "../components/UserUOPs";
 import UserInfoCard from "../components/UserInfoCard";
+import CategoryRate from "../components/CategoryRate";
+
+import {statTypes} from "../constants/constants";
+import statsService from '../lib/statistics-service';
 
 
 const UserHome = ({ user, toggleIsEditing, logout, history }) => {
-  const [categoryStat, setCategoryStat] = useState(undefined);
+  const [hasStat, setHasStat] = useState(false);
 
   function handlelOnClick(logout) {
     logout();
     history.push(`/`);
   }
 
-  function statPerCategory  () {
-    statsService.query({
-      type: statTypes.CATEGORY_RATE,
-      user: userId
-    })
-    .then(data => {
-      setCategoryStat (data.stats.avg);
-      setIsLoading (false);
-    }) 
-    .catch((error)=> {
-      toast.error(`Sorry. ${errorTypes.E500S}`, {
-        position: toast.POSITION.BOTTOM_RIGHT
-      });
-    });   
+  function toggleHasStat () {
+    setHasStat(!hasStat);
   }
 
   return (
@@ -37,12 +29,13 @@ const UserHome = ({ user, toggleIsEditing, logout, history }) => {
         <div className="profile-title mt-2 mb-2">
           <h2 className="tertiary-color">Your profile</h2> 
         </div>
-        <UserInfoCard user={user} toggleIsEditing={toggleIsEditing} />
+        <UserInfoCard user={user} toggleIsEditing={toggleIsEditing} toggleHasStat={toggleHasStat}/>
+        {/* <button className="btn btn-score mt-4"  onClick={toggleHasStat}>Analyze score</button> */}
       </div>
-      { categoryStat ? 
+      { hasStat ? 
         <div className="your-opinions">
           <h2 className="profile-title mt-2 tertiary-color">Your category statistics</h2> 
-          <CategoryRate categoryStat={categoryStat} setCategoryStat={() => setCategoryStat()} />
+          <CategoryRate user={user} toggleHasStat={toggleHasStat} />
         </div> 
         : 
         <div className="your-opinions">

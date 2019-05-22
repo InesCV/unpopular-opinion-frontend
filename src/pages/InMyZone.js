@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import { inject, observer } from 'mobx-react';
 
-import {spinnerTypes} from "../constants/constants";
-
 import { withAuth } from '../lib/AuthProvider';
 
-import Spinner from "../components/Spinner";
+import SpinnerCentral from "../components/SpinnerCentral";
 import Navbar from "../components/Navbar";
 import InMyZoneUser from "../components/InMyZoneUser";
 import InMyZoneUopers from "../components/InMyZoneUopers";
@@ -27,7 +25,7 @@ class InMyZone extends Component {
       <>
         <Navbar {...this.props}/>
         { (this.props.appStore.nearUopers === null) ? 
-          <Spinner type={spinnerTypes.SPIN} color={"black"} />
+          <SpinnerCentral />
           : 
             <div className="container nav-after d-flex flex-wrap">
               <div className="your-profile mb-2">
@@ -37,7 +35,7 @@ class InMyZone extends Component {
                 <InMyZoneUser nearUopers={this.props.appStore.nearUopers.toJS()}/>
               </div>
               <div className="your-opinions">
-                <h2 className="profile-title pt-3 tertiary-color mb-2">Uopers around you</h2>
+                {(this.props.appStore.nearUopers.length > 1) && <h2 className="profile-title pt-3 tertiary-color mb-2">Uopers on 500 meters around you: </h2>}
                 <div className="container cnt-pos flex-wrap">
                   {this.props.appStore.nearUopers.toJS().map((uoper, index)=> {
                     if (uoper.username !== this.props.user.username){

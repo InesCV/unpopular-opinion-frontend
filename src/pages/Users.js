@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 
-import {spinnerTypes} from "../constants/constants";
-
 import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
 
 import Navbar from "../components/Navbar";
-import Spinner from "../components/Spinner";
+import SpinnerCentral from "../components/SpinnerCentral";
 import UserUOPs from "../components/UserUOPs";
 import UserAffinity from "../components/UserAffinity";
 
@@ -38,7 +36,7 @@ class User extends Component {
       <>
         <Navbar {...this.props}/>
         { isLoading ? 
-            <Spinner type={spinnerTypes.SPIN} color={"black"} /> 
+            <SpinnerCentral /> 
           : 
             (<div className="container nav-after d-flex flex-wrap">
             {/* Profile card */}

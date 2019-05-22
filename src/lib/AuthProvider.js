@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { toast } from 'react-toastify';
 import { inject } from 'mobx-react';
 
-import {spinnerTypes} from "../constants/constants";
 import auth from "./auth-service";
 
+import SpinnerCentral from "../components/SpinnerCentral";
 import Spinner from "../components/Spinner";
 
 const { Consumer, Provider } = React.createContext();
@@ -139,7 +139,7 @@ class AuthProvider extends Component {
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     return isLoading ? (
-      <Spinner type={spinnerTypes.SPIN} color={"black"} />
+      <SpinnerCentral />
     ) : (
       <Provider
         value={{

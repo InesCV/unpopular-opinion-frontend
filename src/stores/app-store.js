@@ -24,7 +24,7 @@ class AppStore {
         this.intervalId = window.setInterval(() => {
             this.updatePosition();
             // this.inMyZone(this.user._id);
-        }, 5000);
+        }, 10000);
     }
 
     // Cancel user update position interval
