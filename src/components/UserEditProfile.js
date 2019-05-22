@@ -51,7 +51,7 @@ export default class EditProfile extends Component {
     const { username, avatar, description } = this.state;
     return (
       <div className="nav-after">
-        <div className="profile-edit mt-4">
+        <div className="profile-edit mt-4 cnt-pos flex-column margin">
           <UserAvatarUpload type={'profile'} name={username} actualImg={avatar} updateFunction={this.setAvatar} />
           <div className="profile-edit-user mt-4">
             <form className="d-flex flex-column profile-edit-form" onSubmit={this.handleFormSubmit}>
@@ -62,7 +62,7 @@ export default class EditProfile extends Component {
                 value={username}
                 onChange={this.handleChange}
                 />
-              <label className="mt-2">Description:</label>
+              <label className="secondary-color mt-2">Description:</label>
               <textarea className="profile-edit-box profile-edit-description"
                 type="text"
                 name="description"
@@ -73,7 +73,7 @@ export default class EditProfile extends Component {
           </div>
         </div>
         <div className="d-flex justify-content-center mt-4">
-          <input className="btn btn-secondary mr-2" type="submit" value="Save" onClick={this.handleFormSubmit}/>
+          <input className="btn btn-tertiary mr-2" type="submit" value="Save" onClick={this.handleFormSubmit}/>
           <button className="btn btn-red ml-2" onClick={this.handleCancel}>Cancel</button>
         </div>
         </div>
