@@ -14,7 +14,7 @@ class AppStore {
         this.user = user;
         if (user) {
             socketService.me(user._id);
-            // this.watchingPosition();
+            this.watchingPosition();
         }
     }
 
@@ -35,8 +35,8 @@ class AppStore {
     }
 
     // Update user position
-    async updatePosition() {
-        await this.getPosition();
+     updatePosition() {
+        this.getPosition();
         if(this.currentPosition)
             socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
     }
@@ -67,7 +67,6 @@ class AppStore {
 
     // Query opiners in my zone
    inMyZone(userId) {
-        this.updatePosition();
         socketService.inMyZone(userId);
     }
     
