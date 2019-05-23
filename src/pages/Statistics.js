@@ -62,7 +62,6 @@ class Statistics extends Component {
       <>
         <Navbar {...this.props}/>
         <button className="btn btn-primary mt-4 ml-4" style={{marginTop: '100px'}} onClick={ this.handleClick } >Consultar</button>
-        {console.log(stats)}
       </>
     );
   }

@@ -23,7 +23,7 @@ class AppStore {
         this.cancelWatchingPosition();
         this.intervalId = window.setInterval(() => {
             this.updatePosition();
-            // this.inMyZone(this.user._id);
+            this.inMyZone(this.user._id);
         }, 10000);
     }
 
@@ -35,7 +35,7 @@ class AppStore {
     }
 
     // Update user position
-    updatePosition() {
+     updatePosition() {
         this.getPosition();
         if(this.currentPosition)
             socketService.updatePosition({userId: this.user._id, position: this.currentPosition});
@@ -44,7 +44,8 @@ class AppStore {
     // Get user current position
     getPosition() {
         if (!navigator.geolocation) {
-            toast.error("Sorry, your navigator doesn't support geolocation.", {
+            this.cancelWatchingPosition();
+            toast.error("Sorry, your navigator doesn't support geolocation", {
               position: toast.POSITION.BOTTOM_RIGHT
             });
             return;
@@ -56,7 +57,8 @@ class AppStore {
                 ];
             }, 
             () => {
-                toast.error("Sorry, can't retrieve your current position.", {
+                this.cancelWatchingPosition();
+                toast.error("Sorry, we can't retrieve your current position", {
                     position: toast.POSITION.BOTTOM_RIGHT
                 });
             }
@@ -64,7 +66,7 @@ class AppStore {
     } 
 
     // Query opiners in my zone
-    inMyZone(userId) {
+   inMyZone(userId) {
         socketService.inMyZone(userId);
     }
     

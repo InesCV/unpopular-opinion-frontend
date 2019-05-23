@@ -14,7 +14,7 @@ import {statTypes, errorTypes} from "../constants/constants";
 
 @inject('appStore')
 @observer
-class InMyZoneUopers extends Component {
+class InMyZoneUser extends Component {
   state = {
     isLoading: true,
     notEnoughData: false,
@@ -25,10 +25,12 @@ class InMyZoneUopers extends Component {
   componentDidMount(){
     statsService.query({
       type: statTypes.IN_MY_ZONE_RATE,
-      // nearUopers: this.props.appStore.nearUopers.toJS(),
-      nearUopers: this.props.nearUopers,
+      nearUopers: this.props.appStore.nearUopers.toJS(),
+      // nearUopers: this.props.nearUopers,
     })
     .then(data => {
+      console.log(data);
+      
       if (data.stats === null) {
         this.setState({
           notEnoughData: true,
@@ -36,7 +38,7 @@ class InMyZoneUopers extends Component {
         });
       } else {
         let advice;
-        if (this.props.nearUopers.length === 1) { // If the user is the only UOPER in the zone
+        if (this.props.appStore.nearUopers.toJS().length === 1) { // If the user is the only UOPER in the zone
           advice = imzMessages.rnobody;
           this.setState({
             data,
@@ -81,13 +83,14 @@ class InMyZoneUopers extends Component {
       <>
         { this.state.isLoading ?
           <div className="cnt-pos">
-            <div className="profile-user-card bg-radar">
-              {/* <div className="cnt-pos flex-column">
+            {/* <div className="profile-user-card bg-radar"> */}
+            <div className="profile-user-card">
+              <div className="cnt-pos flex-column">
                 <p className="profile-scores-text">Well {this.props.user.username}, let's see how safe this area is for you...</p>
                 <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big mb-2">
                   <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secondary" />
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
           : 
@@ -120,4 +123,4 @@ class InMyZoneUopers extends Component {
   }
 }
 
-export default withAuth(InMyZoneUopers);
+export default withAuth(InMyZoneUser);
