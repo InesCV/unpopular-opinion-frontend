@@ -14,7 +14,7 @@ import {statTypes, errorTypes} from "../constants/constants";
 
 @inject('appStore')
 @observer
-class InMyZoneUopers extends Component {
+class InMyZoneUser extends Component {
   state = {
     isLoading: true,
     notEnoughData: false,
@@ -25,8 +25,8 @@ class InMyZoneUopers extends Component {
   componentDidMount(){
     statsService.query({
       type: statTypes.IN_MY_ZONE_RATE,
-      // nearUopers: this.props.appStore.nearUopers.toJS(),
-      nearUopers: this.props.nearUopers,
+      nearUopers: this.props.appStore.nearUopers.toJS(),
+      // nearUopers: this.props.nearUopers,
     })
     .then(data => {
       if (data.stats === null) {
@@ -36,7 +36,7 @@ class InMyZoneUopers extends Component {
         });
       } else {
         let advice;
-        if (this.props.nearUopers.length === 1) { // If the user is the only UOPER in the zone
+        if (this.props.appStore.nearUopers.toJS().length === 1) { // If the user is the only UOPER in the zone
           advice = imzMessages.rnobody;
           this.setState({
             data,
@@ -120,4 +120,4 @@ class InMyZoneUopers extends Component {
   }
 }
 
-export default withAuth(InMyZoneUopers);
+export default withAuth(InMyZoneUser);

@@ -23,7 +23,7 @@ class AppStore {
         this.cancelWatchingPosition();
         this.intervalId = window.setInterval(() => {
             this.updatePosition();
-            // this.inMyZone(this.user._id);
+            this.inMyZone(this.user._id);
         }, 10000);
     }
 
