@@ -27,16 +27,17 @@ class Navbar extends Component {
         return (
           <div className="nav">
             <Link to='/opinions'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181521.svg" alt="Opinions"></img></Link>
+            <Link to="/InMyZone"><img className="icon" src="https://image.flaticon.com/icons/svg/181/181508.svg" alt="In my zone"></img></Link>
             <Link to='/profile'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link>
           </div>
         );
       case '/opinions':
         return (
           <div className="nav">
-            <Link to='/profile'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link>
+            <Link to='/opinions/create'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181518.svg" alt="Create Opinions"></img></Link>
             {/* <img className="icon-1" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img> */}
             <Link to="/InMyZone"><img className="icon" src="https://image.flaticon.com/icons/svg/181/181508.svg" alt="In my zone"></img></Link>
-            <Link to='/opinions/create'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181518.svg" alt="Create Opinions"></img></Link>
+            <Link to='/profile'><img className="icon" src="https://image.flaticon.com/icons/svg/181/181549.svg" alt="Profile"></img></Link>
 
           </div>
         );

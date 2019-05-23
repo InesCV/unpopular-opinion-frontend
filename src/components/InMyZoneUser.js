@@ -28,9 +28,7 @@ class InMyZoneUser extends Component {
       nearUopers: this.props.appStore.nearUopers.toJS(),
       // nearUopers: this.props.nearUopers,
     })
-    .then(data => {
-      console.log(data);
-      
+    .then(data => {      
       if (data.stats === null) {
         this.setState({
           notEnoughData: true,
@@ -86,7 +84,7 @@ class InMyZoneUser extends Component {
             {/* <div className="profile-user-card bg-radar"> */}
             <div className="profile-user-card">
               <div className="cnt-pos flex-column">
-                <p className="profile-scores-text">Well {this.props.user.username}, let's see how safe this area is for you...</p>
+                <p className="profile-scores-text">Well {this.props.user.username}, let's see how safe this zone is for you...</p>
                 <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big mb-2">
                   <CircularProgressbar value={50} text={`loading`} className="cnt-pos circular-secondary" />
                 </div>
@@ -106,7 +104,7 @@ class InMyZoneUser extends Component {
                       <p className="profile-scores-text">{this.state.advice}</p>
                     </div>
                   : <div className="cnt-pos flex-column">
-                      <p className="profile-scores-text">This is your acceptance in this area, use it with wisdom...</p>
+                      <p className="profile-scores-text">This is your acceptance in this zone, use it with wisdom...</p>
                       <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big mb-2 mt-2">
                         <CircularProgressbar value={this.state.data.stats.avg} text={`${this.state.data.stats.avg}%`} className="cnt-pos circular-secondary" />
                       </div>
