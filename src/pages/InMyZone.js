@@ -32,7 +32,7 @@ class InMyZone extends Component {
                 <div className="profile-title mt-2 mb-2">
                   <h2 className="tertiary-color">In My Zone</h2> 
                 </div>
-                <InMyZoneUser/>
+                <InMyZoneUser uopers={this.props.appStore.nearUopers.toJS()} />
               </div>
               <div className="your-opinions">
                 {(this.props.appStore.nearUopers.length > 1) && <h2 className="profile-title pt-3 tertiary-color mb-2">Uopers 500 meters around you: </h2>}
