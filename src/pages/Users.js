@@ -44,9 +44,10 @@ class User extends Component {
                 <h2 className="profile-title pt-3 tertiary-color">{user.username}'s Profile</h2>
                 <div className="cnt-pos">
                   <div className="profile-user-card cnt-pos flex-column">
-                    <img src={user.avatar} alt={user.username} className="card-author-img mr-2"/>
+                    <div className="profile-img mt-2" style={{ backgroundImage: `url(${user.avatar})`}}/>
+                    {/* <img src={user.avatar} alt={user.username} className="card-author-img mr-2"/> */}
                     <h2 className="profile-name pt-3">{user.username}</h2>
-                    { user.description && <p className="profile-description">{user.description}</p> }
+                    { user.description && <p className="profile-description mb-2">{user.description}</p> }
                     <UserAffinity userId={this.props.location.state.id} path={this.props.match.path} user={user} />
                   </div>
                 </div>
