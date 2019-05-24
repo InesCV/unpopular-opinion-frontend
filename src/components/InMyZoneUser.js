@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { inject, observer } from 'mobx-react';
-import {Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CircularProgressbar} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -12,22 +10,18 @@ import statsService from '../lib/statistics-service';
 
 import {statTypes, errorTypes} from "../constants/constants";
 
-@inject('appStore')
-@observer
 class InMyZoneUser extends Component {
   state = {
     isLoading: true,
     notEnoughData: false,
     data: undefined,
     advice: '',
-    uopers: undefined,
   }
 
   componentDidMount(){
     statsService.query({
       type: statTypes.IN_MY_ZONE_RATE,
-      nearUopers: this.props.appStore.nearUopers.toJS(),
-      // nearUopers: this.props.nearUopers,
+      nearUopers: this.props.uopers,
     })
     .then(data => {
       if (data.stats === null) {
@@ -46,11 +40,11 @@ class InMyZoneUser extends Component {
             advice,
           });
         } else {
-          if(data.stats.avg < 10){
+          if(data.stats.avg < 30){
             advice = imzMessages.r10;
-          } else if (data.stats.avg < 30) {
+          } else if (data.stats.avg < 50) {
             advice = imzMessages.r30;
-          } else if (data.stats.avg < 60) {
+          } else if (data.stats.avg < 70) {
             advice = imzMessages.r60;
           } else if (data.stats.avg < 90){
             advice = imzMessages.r90;
@@ -73,7 +67,7 @@ class InMyZoneUser extends Component {
     });
   }
 
-  statPerCategory = () => {
+  componentWillUpdate () {
 
   }
 
@@ -95,6 +89,7 @@ class InMyZoneUser extends Component {
           : 
           <>
             <div className="cnt-pos">
+            {console.log('Renderizando User...')}
               <div className="profile-user-card">
                 { this.state.notEnoughData 
                   ? <div className="cnt-pos flex-column">
@@ -107,12 +102,11 @@ class InMyZoneUser extends Component {
                   : <div className="cnt-pos flex-column">
                       <p className="profile-scores-text">This is your acceptance in this zone, use it with wisdom...</p>
                       <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big mb-2 mt-2">
-                        <CircularProgressbar value={(this.state.data.stats.avg/(this.props.uopers.length -1 ))} text={`${(this.state.data.stats.avg/(this.props.uopers.length-1))}%`} className="cnt-pos circular-secondary" />
+                        <CircularProgressbar value={this.state.data.stats.avg} text={`${this.state.data.stats.avg}%`} className="cnt-pos circular-secondary" />
                       </div>
                       <p className="profile-scores-text">{this.state.advice}</p>
                     </div>
-                } 
-                {/* <button className="btn btn-score mt-4" onClick={this.statPerCategory}>Analyze score</button> */}
+                }
               </div>
             </div>
           </>

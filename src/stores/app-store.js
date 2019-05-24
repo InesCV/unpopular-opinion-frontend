@@ -35,7 +35,7 @@ class AppStore {
     }
 
     // Update user position
-     updatePosition() {
+    updatePosition() {
         this.getPosition();
         if(this.currentPosition)
             socketService.updatePosition({userId: this.user._id, position: this.currentPosition});

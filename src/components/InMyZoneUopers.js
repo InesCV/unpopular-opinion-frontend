@@ -75,6 +75,7 @@ class InMyZoneUopers extends Component {
               </div>
               :
               <div className="cnt-pos flex-column" style={{marginBottom: "2rem"}}>
+                {console.log('Renderizando Uopers...')}
                 <div className="circular-prediv mt-2" >
                   <CircularProgressbarWithChildren value={this.state.match} className="cnt-pos circular-secondary"> 
                     <Link className="card-author-link" to={{
