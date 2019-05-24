@@ -107,7 +107,7 @@ class InMyZoneUser extends Component {
                   : <div className="cnt-pos flex-column">
                       <p className="profile-scores-text">This is your acceptance in this zone, use it with wisdom...</p>
                       <div className="circular-prediv mt-2 cnt-pos profile-opinion-graph-big mb-2 mt-2">
-                        <CircularProgressbar value={(this.state.data.stats.avg/(this.props.uopers.length -1 ))} text={`${(this.state.data.stats.avg/(this.props.uopers.length-1))}%`} className="cnt-pos circular-secondary" />
+                        <CircularProgressbar value={this.state.data.stats.avg} text={`${this.state.data.stats.avg}%`} className="cnt-pos circular-secondary" />
                       </div>
                       <p className="profile-scores-text">{this.state.advice}</p>
                     </div>
