@@ -8,7 +8,7 @@ class Navbar extends Component {
 
   handlelOnClick(logout) {
     logout();
-    this.props.history.push(`/`);
+    this.props.history.push(`/congrats`);
   }
 
   navPath = (path) => {

@@ -39,7 +39,7 @@ export const imzMessages = {
   rnobody: "You are the only Uoper in the area (500 meters). We can't help you. You are alone.", // If there is no upers nearby, r will be 100% (but is not real)
   r30: "Your thoughts are not popular in this zone, better keep your mouth shut...",
   r50: "Maybe someone will laugh at your jokes, but be careful...",
-  r60: "Lucky! You are in a safe zone, go and meet other interesting Uopers.",
+  r70: "Lucky! You are in a safe zone, go and meet other interesting Uopers.",
   r90: "Uoh! You are the soul of the party. Fell free to share your thoughts! They are accepted here",
   r100: "You are 'The Wolf of Wall Street'. All the Uopers in this place want to hear about your thoughts.",
 }

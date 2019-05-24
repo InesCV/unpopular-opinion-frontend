@@ -27,7 +27,6 @@ class InMyZone extends Component {
           <SpinnerCentral />
           : 
             <div className="container nav-after d-flex flex-wrap">
-              {console.log('Renderizando padre...')}
               <div className="your-profile mb-2">
                 <div className="profile-title mt-2 mb-2">
                   <h2 className="tertiary-color">In My Zone</h2> 
