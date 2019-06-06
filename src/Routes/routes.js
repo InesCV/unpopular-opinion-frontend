@@ -9,6 +9,7 @@ import Opinions from "../pages/Opinions";
 import CreateOpinion from "../pages/CreateOpinion";
 import Statistics from "../pages/Statistics";
 import NotFound from '../pages/NotFound';
+import Congrats from '../pages/Congrats';
 import Users from '../pages/Users';
 import PrivateRoute from "../components/PrivateRoute";
 import AnonRoute from "../components/AnonRoute";
@@ -70,6 +71,11 @@ const routes = [
     path: '/InMyZone',
     component: InMyZone,
   },
+  {
+    type: Route,
+    path: '/congrats',
+    component: Congrats,
+  }, 
   {
     type: Route,
     path: '*',

@@ -30,13 +30,13 @@ class Statistics extends Component {
 
     const ines = '5ce1b07e5afe790017613be4';
     const jorge = '5ce1b1475afe790017613be7';
-    const paco = '5ce1b5966780eb1ce66d9afa';
+    const paquita = '5ce411010742be1a006339cf';
 
     const query = {
-      type: 'inMyZoneCategory',
+      type: 'inMyZoneRate',
       // opinion: suicidas,
       // category: 'Philosoraptor',
-      nearUopers: ['5ce1b07e5afe790017613be4', '5ce1b5966780eb1ce66d9afa', '5ce1b1475afe790017613be7'],
+      nearUopers: ['5ce1b07e5afe790017613be4', '5ce1b1475afe790017613be7', '5ce411010742be1a006339cf'],
     };
 
 
@@ -45,6 +45,7 @@ class Statistics extends Component {
         this.setState({
           stats
         });
+        console.log(stats);
       })
       .catch((error)=> {
         console.log("Couldn't get the stats");

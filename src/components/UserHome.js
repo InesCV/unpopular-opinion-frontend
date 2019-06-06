@@ -16,7 +16,7 @@ const UserHome = ({ user, toggleIsEditing, logout, history }) => {
 
   function handlelOnClick(logout) {
     logout();
-    history.push(`/`);
+    history.push(`/congrats`);
   }
 
   function toggleHasStat () {
