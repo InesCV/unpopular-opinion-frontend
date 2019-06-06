@@ -19,7 +19,7 @@ export default ({sendOpinion}) => {
       <form className="container nav-after" onSubmit={handleFormSubmit}>
         <div className="mt-3 cnt-pos flex-column">
           <label className="center">Question: <p className="opinion-comment">&#9888; There is a limit of 140 characters per question</p></label>
-          <input className="profile-edit-box opinion-create-question"
+          <textarea className="profile-edit-box opinion-create-question"
             type="text"
             maxLength="140"
             name="question"
